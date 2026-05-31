@@ -133,18 +133,22 @@ Legal section of the README for the full disclaimer.
 
 ## Compensation
 
-The final release is a paid game, and trapframe intends to share part of
-the proceeds with contributors across every discipline, weighted by
-contribution. The maintainer council and the discipline leads steward that
-process: they keep the per-discipline rubrics, run allocation each period,
-staff the parity council that keeps disciplines fair against each other,
-and hear appeals. The project lead is the backstop, same as other
-decisions.
+The final release is a paid game, and **Trapframe Studio LLC** (a Colorado LLC,
+in formation) intends to share part of the proceeds with contributors across
+every discipline, weighted by contribution. The model is a public, append-only
+**contribution ledger**: accepted work earns **points** (tagged to a project),
+and points entitle you to a share of the relevant revenue **pool** each quarter.
+Most contributors are **Standard Contributors** (royalty-only); sustained
+contributors can be nominated to become **Core Contributors** (royalty + LLC
+equity) through a public, voted process.
 
-The full framework is in
-[Contributor Revenue](book/src/project/contributor-revenue.md).
-It is principles only, with no binding numbers, and nothing is binding
-until the legal entity exists and counsel signs off.
+The mechanics, point scale, bucket waterfall, and pools are drafted in the
+[Contributor Royalty Agreement](CONTRIBUTOR_ROYALTY_AGREEMENT.md) (Exhibit A) —
+currently a **v0.1 skeleton, not reviewed by counsel and not for signing**. The
+intent/principles are in
+[Contributor Revenue](book/src/project/contributor-revenue.md). Nothing is
+binding until the legal entity exists, the agreement is finalized, and counsel
+signs off.
 
 ## Code of Conduct
 

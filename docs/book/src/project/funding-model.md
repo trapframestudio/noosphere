@@ -1,9 +1,13 @@
 # Funding Model
 
-> **Status: direction, not finalized terms.** The legal entity, exact
-> revenue-share numbers, and contributor agreements are being set up with
-> professional counsel. This chapter describes intent. Nothing here is a
-> binding offer until the entity and signed agreements exist.
+> **Status: direction, not finalized terms.** The legal entity (**Trapframe
+> Studio LLC**, a Colorado LLC, in formation) and the revenue-share mechanics are
+> being set up with professional counsel. The draft bucket waterfall, point
+> scale, and pools live in Exhibit A of the
+> [Contributor Royalty Agreement](../../../CONTRIBUTOR_ROYALTY_AGREEMENT.md) (a
+> v0.1 skeleton, not counsel-reviewed, not for signing). This chapter describes
+> intent. Nothing here is a binding offer until the entity and signed agreements
+> exist.
 
 Noosphere is an experiment: build a game **in the open** and fund it
 **sustainably**, without microtransactions, ads, investors steering the

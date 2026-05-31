@@ -11,10 +11,10 @@
 
 ## Summary (non-binding)
 
-The **code** in this repository is free and open source under the
-[GNU General Public License v3.0](LICENSE). **This license does not cover the
-code.** It covers the **Noosphere creative content and intellectual property**,
-which is **proprietary and all rights reserved**.
+The **code** in this repository is free and open source under
+[MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), your pick. **This file does
+not cover the code.** It covers the **Noosphere creative content and
+intellectual property**, which is **proprietary and all rights reserved**.
 
 You may read the code, build new games on the engine and systems (under the
 permissive MIT / Apache 2.0 code license), and study how Noosphere is built. You may **not** take the Noosphere

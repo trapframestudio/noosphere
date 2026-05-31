@@ -1,13 +1,14 @@
 # Contributor Revenue
 
 > **Status: principles, not a binding offer.** This chapter describes *how the
-> contributor revenue share is intended to work*. It does **not** set
-> percentages, payout amounts, or schedules — those live in a separate signed
-> **Contributor Agreement** that does not exist yet and must be drafted with
-> legal and tax counsel. Until that agreement is signed, **any payment is
-> discretionary**. Don't contribute *expecting* money; contribute because you
-> want to build the game, and know that if it succeeds, there's a real,
-> intended mechanism to share that success with you.
+> contributor revenue share is intended to work*. The concrete percentages,
+> point scale, and pools now live in the
+> [Contributor Royalty Agreement](../../../CONTRIBUTOR_ROYALTY_AGREEMENT.md) —
+> currently a **v0.1 draft skeleton that has not been reviewed by counsel and is
+> not for signing**. Until that agreement is finalized and signed, **any payment
+> is discretionary**. Don't contribute *expecting* money; contribute because you
+> want to build the game, and know that if it succeeds, there's a real, intended
+> mechanism to share that success with you.
 
 ## Why this exists
 
