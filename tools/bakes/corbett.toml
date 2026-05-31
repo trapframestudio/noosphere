@@ -1,0 +1,41 @@
+# Bake spec for the Corbett map — first real DEM-backed map.
+#
+# Consumed by `cargo run --example terrain_bake -p simn-terrain --release -- corbett`.
+# The baker writes `godot/assets/terrain/corbett/{heightmap.r32,
+# terrain.toml}` every run; `godot/scenes/maps/corbett.tscn` is
+# emitted once and then preserved across re-bakes so authored content
+# (set pieces, POIs, transitions) survives terrain refreshes.
+#
+# Geography: Columbia Gorge corridor. Corbett town sits in the SW
+# quadrant (~(549111, 5042577) UTM); the Columbia River valley picks
+# up at the north edge. The ~250 m bluff drop runs through the middle
+# of the map — the dominant vertical feature. Rooster Rock / Crown
+# Point / Latourell Falls are reserved for map 2 to the east.
+
+map_id = "corbett"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 548500.0
+origin_north = 5045000.0
+extent_x = 5000.0
+extent_z = 3500.0
+spacing = 2.0
+
+[source]
+# Mapzen Terrarium tiles at zoom 15 (~5 m native spacing at lat 45°).
+# Multi-source composite (USGS 3DEP where covered, SRTM elsewhere)
+# served as small PNG tiles on AWS. Seamless, full-PNW coverage,
+# ~1 MB download per map — 2-3× the effective resolution of SRTM
+# without survey-by-survey discovery or multi-hundred-MB GeoTIFFs.
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+# 3° × 3° tile covering lat 45–48, lon −123 to −120. Corbett sits
+# in the SW corner of this tile.
+tile = "N45W123"
+
+[osm]
+roads = true

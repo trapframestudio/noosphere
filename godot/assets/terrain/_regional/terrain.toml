@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "_regional"
+width = 901
+height = 1121
+spacing_m = 100.0
+vert_min_m = -2.0
+vert_max_m = 3710.0
+origin_utm_zone = "10N"
+origin_utm_easting = 555000.0
+origin_utm_northing = 5128000.0
+blake3 = "3568a91479e76942753828ddd0e5c83e2ddcb9bbd48b05042c23287b468eb5dd"
+features_blake3 = "c3ec13a98b52f6dd978bed7a8deea397d02e070532c1d5904f9833e9678b6205"

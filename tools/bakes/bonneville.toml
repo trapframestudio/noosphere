@@ -1,0 +1,42 @@
+# Bake spec for Bonneville — map 4, the Linemen-held dam.
+#
+# First map east of the N45W123/N45W122 SRTM tile boundary.
+# Baker auto-downloads the N45W122 tile on first run.
+#
+# Key features within bounds:
+# - Bonneville Dam (1937 WPA hydroelectric structure, the spine's
+#   first power infrastructure)
+# - Bradford Island (the dam's main island between powerhouse + lock)
+# - Fish ladder + fish-viewing building
+# - Navigation lock (east of powerhouse)
+# - Cascade Rapids — fast water immediately east of the dam,
+#   transition zone toward Cascade Locks
+# - Tanner Creek confluence on the south bank
+# - Warrendale cliff face (north bank, 200–300 m basalt columnade)
+#
+# Design intent (DESIGN.md §3.5): Held by the Linemen at low standing
+# strength — "intimidation and signal" posture, not aggressive patrol.
+# The sturgeon viewing pool contains "70-year-old white sturgeon
+# longer than a car [that] have not aged in ten years." Fish ladder
+# is a fault site.
+
+map_id = "bonneville"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 579500.0     # west edge ~3 km east of Multnomah's east edge
+origin_north = 5056500.0   # north edge just past the river's north bank
+extent_x = 5000.0          # powerhouse → Cascade Rapids stretch
+extent_z = 4500.0          # both banks + bluff context
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

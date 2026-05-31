@@ -1,0 +1,47 @@
+# Bake spec for Lost Lake — the lower-elevation east approach
+# to Mt. Hood, gateway from the Hood River Valley food-hub to
+# the summit. DESIGN.md §3.3 lists Lost Lake as part of the
+# Hood River Valley branch ("orchards, Parkdale, Lost Lake,
+# the lower-elevation approach to Mt. Hood from the east").
+#
+# Split off from hood_river_valley so the Valley stays tight on
+# Parkdale + Odell + the orchard grid, and Lost Lake becomes a
+# smaller, curated transition map between the Valley and the
+# mountain's east flank. Matches the design preference for
+# smaller shaped maps over sprawling rectangles.
+#
+# Bounds cover:
+# - Lost Lake (natural lake, ~1173 m, on the west flank of the
+#   Mt. Hood National Forest, Wanderer-controlled forest)
+# - Lost Lake campground + resort (small pre-Rip tourist structure;
+#   candidate quiet safe-house if a faction holds it)
+# - Lost Lake Butte (1456 m, overlook)
+# - Lost Lake Road approach from the east (the transit that ties
+#   back to Parkdale)
+# - West flank Mt. Hood National Forest canopy (heavy Douglas fir /
+#   hemlock; mostly Wanderer at the perimeter, Fault deeper)
+#
+# 5×5 km at 2 m → 2501×2501 samples (~12 MB heightmap). Small
+# map, short transit — the "smaller shaped map" the designer
+# wanted between the Valley food-hub and the mountain proper.
+
+map_id = "lost_lake"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 590000.0
+origin_north = 5040500.0
+extent_x = 5000.0
+extent_z = 5000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

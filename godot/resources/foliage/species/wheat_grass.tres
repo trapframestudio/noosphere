@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://bkcw5lqt8tynh"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: wheat_grass (Fab) — tall stalks"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_fab/wheat_grass/standard/tdcrdbur_tier_3_nonUE.gltf"
+scale_min = 0.7
+scale_max = 1.8
+size_multiplier = 1.5
+alpha_luminance_cutoff = 0.0
+albedo_modulation = Color(1.1987, 0.9932, 0.4818, 1)

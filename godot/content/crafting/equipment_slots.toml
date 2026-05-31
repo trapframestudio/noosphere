@@ -1,0 +1,172 @@
+# Paper-doll equipment slots. Loaded by `EquipmentSlotRegistry::load`
+# via `include_str!` at sim init. Slot ids are stable — save files
+# and delta records reference them — so rename with care.
+#
+# Schema: see `EquipmentSlotDef` / `SlotPosition` / `SlotSize` in
+# `crates/simn-sim/src/items.rs`.
+#
+# Layout: grid-based. 8 cols × 7 rows of doll cells.
+# Slots have a `size = { w, h }` footprint so wide/tall items get
+# rectangles that match — a primary rifle reads as a 3×1
+# horizontal slot, an armor vest as a 2×2 chest piece, the
+# backpack as a 2×3 tall column, etc. Single-cell slots (eyes,
+# sidearm, belt cells) keep the default 1×1.
+#
+#     col  0     1     2     3     4     5     6     7
+#   ┌────────────────────────────────────────────────────────────┐
+# 0 │              [ HEAD 2x1 ]              [ SECURE 1x1 ]      │
+# 1 │              [ EYES 1x1 ]                                  │
+# 2 │  [ BAG ] [ RIG  ] [ VEST  ] [ PRIMARY  3x1            ]    │
+# 3 │  [ 2x3 ] [ 1x3  ] [ 2x2  ] [ SECONDARY 3x1            ]    │
+# 4 │  [     ] [      ] [      ] [ SIDEARM 1x1 ] [ MELEE 1x1 ]   │
+# 5 │  [     ] [      ]                                          │
+# 6 │  [ BELT 1 ] [ BELT 2 ] [ BELT 3 ] [ BELT 4 ]               │
+#   └────────────────────────────────────────────────────────────┘
+#
+# `pockets` is virtual (the player's base `Inventory(GridInventory)`
+# IS the pockets grid). The UI renders the grid on the right of the
+# inventory panel rather than on the doll, so `pockets` gets no
+# doll position.
+
+# ----------------------------- Head / face ----------------------------
+
+[[slots]]
+id = "head"
+label = "Head"
+accepts = ["head_gear"]
+position = { x = 2, y = 0 }
+size = { w = 2, h = 1 }
+
+[[slots]]
+id = "eyes"
+label = "Eyes"
+accepts = ["eyes"]
+position = { x = 2, y = 1 }
+size = { w = 2, h = 1 }
+
+# ----------------------------- Torso ----------------------------------
+
+[[slots]]
+id = "armor_vest"
+label = "Armor"
+accepts = ["armor_vest"]
+position = { x = 2, y = 2 }
+size = { w = 2, h = 2 }
+
+[[slots]]
+id = "rig"
+label = "Rig"
+accepts = ["chest_rig"]
+position = { x = 1, y = 2 }
+size = { w = 1, h = 3 }
+
+# ----------------------------- Carry ----------------------------------
+
+[[slots]]
+id = "backpack"
+label = "Backpack"
+accepts = ["backpack"]
+position = { x = 0, y = 2 }
+size = { w = 1, h = 4 }
+
+# ----------------------------- Weapons --------------------------------
+#
+# classic loadout: two long-gun slots (primary + secondary) plus
+# a sidearm pistol and a melee item. A single `weapon_primary` or
+# `weapon_secondary` category covers both long-gun slots — items
+# pinning themselves to only one set `equip_slots = ["primary"]` or
+# `equip_slots = ["secondary"]` via the ItemDef whitelist override.
+
+[[slots]]
+id = "primary"
+label = "Primary"
+accepts = ["weapon_primary", "weapon_secondary"]
+position = { x = 4, y = 2 }
+size = { w = 4, h = 1 }
+
+[[slots]]
+id = "secondary"
+label = "Secondary"
+accepts = ["weapon_primary", "weapon_secondary"]
+position = { x = 4, y = 3 }
+size = { w = 4, h = 1 }
+
+[[slots]]
+id = "sidearm"
+label = "Sidearm"
+accepts = ["sidearm"]
+position = { x = 4, y = 4 }
+size = { w = 2, h = 1 }
+
+[[slots]]
+id = "melee"
+label = "Melee"
+accepts = ["melee"]
+position = { x = 6, y = 4 }
+size = { w = 2, h = 1 }
+
+# ----------------------------- Belt hotbar ----------------------------
+# Four 1x1 quick-use cells bound to keys 1..4. Accepts any small
+# consumable category — medical, drug, food, drink — and any item
+# with `equip_slots = ["belt_N"]` explicitly (e.g. a flashbang or
+# bolt that belongs on the belt regardless of its category).
+
+[[slots]]
+id = "belt_1"
+label = "1"
+accepts = ["medical", "drug", "food", "drink"]
+position = { x = 0, y = 6 }
+size = { w = 2, h = 1 }
+is_hotbar = true
+hotbar_index = 1
+
+[[slots]]
+id = "belt_2"
+label = "2"
+accepts = ["medical", "drug", "food", "drink"]
+position = { x = 2, y = 6 }
+size = { w = 2, h = 1 }
+is_hotbar = true
+hotbar_index = 2
+
+[[slots]]
+id = "belt_3"
+label = "3"
+accepts = ["medical", "drug", "food", "drink"]
+position = { x = 4, y = 6 }
+size = { w = 2, h = 1 }
+is_hotbar = true
+hotbar_index = 3
+
+[[slots]]
+id = "belt_4"
+label = "4"
+accepts = ["medical", "drug", "food", "drink"]
+position = { x = 6, y = 6 }
+size = { w = 2, h = 1 }
+is_hotbar = true
+hotbar_index = 4
+
+# ----------------------------- Pockets --------------------------------
+# Virtual slot — see the layout note above. The UI skips the entry
+# when laying out the doll, so position / size are nominal.
+
+[[slots]]
+id = "pockets"
+label = "Pockets"
+accepts = []   # virtual — never accepts an equipped container
+position = { x = 0, y = 0 }
+size = { w = 1, h = 1 }
+
+# ----------------------------- Secure pocket --------------------------
+# Tiny 2x1 always-with-you slot. Not death-insurance — death rules are
+# still "go get your stuff" — but some single-item utilities (PDA,
+# radio, emergency beacon) are expected to be always accessible
+# regardless of loadout shuffling.
+
+[[slots]]
+id = "secure_pocket"
+label = "Secure"
+accepts = []
+position = { x = 6, y = 0 }
+size = { w = 2, h = 1 }

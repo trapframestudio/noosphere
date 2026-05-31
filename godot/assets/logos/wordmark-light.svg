@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" width="320" height="96">
+  <defs>
+    <pattern id="grain" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="3" fill="transparent"></rect>
+      <circle cx="1" cy="1" r="0.4" fill="rgba(0,0,0,0.25)"></circle>
+    </pattern>
+  </defs>
+  
+  <g transform="translate(8,8)" fill="#D6CDB4">
+    <path d="M40 0 L58 24 L48 40 L62 56 L50 80 L32 68 L18 80 L22 56 L8 44 L24 28 Z" stroke="#D6CDB4" stroke-width="2" fill="none"></path>
+    <path d="M40 20 L44 38 L34 48 L42 62" stroke="#D6CDB4" stroke-width="1.2" fill="none" opacity="0.7"></path>
+  </g>
+  
+  <g transform="translate(96,30)" font-family="Oswald, Impact, sans-serif" font-weight="700" letter-spacing="0.12em" fill="#D6CDB4">
+    <text x="0" y="36" font-size="38">NOOSPHERE</text>
+    <text x="2" y="58" font-size="10" letter-spacing="0.3em" fill="#8A9A91">THE GORGE / 2039</text>
+  </g>
+</svg>

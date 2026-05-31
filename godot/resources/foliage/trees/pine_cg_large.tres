@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Ponderosa Pine: mature standalone (CGTrader pine_06, 30-45m)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/plants_cgtrader/pines/pine_06.glb"
+variant_prefix = ""
+scale_min = 0.85
+scale_max = 1.30
+random_yaw = true
+force_skip_lod1 = true
+size_multiplier = 3.5
+albedo_modulation = Color(0.62, 0.7, 0.5, 1)
+canopy_normal_up_blend = 0.45
+backlight_strength = 0.35
+normal_map_strength = 0.4
+canopy_tint = Color(0.18, 0.24, 0.12, 1)
+wind_amplitude_scale = 0.30
+trunk_anchor_height = 4.0
+trunk_collision_radius = 1.0
+trunk_collision_height = 35.0
+max_render_distance_m = 900.0
+proxy_swap_distance_m = 0.0
+lod_bias = 4.0
+min_surface_verts = 0

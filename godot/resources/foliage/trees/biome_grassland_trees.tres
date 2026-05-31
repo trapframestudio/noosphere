@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TreeBiomeConfig" format=3 uid="uid://dmuwvrn1fcvoq"]
+
+[ext_resource type="Script" uid="uid://d2afpxyvdw71w" path="res://scripts/foliage/tree_biome_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Grassland biome trees (occasional Birch in open meadow)"
+script = ExtResource("1_script")
+biome = 1
+trees_per_sq_m = 0.0008
+tree_paths = Array[String](["res://resources/foliage/trees/birch_2.tres", "res://resources/foliage/trees/birch_3.tres", "res://resources/foliage/trees/birch_4.tres", "res://resources/foliage/trees/birch_5.tres"])
+tree_densities = PackedFloat32Array(0.0002, 0.0002, 0.0002, 0.0002)

@@ -1,0 +1,15 @@
+format_version = 2
+map_id = "cascade_locks"
+width = 4097
+height = 2049
+spacing_m = 2.0
+vert_min_m = 18.0
+vert_max_m = 1223.0
+origin_utm_zone = "10N"
+origin_utm_easting = 585000.0
+origin_utm_northing = 5058500.0
+blake3 = "b75a3ac62693978129d403afe638538a6b84eba509d2e02ebdd36f6de7312a40"
+features_blake3 = "8272e5d8af3cb84e1bd0225a675349af9ee59e1070eddbb217da11f59b115831"
+region_size_m = 2048.0
+playable_extent_x_m = 4500.0
+playable_extent_z_m = 4000.0

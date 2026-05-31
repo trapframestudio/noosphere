@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "bonneville"
+width = 2501
+height = 2251
+spacing_m = 2.0
+vert_min_m = -2.0
+vert_max_m = 971.0
+origin_utm_zone = "10N"
+origin_utm_easting = 579500.0
+origin_utm_northing = 5056500.0
+blake3 = "391c4a1001854b888e23621b1f11a077c3b079f4c9cd9436bdea2786a9c59b05"
+features_blake3 = "d3ceb0e7a227884864c5df5aad8d14d5ad26dc84e5675169bd381aa6686d8c1b"

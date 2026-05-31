@@ -1,0 +1,112 @@
+# Cover material definitions. protection_class compared against
+# AmmoConfig::penetration_class (0 = pistol softball, 4+ = AP rifle).
+
+[[material]]
+name = "Concrete"
+id = "concrete"
+protection_class = 4
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.15
+spall_factor = 0.3
+durability_per_mm = 8.0
+
+[[material]]
+name = "Brick"
+id = "brick"
+protection_class = 3
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.10
+spall_factor = 0.25
+durability_per_mm = 5.0
+
+[[material]]
+name = "Thick Steel"
+id = "steel_thick"
+protection_class = 5
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.25
+spall_factor = 0.4
+durability_per_mm = 15.0
+
+[[material]]
+name = "Thin Steel"
+id = "steel_thin"
+protection_class = 2
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.20
+spall_factor = 0.35
+durability_per_mm = 10.0
+
+[[material]]
+name = "Thick Wood"
+id = "wood_thick"
+protection_class = 2
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.02
+spall_factor = 0.1
+durability_per_mm = 2.0
+
+[[material]]
+name = "Thin Wood"
+id = "wood_thin"
+protection_class = 1
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.01
+spall_factor = 0.05
+durability_per_mm = 1.0
+
+[[material]]
+name = "Sandbag"
+id = "sandbag"
+protection_class = 4
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.0
+spall_factor = 0.05
+durability_per_mm = 3.0
+
+[[material]]
+name = "Earth"
+id = "earth"
+protection_class = 4
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.0
+spall_factor = 0.02
+durability_per_mm = 4.0
+
+[[material]]
+name = "Glass"
+id = "glass"
+protection_class = 0
+provides_cover = false
+provides_concealment = true
+ricochet_chance = 0.0
+spall_factor = 0.0
+durability_per_mm = 0.5
+
+[[material]]
+name = "Vegetation"
+id = "vegetation"
+protection_class = 0
+provides_cover = false
+provides_concealment = true
+ricochet_chance = 0.0
+spall_factor = 0.0
+durability_per_mm = 0.1
+
+[[material]]
+name = "Vehicle Body"
+id = "vehicle_body"
+protection_class = 2
+provides_cover = true
+provides_concealment = true
+ricochet_chance = 0.15
+spall_factor = 0.3
+durability_per_mm = 8.0

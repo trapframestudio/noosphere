@@ -1,0 +1,98 @@
+# ---------- Medical ----------
+
+[[items]]
+id = "bandage"
+name = "Bandage"
+category = "medical"
+weight = 0.1
+stack_size = 20
+consume_action = { kind = "apply_bandage" }
+
+[[items]]
+id = "combat_tourniquet"
+name = "Combat Tourniquet"
+category = "medical"
+weight = 0.15
+stack_size = 10
+consume_action = { kind = "apply_tourniquet" }
+
+[[items]]
+id = "antiseptic_swab"
+name = "Antiseptic Swab"
+category = "medical"
+weight = 0.05
+stack_size = 30
+consume_action = { kind = "apply_disinfectant" }
+
+[[items]]
+id = "suture_kit"
+name = "Field Suture Kit"
+category = "medical"
+weight = 0.3
+stack_size = 5
+consume_action = { kind = "apply_stitch" }
+
+[[items]]
+id = "antibiotics"
+name = "Antibiotics"
+category = "medical"
+weight = 0.1
+stack_size = 10
+consume_action = { kind = "apply_antibiotics" }
+
+[[items]]
+id = "wound_pack"
+name = "Wound Pack"
+category = "medical"
+weight = 0.2
+stack_size = 10
+consume_action = { kind = "apply_wound_pack" }
+
+# ---------- Drugs ----------
+
+[[items]]
+id = "painkiller"
+name = "Painkiller"
+category = "drug"
+weight = 0.05
+stack_size = 20
+consume_action = { kind = "apply_drug", drug = "painkiller" }
+
+[[items]]
+id = "morphine"
+name = "Morphine"
+category = "drug"
+weight = 0.1
+stack_size = 10
+consume_action = { kind = "apply_drug", drug = "morphine" }
+
+[[items]]
+id = "adrenaline"
+name = "Adrenaline Injector"
+category = "drug"
+weight = 0.1
+stack_size = 5
+consume_action = { kind = "apply_drug", drug = "adrenaline" }
+
+[[items]]
+id = "stim_cocktail"
+name = "Stim Cocktail"
+category = "drug"
+weight = 0.1
+stack_size = 10
+consume_action = { kind = "apply_drug", drug = "stim_cocktail" }
+
+[[items]]
+id = "anti_rad"
+name = "Anti-Rad"
+category = "drug"
+weight = 0.1
+stack_size = 10
+consume_action = { kind = "apply_drug", drug = "anti_rad" }
+
+[[items]]
+id = "anti_tox"
+name = "Anti-Tox"
+category = "drug"
+weight = 0.1
+stack_size = 10

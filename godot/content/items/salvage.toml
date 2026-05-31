@@ -1,0 +1,98 @@
+# ---------- Junk (salvageable) ----------
+
+[[items]]
+id = "broken_radio"
+name = "Broken Radio"
+category = "junk"
+weight = 1.2
+stack_size = 1
+salvage = { tool_required = "field_toolkit", time_ticks = 300, outputs = [
+    { id = "wire_bundle", min = 2, max = 4 },
+    { id = "capacitor", min = 0, max = 2 },
+    { id = "metal_scrap", min = 1, max = 3 },
+    { id = "plastic_scrap", min = 1, max = 2 },
+]}
+
+[[items]]
+id = "rusty_pipe"
+name = "Rusty Pipe"
+category = "junk"
+weight = 2.0
+stack_size = 1
+salvage = { tool_required = "field_toolkit", time_ticks = 200, outputs = [
+    { id = "metal_scrap", min = 2, max = 4 },
+]}
+
+[[items]]
+id = "frayed_boots"
+name = "Frayed Boots"
+category = "junk"
+weight = 0.6
+stack_size = 1
+salvage = { tool_required = "field_toolkit", time_ticks = 200, outputs = [
+    { id = "cloth_scrap", min = 1, max = 3 },
+    { id = "cordage", min = 1, max = 2 },
+]}
+
+[[items]]
+id = "damaged_optics"
+name = "Damaged Optics"
+category = "junk"
+weight = 0.3
+stack_size = 1
+salvage = { tool_required = "field_toolkit", time_ticks = 240, outputs = [
+    { id = "optical_lens", min = 0, max = 1 },
+    { id = "metal_scrap", min = 1, max = 2 },
+    { id = "plastic_scrap", min = 0, max = 1 },
+]}
+
+# ---------- Components (salvage outputs, later craft inputs) ----------
+
+[[items]]
+id = "wire_bundle"
+name = "Wire Bundle"
+category = "component"
+weight = 0.1
+stack_size = 50
+
+[[items]]
+id = "metal_scrap"
+name = "Metal Scrap"
+category = "component"
+weight = 0.2
+stack_size = 50
+
+[[items]]
+id = "plastic_scrap"
+name = "Plastic Scrap"
+category = "component"
+weight = 0.1
+stack_size = 50
+
+[[items]]
+id = "cloth_scrap"
+name = "Cloth Scrap"
+category = "component"
+weight = 0.1
+stack_size = 50
+
+[[items]]
+id = "cordage"
+name = "Cordage"
+category = "component"
+weight = 0.1
+stack_size = 30
+
+[[items]]
+id = "capacitor"
+name = "Capacitor"
+category = "component"
+weight = 0.05
+stack_size = 30
+
+[[items]]
+id = "optical_lens"
+name = "Optical Lens"
+category = "component"
+weight = 0.1
+stack_size = 10

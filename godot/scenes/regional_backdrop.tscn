@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chgl3ddqregbk"]
+
+[ext_resource type="ShaderMaterial" path="res://resources/materials/terrain_regional.tres" id="1_mat"]
+
+[node name="RegionalBackdrop" type="RegionalBackdrop"]
+regional_map_id = "_regional"
+regional_material = ExtResource("1_mat")

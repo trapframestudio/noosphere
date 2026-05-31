@@ -1,0 +1,49 @@
+# Bake spec for Celilo — the endgame power-infrastructure corridor
+# east of The Dalles. Split from `the_dalles` so the town map stays
+# focused on the town itself and this map carries the §3.5 eastern-
+# Gorge Citizen-approach set pieces.
+#
+# DESIGN.md §3.5 anchors captured:
+# - **The Dalles Dam** (1957 gravity dam, ~646000 E, 5055200 N) —
+#   the reason Celilo Falls is drowned.
+# - **Big Eddy Substation / Dalles Dam switchyard** (~646800 E,
+#   5054800 N) — PWA/Collective power infrastructure, Linemen-held
+#   forward defensive gate per §3.5.
+# - **Celilo Converter Station** (~658000 E, 5058900 N) — the real
+#   northern terminus of the Pacific DC Intertie (846-mile HVDC
+#   line to Sylmar converter station in LA). Sprawling industrial
+#   site of thyristor halls, smoothing reactors, filter banks.
+#   Heavily defended; mid-to-late-game power-cut sabotage arc
+#   target (§4.3). Knocking it out starves the Broadcast's primary
+#   power feed — the gating mechanic for endgame the endgame complex entry.
+# - **Drowned Celilo Falls** (~658700 E, 5059200 N, submerged under
+#   the Dalles Dam slack water) — "eleven thousand years of human
+#   memory and ritual sit drowned under the slack water at the
+#   eastern edge of the Valley, inside a place where memory has
+#   weight." One of the most load-bearing locations in the entire
+#   game. Water above Celilo does not behave correctly. Treated
+#   with reverence — atmosphere + ambient hazard behavior evidence + moral test,
+#   not tourist gameplay (§7 tone guardrails).
+#
+# 13.5×8.5 km at 2 m → 6751×4251 samples (~57 MB heightmap).
+
+map_id = "celilo"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 646000.0
+origin_north = 5060500.0
+extent_x = 13500.0
+extent_z = 8500.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FoliageGlobals" format=3 uid="uid://b7lhu7qlc3q5p"]
+
+[ext_resource type="Script" uid="uid://cf1dwn1hta7ob" path="res://scripts/foliage/foliage_globals.gd" id="1_script"]
+
+[resource]
+resource_name = "Foliage globals (wind / view-cone)"
+script = ExtResource("1_script")
+tier_radius_small_m = 80.0
+tier_radius_medium_m = 100.0
+tier_radius_large_m = 150.0
+fade_band_m = 15.0

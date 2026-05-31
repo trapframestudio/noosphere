@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1gwct0vjr0x5"]
+
+[ext_resource type="Script" path="res://scripts/remote_pill.gd" id="1_remote"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="RemoteMat"]
+albedo_color = Color(1.0, 0.4, 0.3, 1.0)
+
+[node name="RemotePill" type="Node3D"]
+script = ExtResource("1_remote")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_1")
+material_override = SubResource("RemoteMat")

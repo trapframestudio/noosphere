@@ -1,0 +1,32 @@
+# POI / base type behavior. The engine reads each base type's nav
+# footprint and victory-target flag from here instead of hardcoding them.
+#
+# `kind` matches the BaseKind wire tag. `nav_footprint = [x, z]` is the
+# blocked footprint in metres stamped into the navmesh (omit for an open,
+# unstructured site). `is_victory_target` marks a base whose capture ends
+# the faction contest (defaults false).
+
+[[base_type]]
+kind = "Checkpoint"
+nav_footprint = [3.0, 3.0]
+
+[[base_type]]
+kind = "Outpost"
+nav_footprint = [5.0, 5.0]
+
+[[base_type]]
+kind = "Safehouse"
+nav_footprint = [4.0, 4.0]
+
+[[base_type]]
+kind = "Headquarters"
+nav_footprint = [8.0, 8.0]
+is_victory_target = true
+
+[[base_type]]
+kind = "ResearchPost"
+nav_footprint = [6.0, 6.0]
+
+[[base_type]]
+kind = "CampSite"
+# Open rest spot: no nav footprint, not a victory target.

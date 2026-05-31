@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: grass_med_02"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_1k/grass_medium_02_1k.gltf/grass_medium_02_1k.gltf"
+weight = 1.5
+scale_min = 0.6
+scale_max = 1.7
+size_multiplier = 1.3

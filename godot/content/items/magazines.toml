@@ -1,0 +1,38 @@
+# Magazines — empty by default; loaded via reload consuming ammo.
+
+[[items]]
+id = "mag_makarov_8"
+name = "Makarov Magazine (8 rd)"
+category = "magazine"
+weight = 0.08
+stack_size = 1
+size = { w = 1, h = 1 }
+
+[items.magazine_config]
+caliber = "9x18"
+capacity = 8
+
+[[items]]
+id = "mag_aks74_30"
+name = "AKS-74 Magazine (30 rd)"
+category = "magazine"
+weight = 0.23
+stack_size = 1
+size = { w = 1, h = 2 }
+
+[items.magazine_config]
+caliber = "5.45x39"
+capacity = 30
+
+[[items]]
+id = "mag_saiga_5"
+name = "Saiga-12 Magazine (5 rd)"
+category = "magazine"
+weight = 0.35
+stack_size = 1
+size = { w = 1, h = 2 }
+
+[items.magazine_config]
+caliber = "12ga"
+capacity = 5
+

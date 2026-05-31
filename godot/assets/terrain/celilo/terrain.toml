@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "celilo"
+width = 6751
+height = 4251
+spacing_m = 2.0
+vert_min_m = 14.0
+vert_max_m = 728.0
+origin_utm_zone = "10N"
+origin_utm_easting = 646000.0
+origin_utm_northing = 5060500.0
+blake3 = "1287176a267ba6801aa0a9039b18e29a66b3c2b08cf715484cb9a4928bdc2c79"
+features_blake3 = "60fc52d9e0b0dd540facde5d4cfebdcb018246108023426e73e7693686518245"

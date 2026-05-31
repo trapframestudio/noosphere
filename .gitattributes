@@ -1,0 +1,94 @@
+# Git LFS — binary assets
+#
+# Philosophy: route clearly-large formats to LFS globally. For formats
+# that can be small or large (PNG, JPG), route by path — LFS the asset
+# trees that hold bulk art, keep small authored PNGs (icons, the Godot
+# project icon) in regular git.
+
+# --- Heightmaps & terrain data --------------------------------------
+*.r8    filter=lfs diff=lfs merge=lfs -text
+*.r16   filter=lfs diff=lfs merge=lfs -text
+*.r32   filter=lfs diff=lfs merge=lfs -text
+*.rgba8 filter=lfs diff=lfs merge=lfs -text
+# --- HDR / high-bit-depth images ------------------------------------
+*.exr   filter=lfs diff=lfs merge=lfs -text
+*.hdr   filter=lfs diff=lfs merge=lfs -text
+# --- Compressed GPU texture formats ---------------------------------
+*.ktx   filter=lfs diff=lfs merge=lfs -text
+*.ktx2  filter=lfs diff=lfs merge=lfs -text
+*.dds   filter=lfs diff=lfs merge=lfs -text
+*.basis filter=lfs diff=lfs merge=lfs -text
+# --- 3D authoring / binary interchange ------------------------------
+*.blend  filter=lfs diff=lfs merge=lfs -text
+*.blend1 filter=lfs diff=lfs merge=lfs -text
+*.fbx    filter=lfs diff=lfs merge=lfs -text
+*.glb    filter=lfs diff=lfs merge=lfs -text
+*.obj    filter=lfs diff=lfs merge=lfs -text
+*.usd    filter=lfs diff=lfs merge=lfs -text
+*.usdc   filter=lfs diff=lfs merge=lfs -text
+*.usdz   filter=lfs diff=lfs merge=lfs -text
+# Native shared libraries shipped by some Godot addons (e.g.
+# Terrain3D). Always binary, always LFS.
+*.so     filter=lfs diff=lfs merge=lfs -text
+*.dll    filter=lfs diff=lfs merge=lfs -text
+*.dylib  filter=lfs diff=lfs merge=lfs -text
+*.wasm   filter=lfs diff=lfs merge=lfs -text
+# Terrain3D per-region serialized data (`terrain3d_XX_YY.res`) —
+# 1–5 MB per region, binary. LFS-track only inside the terrain
+# subtree so we don't accidentally LFS Godot scene `.res` files
+# elsewhere (most are < 100 KB and cleaner in regular git).
+godot/assets/terrain/**/*.res filter=lfs diff=lfs merge=lfs -text
+# Foliage tile cache (`foliage_bake/<map>/<key>/<x>_<z>.bin`) — raw
+# `var_to_bytes` blobs written by GroundCoverScatter, typically tens
+# of KB per tile, hundreds-thousands of tiles per map. LFS keeps the
+# regular git tree from bloating with binary placement data.
+godot/assets/foliage_bake/**/*.bin filter=lfs diff=lfs merge=lfs -text
+# Terrain3D ships macOS builds as `.framework` bundles where the actual
+# binary has no extension (`libterrain.macos.debug.framework/libterrain.macos.debug`).
+# Match the path pattern so they LFS-track too.
+godot/addons/**/*.framework/** filter=lfs diff=lfs merge=lfs -text
+# OpenEXR brush + HDR textures (Terrain3D ships sculpting brushes as .exr).
+*.exr    filter=lfs diff=lfs merge=lfs -text
+# .bin companions shipped inside Poly Haven .gltf bundles — the
+# actual geometry/material binary. Small (~KB) but routing through
+# LFS keeps the handling consistent with the rest of the bundle.
+godot/assets/**/*.bin filter=lfs diff=lfs merge=lfs -text
+# --- Audio ----------------------------------------------------------
+*.wav   filter=lfs diff=lfs merge=lfs -text
+*.ogg   filter=lfs diff=lfs merge=lfs -text
+*.flac  filter=lfs diff=lfs merge=lfs -text
+*.mp3   filter=lfs diff=lfs merge=lfs -text
+*.opus  filter=lfs diff=lfs merge=lfs -text
+# --- Video ----------------------------------------------------------
+*.mp4  filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+*.mov  filter=lfs diff=lfs merge=lfs -text
+# --- Path-scoped bulk art (PNG / JPG only LFS'd inside these trees) -
+godot/assets/environments/**/*.png filter=lfs diff=lfs merge=lfs -text
+godot/assets/environments/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+godot/assets/terrain/**/*.png      filter=lfs diff=lfs merge=lfs -text
+godot/assets/terrain/**/*.jpg      filter=lfs diff=lfs merge=lfs -text
+godot/assets/textures/**/*.png     filter=lfs diff=lfs merge=lfs -text
+godot/assets/textures/**/*.jpg     filter=lfs diff=lfs merge=lfs -text
+godot/assets/models/**/*.gltf      filter=lfs diff=lfs merge=lfs -text
+godot/assets/models/**/*.png       filter=lfs diff=lfs merge=lfs -text
+godot/assets/models/**/*.jpg       filter=lfs diff=lfs merge=lfs -text
+# Tree atlas textures (some packs ship 4K Atlas baseColor + normal, multi-MB).
+godot/assets/models/trees/**/*.bin filter=lfs diff=lfs merge=lfs -text
+# Vendored Godot addons sometimes carry sizeable doc / texture PNGs.
+# Same path-scoped policy as godot/assets/.
+godot/addons/**/*.png  filter=lfs diff=lfs merge=lfs -text
+godot/addons/**/*.jpg  filter=lfs diff=lfs merge=lfs -text
+# --- Line endings ---------------------------------------------------
+# Keep text files as LF regardless of platform (Rust, GDScript, docs).
+*.rs   text eol=lf
+*.gd   text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+godot/resources/terrain/cascade_locks_material.tres filter=lfs diff=lfs merge=lfs -text
+# Per-map foliage-density ImageTexture .tres saved by the editor
+# bakers. Plain-text base64 inside the .tres balloons to 300+ MB on
+# real maps — must be LFS to avoid GitHub's 100 MB hard limit.
+godot/resources/terrain/*-density.tres filter=lfs diff=lfs merge=lfs -text

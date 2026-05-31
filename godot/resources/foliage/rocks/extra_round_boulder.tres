@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3 uid="uid://datw1mpvk81qf"]
+
+[ext_resource type="Script" uid="uid://6msf07nxeg00" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Extra: round boulders (cgtrader low-poly variety)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/rocks/rock_pack_extra.glb"
+variant_prefix = "extra_round"
+scale_min = 0.45
+scale_max = 2.6
+size_multiplier = 1.2
+random_tilt_deg = 18.0
+scale_axis_jitter = 0.22
+extreme_tilt_chance = 0.10
+extreme_tilt_deg = 35
+resolution_tier = 1
+max_render_distance_m = 150.0
+terrain_min_score = 0.05
+terrain_density_boost = 2.5
+scale_terrain_boost = 0.6
+terrain_alignment_factor = 0.65
+terrain_curvature_boost = 2.0
+terrain_basal_boost = 3.0
+scale_basal_boost = 0.5
+terrain_sink_factor = 0.35
+terrain_sink_random_max = 0.3
+slope_max = 1.8
+collision_tier = 2

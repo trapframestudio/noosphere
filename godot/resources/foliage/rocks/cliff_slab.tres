@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3 uid="uid://b6nbfpxrh21p1"]
+
+[ext_resource type="Script" uid="uid://6msf07nxeg00" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Cliff slab (broad shelf rock; ON cliff faces)"
+script = ExtResource("1_script")
+variant_prefix = "rock_slab"
+scale_min = 0.55
+scale_max = 3.0
+size_multiplier = 2.4
+scale_axis_jitter = 0.25
+random_tilt_deg = 30.0
+extreme_tilt_chance = 0.15
+extreme_tilt_deg = 50
+roughness_floor = 0.75
+resolution_tier = 2
+texture_set = "Rock051"
+max_render_distance_m = 750.0
+proxy_swap_distance_m = 300.0
+terrain_density_boost = 5.0
+scale_terrain_boost = 0.9
+terrain_alignment_factor = 0.4
+terrain_curvature_boost = 0.5
+terrain_basal_boost = 2.0
+scale_basal_boost = 0.4
+is_anchor = true
+satellite_anchor_radius = 4.5
+feature_cluster_count_max = 2
+feature_cluster_radius = 2.8
+terrain_sink_factor = 0.45
+terrain_sink_random_max = 0.4
+slope_min = 1.4
+collision_tier = 3
+collision_radius_override = 1.5
+collision_height_override = 1.4
+tree_exclusion_radius = 1.7

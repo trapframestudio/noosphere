@@ -1,0 +1,6 @@
+[gd_resource type="Gradient" format=3]
+
+[resource]
+resource_name = "Macro variation gradient"
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)

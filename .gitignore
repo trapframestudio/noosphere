@@ -1,0 +1,189 @@
+/target
+/build
+# Local asset library mirrored from PolyHaven (and similar). Categorized
+# scratch space; copy into godot/assets/ when an asset is actually used.
+# See scripts/fetch_polyhaven_textures.py.
+/asset-library/
+# Scratch space for raw downloads + foliage cropping work — nothing here
+# is canonical. `foliage_billboards/` carries the Megascans Billboard
+# atlases for offline cropping into per-species `<species>_card.png`
+# (see GroundFoliageScatterer SPECIES → `card` field).
+/asset_downloads/
+# Asset directories are opt-in: the parent is ignored, subdirectories
+# are negated one-by-one as they become canonical to the project. Bulk
+# binary content (HDRIs, textures, heightmaps) is routed through Git
+# LFS via .gitattributes; UI-layer vector assets live in regular git.
+/godot/assets/*
+!/godot/assets/NOTICE.md
+!/godot/assets/fonts/
+!/godot/assets/icons/
+!/godot/assets/logos/
+!/godot/assets/backdrops/
+!/godot/assets/environments/
+!/godot/assets/terrain/
+# Procedural placement caches — gitignored. Bakes are derived from
+# `seed + cache_version` and the scatter scripts, so they're cheap to
+# regenerate locally (Bake whole map / Bake near origin) and don't
+# need to live in git. When a map's bake is final and we want every
+# checkout to share an identical world, opt that map in here:
+#   !/godot/assets/foliage_bake/<map_id>/
+#   !/godot/assets/foliage_bake/<map_id>/**
+godot/bin/
+node_modules/
+*.log
+.env
+*.pcap
+.DS_Store
+Thumbs.db
+.claude/worktrees/
+.claude/state/*
+!.claude/state/.gitignore
+.claude/settings.local.json
+# MCP server config: paths point at the dev's own home dir (Node entry,
+# blender-mcp binary), so it can't be the same across contributors.
+# The committed `godot/addons/godot_mcp/` works without it; the JSON is
+# only consumed by the local Claude Code setup.
+.mcp.json
+
+# Godot
+godot/.godot/
+godot/.noosphere/
+
+# SIMN engine is vendored read-only from the public SIMN repo by
+# scripts/sync-simn.sh — not committed here. The pin lives in
+# scripts/SIMN_VERSION; run the script before building. Only the synced
+# addon is ignored; the other addons under godot/addons/ stay committed.
+/godot/addons/simn/
+# Per-session resources (character saves, clouds authoring, etc) are
+# not versioned; the canonical UI theme + materials live in git.
+godot/resources/*
+!godot/resources/theme/
+!godot/resources/materials/
+!godot/resources/terrain/
+!godot/resources/terrain/**
+!godot/resources/foliage/
+!godot/resources/foliage/**
+!godot/resources/default_environment.tres
+# `.import` files are normally noise — but Godot needs them to
+# remember import settings for committed assets. Allowlist per
+# directory the engine actually pulls from.
+*.import
+!godot/resources/**/*.import
+!godot/assets/textures/terrain/**/*.import
+*.uid
+
+# Terrain texture pack: parent ignored by /godot/assets/* above, but
+# the specific bundles the terrain shader references are allowlisted
+# here so everyone picks up the same 4K diffuse + companions via LFS.
+# Extend this list (alongside the TERRAIN_CLASS_DIFFUSE* arrays in
+# crates/simn-godot/src/terrain.rs) when adding new shader variants.
+!/godot/assets/models/
+godot/assets/models/*
+!godot/assets/models/plants/
+!godot/assets/models/plants/**/
+!godot/assets/models/plants_1k/
+!godot/assets/models/plants_1k/**/
+!godot/assets/models/plants_fab/
+!godot/assets/models/plants_fab/**/
+!godot/assets/models/plants_cgtrader/
+!godot/assets/models/plants_cgtrader/**/
+!godot/assets/models/trees/
+!godot/assets/models/trees/**/
+!godot/assets/models/forest_debris/
+!godot/assets/models/forest_debris/**/
+!godot/assets/models/trash/
+!godot/assets/models/trash/**/
+!/godot/assets/textures/
+godot/assets/textures/*
+!godot/assets/textures/terrain/
+godot/assets/textures/terrain/*
+!godot/assets/textures/terrain/megascans/
+!godot/assets/textures/terrain/megascans/**/
+!godot/assets/textures/terrain/aerial_grass_rock_4k.gltf/
+!godot/assets/textures/terrain/aerial_ground_rock_4k.gltf/
+!godot/assets/textures/terrain/aerial_mud_1_4k.gltf/
+!godot/assets/textures/terrain/aerial_rocks_01_4k.gltf/
+!godot/assets/textures/terrain/aerial_rocks_02_4k.gltf/
+!godot/assets/textures/terrain/aerial_rocks_04_4k.gltf/
+!godot/assets/textures/terrain/anti_slip_concrete_4k.gltf/
+!godot/assets/textures/terrain/bicolour_gravel_4k.gltf/
+!godot/assets/textures/terrain/brick_gravel_4k.gltf/
+!godot/assets/textures/terrain/brown_mud_02_4k.gltf/
+!godot/assets/textures/terrain/brown_mud_03_4k.gltf/
+!godot/assets/textures/terrain/brown_mud_4k.gltf/
+!godot/assets/textures/terrain/brown_mud_leaves_01_4k.gltf/
+!godot/assets/textures/terrain/brown_mud_rocks_01_4k.gltf/
+!godot/assets/textures/terrain/brushed_concrete_03_4k.gltf/
+!godot/assets/textures/terrain/brushed_concrete_2_4k.gltf/
+!godot/assets/textures/terrain/brushed_concrete_4k.gltf/
+!godot/assets/textures/terrain/clean_pebbles_4k.gltf/
+!godot/assets/textures/terrain/cliff_side_4k.gltf/
+!godot/assets/textures/terrain/coast_land_rocks_01_4k.gltf/
+!godot/assets/textures/terrain/mossy_rock_4k.gltf/
+!godot/assets/textures/terrain/snow_02_4k.gltf/
+!godot/assets/textures/terrain/snow_05_4k.gltf/
+!godot/assets/textures/terrain/forrest_ground_01_4k.gltf/
+!godot/assets/textures/terrain/forrest_ground_03_4k.gltf/
+!godot/assets/textures/terrain/leafy_grass_4k.gltf/
+!godot/assets/textures/terrain/dirt_aerial_02_4k.gltf/
+!godot/assets/textures/terrain/rock_pitted_mossy_4k.gltf/
+!godot/assets/textures/terrain/forest_floor_4k.gltf/
+!godot/assets/textures/terrain/sparse_grass_4k.gltf/
+!godot/assets/textures/terrain/stony_dirt_path_4k.gltf/
+!godot/assets/textures/terrain/gravel_floor_4k.gltf/
+!godot/assets/textures/terrain/gray_rocks_4k.gltf/
+!godot/assets/textures/terrain/lichen_rock_4k.gltf/
+!godot/assets/textures/terrain/dry_ground_rocks_4k.gltf/
+!godot/assets/textures/terrain/Ground068_4K-PNG/
+!godot/assets/textures/terrain/Ground073_4K-PNG/
+!godot/assets/textures/terrain/Concrete026_4K-PNG/
+!godot/assets/textures/terrain/Grass001_4K-PNG/
+!godot/assets/textures/terrain/Rock028_4K-PNG/
+!godot/assets/textures/terrain/Asphalt010_4K-PNG/
+!godot/assets/textures/terrain/Asphalt015_4K-PNG/
+!godot/assets/textures/terrain/Asphalt020L_4K-PNG/
+!godot/assets/textures/terrain/Asphalt024A_4K-PNG/
+!godot/assets/textures/terrain/Gravel022_4K-PNG/
+!godot/assets/textures/terrain/Moss001_4K-PNG/
+!godot/assets/textures/terrain/Moss002_4K-PNG/
+!godot/assets/textures/terrain/Moss004_4K-PNG/
+# Terrain3D channel-packed textures (Albedo+Height, Normal+Roughness),
+# generated by `scripts/pack_terrain3d_textures.py` from the per-bundle
+# diff/normal/rough/displacement sources above. Kept allowlisted because
+# they're the texture data Terrain3D's shader actually samples — the
+# unpacked sources stay around for the Rust `TerrainNode` shader.
+!godot/assets/textures/terrain/_terrain3d_packed/
+!godot/assets/textures/terrain/_terrain3d_packed/**/
+
+# Visual Studio scaffolding (shipped in some third-party addons)
+.vs/
+
+# Terrain3D ships a bundled `demo/` reference project alongside the
+# addon. Useful to peek at upstream as docs but not needed in our
+# repo — pull from https://github.com/TokisanGames/Terrain3D when
+# referencing.
+godot/demo/
+
+# Transient Blender exchange PNGs. Generated on demand by
+# `cargo run --example r16_to_png -p simn-terrain`; authored edits are
+# pushed back through `png_to_r16` into the canonical .r16. The .r16
+# is the committed source of truth.
+godot/assets/terrain/*/heightmap.png
+
+# Biome-driven static-foliage scatter — generated locally for visual
+# debugging of the StaticFoliageNode + GDScript driver via:
+#   cargo run -p simn-terrain --example synth_static_foliage -- \
+#       --from-map godot/assets/terrain/<map_id>
+# The output is 4000+ chunk files (~1.2 MB total per map) — too noisy
+# to commit. The real bake step (item 4 of static-foliage-plan.md)
+# will produce something stable + committable. The integration test
+# uses a tempdir fixture, so this gitignore doesn't affect tests.
+godot/assets/terrain/*/static_foliage/*.bin
+godot/assets/terrain/*/static_foliage/chunks_index.toml
+godot/assets/terrain/*/static_foliage/species.toml
+
+# Purchased/licensed assets (Megascans/CGTrader) live in the private
+# asset repo, fetched via scripts. foliage_bake is a regenerable cache.
+/godot/assets/models/
+/godot/assets/textures/
+/godot/assets/foliage_bake/

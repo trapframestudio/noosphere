@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "sandy"
+width = 2501
+height = 2501
+spacing_m = 2.0
+vert_min_m = 1.0
+vert_max_m = 227.0
+origin_utm_zone = "10N"
+origin_utm_easting = 548500.0
+origin_utm_northing = 5042000.0
+blake3 = "1afdbe0f7acdd59dda44264a33ef9464cb506605417d4f7fd48017dd8b76c1f3"
+features_blake3 = "ebd4e92fd421e5022672429030936ee94a73b7eaac82562183417a85dc048c68"

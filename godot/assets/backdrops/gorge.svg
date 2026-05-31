@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2220" />
+      <stop offset="0.6" stop-color="#0f1311" />
+      <stop offset="1" stop-color="#0a0e0d" />
+    </linearGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5a6c64" stop-opacity="0" />
+      <stop offset="0.55" stop-color="#5a6c64" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#5a6c64" stop-opacity="0.55" />
+    </linearGradient>
+    <pattern id="grain" width="3" height="3" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="#ffffff" fill-opacity="0.015" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)" />
+  <path d="M0,520 L160,460 L300,510 L440,440 L600,490 L780,430 L940,480 L1120,440 L1280,500 L1460,460 L1600,490 L1600,900 L0,900 Z" fill="#141a18" opacity="0.8" />
+  <path d="M0,620 L120,580 L250,610 L380,560 L520,600 L680,540 L840,590 L1000,560 L1160,610 L1320,570 L1460,610 L1600,580 L1600,900 L0,900 Z" fill="#0f1412" />
+  <path d="M0,750 L60,700 L130,740 L200,690 L280,730 L360,690 L450,730 L540,700 L640,740 L740,710 L860,740 L980,710 L1100,740 L1240,700 L1380,740 L1600,720 L1600,900 L0,900 Z" fill="#070a09" />
+  <rect width="1600" height="900" fill="url(#fog)" />
+  <rect width="1600" height="900" fill="url(#grain)" />
+</svg>

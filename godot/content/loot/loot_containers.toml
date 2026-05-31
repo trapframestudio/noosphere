@@ -1,0 +1,67 @@
+# ---------- Loot Containers (Phase 3A) ----------
+#
+# Scene-placed `WorldContainer` kinds. Distinct from the equipable
+# `containers.toml` (backpacks / rigs / weapon cases — those are
+# `ItemDef`s with `inner_grid`). Loot containers exist in the world
+# as standalone entities, can't be picked up, and serve as the
+# anchor surface for the loot pool system (Phase 3B) + restock
+# (Phase 3C).
+#
+# `grid` is the inner-grid footprint (cells × cells) — the same
+# shape passed to `WorldContainer::grid`. Bigger grid = more loot
+# capacity = rarer spawn weight (defaults can be overridden by
+# Phase 3B's faction × depth pool tables).
+#
+# `spawn_weight` is the relative chance a region picks this kind
+# when rolling its scatter — small crates are common, large
+# caches are rare.
+#
+# `is_public` defaults to false; only crates we actively want to
+# count toward the crafting kit-pool (workbench parts bins) should
+# set it true.
+
+# Per-kind family weights drive what each crate **tends to carry**
+# when rolled. Family ids match `loot_pools.toml` (`ammo`,
+# `weapons`, `magazines`, `armor`, `medical`, `food`, `tools`,
+# `junk`). Higher weight = more likely to be picked as a family
+# for each item slot rolled.
+#
+# `items_per_roll` is a `[min, max]` range for how many item slots
+# get rolled when the container is restocked (3C territory).
+# Larger crate kinds carry more items.
+#
+# `difficulty_weight` is used by quest-reward container picking
+# (3B). Each entry is `[difficulty_tier, weight]`. At difficulty
+# 1 (trivial), small_crate wins almost always; at difficulty 5
+# (very hard), large_cache dominates. `weighted_pick_for_difficulty`
+# in `LootContainerRegistry` walks this list.
+
+[[containers]]
+id = "small_crate"
+name = "Small Crate"
+grid = { w = 4, h = 4 }
+spawn_weight = 70
+is_public = false
+items_per_roll = [2, 4]
+family_weights = { ammo = 30, medical = 25, food = 20, tools = 10, junk = 15 }
+difficulty_weights = [[1, 70], [2, 50], [3, 25], [4, 10], [5, 3]]
+
+[[containers]]
+id = "medium_stash"
+name = "Medium Stash"
+grid = { w = 6, h = 6 }
+spawn_weight = 25
+is_public = false
+items_per_roll = [4, 7]
+family_weights = { weapons = 15, magazines = 15, ammo = 20, armor = 10, medical = 15, food = 10, tools = 10, junk = 5 }
+difficulty_weights = [[1, 25], [2, 40], [3, 50], [4, 40], [5, 20]]
+
+[[containers]]
+id = "large_cache"
+name = "Large Cache"
+grid = { w = 8, h = 10 }
+spawn_weight = 5
+is_public = false
+items_per_roll = [7, 12]
+family_weights = { weapons = 25, magazines = 15, ammo = 20, armor = 15, medical = 10, food = 5, tools = 5, junk = 5 }
+difficulty_weights = [[1, 5], [2, 10], [3, 25], [4, 50], [5, 77]]

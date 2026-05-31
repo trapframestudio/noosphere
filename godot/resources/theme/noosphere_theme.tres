@@ -1,0 +1,89 @@
+[gd_resource type="Theme" load_steps=8 format=3]
+
+[ext_resource type="FontFile" path="res://assets/fonts/JetBrainsMono-Regular.ttf" id="1_mono"]
+[ext_resource type="FontFile" path="res://assets/fonts/JetBrainsMono-Bold.ttf"    id="2_monob"]
+
+[sub_resource type="StyleBoxFlat" id="SB_panel"]
+bg_color = Color(0.102, 0.125, 0.114, 1)
+border_color = Color(0.227, 0.278, 0.255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="SB_line_normal"]
+bg_color = Color(0.059, 0.075, 0.067, 1)
+border_color = Color(0.227, 0.278, 0.255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+content_margin_left = 12.0
+content_margin_top = 9.0
+content_margin_right = 12.0
+content_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxFlat" id="SB_line_focus"]
+bg_color = Color(0.059, 0.075, 0.067, 1)
+border_color = Color(0.498, 0.698, 0.416, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+content_margin_left = 12.0
+content_margin_top = 9.0
+content_margin_right = 12.0
+content_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxEmpty" id="SB_empty"]
+
+[sub_resource type="StyleBoxFlat" id="SB_scroll_bg"]
+bg_color = Color(0.102, 0.125, 0.114, 0.6)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[resource]
+default_font = ExtResource("1_mono")
+default_font_size = 13
+
+Label/fonts/font = ExtResource("1_mono")
+Label/font_sizes/font_size = 13
+Label/colors/font_color = Color(0.839, 0.804, 0.706, 1)
+
+LineEdit/fonts/font = ExtResource("1_mono")
+LineEdit/font_sizes/font_size = 13
+LineEdit/colors/font_color = Color(0.839, 0.804, 0.706, 1)
+LineEdit/colors/font_placeholder_color = Color(0.356, 0.416, 0.388, 1)
+LineEdit/colors/caret_color = Color(0.498, 0.698, 0.416, 1)
+LineEdit/colors/selection_color = Color(0.306, 0.435, 0.259, 0.6)
+LineEdit/styles/normal = SubResource("SB_line_normal")
+LineEdit/styles/focus = SubResource("SB_line_focus")
+
+Panel/styles/panel = SubResource("SB_panel")
+PanelContainer/styles/panel = SubResource("SB_panel")
+
+Button/fonts/font = ExtResource("2_monob")
+Button/font_sizes/font_size = 12
+Button/colors/font_color = Color(0.839, 0.804, 0.706, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.498, 0.698, 0.416, 1)
+Button/styles/normal = SubResource("SB_line_normal")
+Button/styles/hover = SubResource("SB_line_focus")
+Button/styles/pressed = SubResource("SB_line_normal")
+Button/styles/focus = SubResource("SB_empty")
+
+ScrollContainer/styles/panel = SubResource("SB_scroll_bg")

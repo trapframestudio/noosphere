@@ -1,0 +1,40 @@
+# Bake spec for Sandy — branch map south off Corbett.
+#
+# The Sandy River drainage runs south off the Corbett bluff down into
+# the Mt. Hood NF foothills. Marmot Dam ruins (real dam removed 2007)
+# are the signature Rule-Two re-manifestation site per DESIGN.md §3.3.
+# Wanderer-dominant, with occasional bandit ambushes on the single
+# road — early alternative to the Old Highway spine.
+#
+# Geography bounds chosen to start at Corbett's south edge (UTM
+# northing 5042000, i.e. corbett's SW/SE) and extend ~5 km further
+# south into the Sandy River canyon proper.
+#
+# Key features within bounds:
+# - Sandy River canyon (basalt gorge, confluence approach)
+# - Salmon River confluence (major tributary from the east)
+# - Marmot Dam site (demolished 2007 — in-fiction, ambient hazard behavior has
+#   re-manifested it as stuck industrial memory)
+# - Dodge Park area (historic lumber settlement)
+# - Unincorporated cabins along Bull Run Road
+
+map_id = "sandy"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 548500.0     # aligned with Corbett's west edge for continuity
+origin_north = 5042000.0   # Corbett's south edge = this map's north edge
+extent_x = 5000.0
+extent_z = 5000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

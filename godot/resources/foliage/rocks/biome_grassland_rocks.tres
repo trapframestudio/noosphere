@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RockBiomeConfig" format=3 uid="uid://eldhn1kvk3ej"]
+
+[ext_resource type="Script" uid="uid://brwrm6tv5oa1n" path="res://scripts/foliage/rock_biome_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Grassland rocks (visible scattered stones; big where terrain rises)"
+script = ExtResource("1_script")
+biome = 1
+rocks_per_sq_m = 0.020
+rock_paths = Array[String](["res://resources/foliage/rocks/pebble_round.tres", "res://resources/foliage/rocks/small_jagged.tres", "res://resources/foliage/rocks/medium_slab.tres", "res://resources/foliage/rocks/medium_oblong.tres", "res://resources/foliage/rocks/large_boulder.tres", "res://resources/foliage/rocks/large_cluster.tres", "res://resources/foliage/rocks/cliff_chunk.tres", "res://resources/foliage/rocks/cliff_slab.tres", "res://resources/foliage/rocks/extra_round_boulder.tres", "res://resources/foliage/rocks/extra_pebble_surface.tres"])
+rock_densities = PackedFloat32Array(0.025, 0.008, 0.0007, 0.0007, 0.0003, 0.00025, 0.0014, 0.001, 0.0006, 0.004)

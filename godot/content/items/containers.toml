@@ -1,0 +1,33 @@
+# ---------- Containers (PR-2: equipment) ----------
+#
+# Every container is an `ItemDef` with `inner_grid = { w, h }` set —
+# equipping it exposes a nested grid of those dimensions. Size (`size`)
+# is the FOOTPRINT the container takes on whatever grid it's sitting
+# in; `inner_grid` is the capacity it provides. A backpack is small
+# in pockets (1x1 abstraction — PR-3 tunes the footprints against
+# real-world scale) but exposes a big inner grid.
+#
+# `equip_slots` is the strict whitelist: even though a backpack is
+# category=backpack, listing the slot explicitly documents intent and
+# future-proofs against category widening.
+
+[[items]]
+id = "basic_backpack"
+name = "Basic Backpack"
+category = "backpack"
+weight = 2.0
+stack_size = 1
+size = { w = 2, h = 2 }
+inner_grid = { w = 6, h = 8 }
+equip_slots = ["backpack"]
+
+[[items]]
+id = "basic_rig"
+name = "Basic Chest Rig"
+category = "chest_rig"
+weight = 1.2
+stack_size = 1
+size = { w = 2, h = 2 }
+inner_grid = { w = 4, h = 3 }
+equip_slots = ["rig"]
+

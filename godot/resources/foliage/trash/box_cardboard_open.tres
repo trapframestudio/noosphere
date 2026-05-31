@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="TrashSpecies" format=3 uid="uid://b80e016d73fa1"]
+
+[ext_resource type="Script" path="res://scripts/foliage/trash_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Trash: box_cardboard_open"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/trash/boxes/box_paper_open_a.glb"
+scale_min = 0.7
+scale_max = 1.3
+size_multiplier = 2.0
+random_yaw = true
+random_tilt_deg = 8.0
+albedo_modulation = Color(1.0, 1.0, 1.0, 1.0)
+physics_enabled = true
+physics_mass = 0.4
+physics_radius = 0.0
+physics_height = 0.0
+physics_authority = 0
+wind_susceptibility = 0.0
+paved_weight = 1.2
+unpaved_weight = 0.0
+trail_weight = 0.0
+builtup_weight = 1.5
+bare_weight = 0.0
+spawn_in_zones = true
+max_render_distance_m = 200.0
+is_anchor = false
+satellite_anchor_boost = 2.5
+satellite_anchor_radius = 2.5
+road_edge_boost = 2.0
+terrain_curvature_boost = 0.0
+terrain_alignment_factor = 0.5
+lay_down_pretilt_deg = 0.0
+max_slope_deg = 22.0

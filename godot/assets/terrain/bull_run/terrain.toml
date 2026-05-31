@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "bull_run"
+width = 7001
+height = 6001
+spacing_m = 2.0
+vert_min_m = 28.0
+vert_max_m = 809.0
+origin_utm_zone = "10N"
+origin_utm_easting = 554000.0
+origin_utm_northing = 5037000.0
+blake3 = "d5f6aa9d02904ad18b451c0b0566d6d7be09952349b73d8c823561e6321a9137"
+features_blake3 = "48219dbabda24a067abf1c41f2f1e2ece7c4efdf033aaf57fff7dc4caf0548cb"

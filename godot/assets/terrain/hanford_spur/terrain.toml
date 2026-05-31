@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "hanford_spur"
+width = 3501
+height = 3001
+spacing_m = 2.0
+vert_min_m = 300.0
+vert_max_m = 419.0
+origin_utm_zone = "11N"
+origin_utm_easting = 295000.0
+origin_utm_northing = 5118000.0
+blake3 = "9e7c07bad2bf83f1ffa5bba1d4d2c9f3ecbdfc5757863a2f454911dc1c85420a"
+features_blake3 = "5e651a4b15e560ad15d9af037a4e423921edc106a76c67cd7402def99558cd42"

@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bvxn4q9m8kpy7"]
+
+[ext_resource type="Shader" path="res://shaders/terrain.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "Terrain"
+shader = ExtResource("1_shader")
+shader_parameter/debug_mode = 0
+shader_parameter/tile_scale_m = 2.5
+shader_parameter/macro_blend = 0.35
+shader_parameter/macro_tile_multiplier = 8.0
+shader_parameter/variant_strength = 0.4
+shader_parameter/variant_scale_m = 35.0
+shader_parameter/boundary_warp_amplitude_m = 18.0
+shader_parameter/boundary_warp_scale_m = 55.0
+shader_parameter/boundary_warp_fine_amplitude_m = 6.0
+shader_parameter/boundary_warp_fine_scale_m = 9.0
+shader_parameter/color_var_scale_m = 50.0
+shader_parameter/color_var_strength = 0.0
+shader_parameter/face_normal_strength = 0.6
+shader_parameter/stochastic_cell_tiles = 1.0
+shader_parameter/stochastic_strength = 1.0
+shader_parameter/texture_warp_scale_m = 18.0
+shader_parameter/texture_warp_amplitude = 0.08
+shader_parameter/normal_strength = 0.4
+shader_parameter/roughness_strength = 0.0
+shader_parameter/roughness_bias = 0.92
+shader_parameter/roughness_default = 0.92

@@ -1,0 +1,42 @@
+# Bake spec for Hood River — map 6, the mid-Valley contested settlement.
+#
+# Larger-ish map because the Hood River valley extends south from the
+# river, branching to orchards / Parkdale / Lost Lake / Mt. Hood — and
+# the White Salmon River canyon mouth comes in from the north. This
+# is a branching hub, so the map goes deeper N-S than corridor-only
+# maps like Latourell.
+#
+# Key features within bounds:
+# - Hood River town (grid of avenues, riverfront district, marina)
+# - Hood River Bridge (second cross-river point on the spine)
+# - Hood River valley mouth extending south (orchards, packing sheds)
+# - White Salmon River canyon mouth on the north bank (gateway to
+#   the Attuned cell / Trout Lake / Mt. Adams northern branch)
+# - Panorama Point ridge / Hood River Heights (south bank overlook)
+# - The Dalles–Hood River rail corridor (E-W abandoned grade)
+#
+# Design intent (DESIGN.md §3.5, lines 282–284): "contested mid-Valley
+# settlement straddling a PWA checkpoint and a drifter black market."
+# Gateway to southern Hood River valley branch + northern White
+# Salmon branch. Mid-game funneling point.
+
+map_id = "hood_river"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 612500.0
+origin_north = 5063500.0
+extent_x = 5500.0
+extent_z = 4500.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

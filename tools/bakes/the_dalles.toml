@@ -1,0 +1,43 @@
+# Bake spec for The Dalles — map 8, the eastern hub and Broadcast
+# shadow.
+#
+# The easternmost playable map before the game forks into late-game /
+# endgame content. Wider + deeper than most spine maps because the
+# gorge opens up here — town sprawls west-to-east along the south
+# bank, the dam + lock structures extend east, and the hills
+# southeast are where the endgame complex sits in-fiction.
+#
+# Key features within bounds:
+# - The Dalles town (historic brick downtown, riverfront district)
+# - The Dalles Dam + lock structures (east of town)
+# - Big Eddy Substation approach (Linemen power infrastructure)
+# - Rowena Heights ridge system (south of town, southern boundary)
+# - Service road corridor toward the endgame complex (southeast hills)
+# - Drowned Celilo Falls impoundment (underwater landmark, lore-heavy)
+#
+# Design intent (DESIGN.md §3.5, lines 338–341): "Eastern hub.
+# Drier, sunnier, weirder. The rules thin out here." Contested (town),
+# Linemen (dam infrastructure), Merged (Complex / the endgame complex). This
+# is the eastern gate; everything beyond is late-game or endgame
+# content and lives in its own maps (Umatilla, Hanford Spur, the endgame complex).
+
+map_id = "the_dalles"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 639000.0
+origin_north = 5052500.0
+extent_x = 7000.0
+extent_z = 5500.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

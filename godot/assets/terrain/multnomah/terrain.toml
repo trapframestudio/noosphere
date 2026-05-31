@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "multnomah"
+width = 3751
+height = 2251
+spacing_m = 2.0
+vert_min_m = -3.0
+vert_max_m = 887.0
+origin_utm_zone = "10N"
+origin_utm_easting = 565500.0
+origin_utm_northing = 5049500.0
+blake3 = "7a06a8e8bd54f43948fdd7ba3998d8ba31b3fce1b4f5a5ee142fe35a858ca791"
+features_blake3 = "43c88e785dd67b6d299e1dba7db57d6434912cff49d6392d7a01fe854bf82461"

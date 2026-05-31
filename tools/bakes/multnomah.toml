@@ -1,0 +1,43 @@
+# Bake spec for Multnomah — map 3, the waterfall corridor.
+#
+# The iconic stretch: Wahkeena Falls on the west, Multnomah Falls +
+# Lodge + Benson Bridge in the middle, Horsetail Falls on the east.
+# Deeper N-S than Latourell because the falls demand vertical
+# context — Multnomah drops 620 ft from the Larch Mountain ridge down
+# to the highway and river below.
+#
+# Key features within bounds:
+# - Wahkeena Falls (multi-tier cascade, ~0.8 km west of Multnomah)
+# - Multnomah Falls (620-foot two-tier, the iconic landmark)
+# - Multnomah Falls Lodge (1925 stone, candidate first in-Valley hub —
+#   see DESIGN.md §3.4 `First in-Valley hub: TBD`)
+# - Benson Bridge (stone arch between the two tiers)
+# - Horsetail Falls (~1.6 km east, the smaller drop closing the corridor)
+# - Larch Mountain ridge system south of the falls (~1000 m peaks)
+# - Columbia River valley on the north edge
+#
+# Design intent (DESIGN.md §3.5, line 321): "the most reliable safe
+# house on the western edge" if promoted to first-hub status; "Water
+# falls upward on certain nights" (ambient hazard behavior manifestation at the
+# falls themselves).
+
+map_id = "multnomah"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 565500.0     # ~3.5 km east of Latourell's eastern edge
+origin_north = 5049500.0   # north edge just past the river
+extent_x = 7500.0          # Wahkeena → Horsetail corridor
+extent_z = 4500.0          # river on north → Larch Mtn ridge on south
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

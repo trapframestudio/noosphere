@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwt6nyhfawqb1"]
+
+[ext_resource type="Script" path="res://scripts/menus/settings_menu.gd" id="1_settings"]
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_settings")

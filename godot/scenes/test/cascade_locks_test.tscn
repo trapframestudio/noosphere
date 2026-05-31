@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://dgdwuxls62pvo"]
+
+[ext_resource type="Script" uid="uid://devl8p6gkhxhq" path="res://tools/imposter_baker.gd" id="21_wal4d"]
+[ext_resource type="Script" uid="uid://dl4chrysrg7aj" path="res://scripts/procedural_exclusion_zone.gd" id="26_y5x5b"]
+[ext_resource type="Script" uid="uid://bhvhc6sghvxf0" path="res://scripts/world/poi_marker.gd" id="28_n7bh3"]
+[ext_resource type="Resource" uid="uid://dpthrdw0ps7id" path="res://resources/foliage/biomes/bare.tres" id="biome_bare"]
+[ext_resource type="Resource" uid="uid://b5387rkr73ku2" path="res://resources/foliage/biomes/cropland.tres" id="biome_cropland"]
+[ext_resource type="Resource" uid="uid://cjbcn3fnqussk" path="res://resources/foliage/biomes/forest.tres" id="biome_forest"]
+[ext_resource type="Resource" uid="uid://dge8amyy57k13" path="res://resources/foliage/biomes/grassland.tres" id="biome_grassland"]
+[ext_resource type="Resource" uid="uid://dephbgcajft1o" path="res://resources/foliage/biomes/road.tres" id="biome_road"]
+[ext_resource type="Resource" uid="uid://b7lhu7qlc3q5p" path="res://resources/foliage/globals.tres" id="foliage_globals"]
+[ext_resource type="Script" uid="uid://dyhh0bs2ul4dq" path="res://scripts/foliage/biome_species_config.gd" id="gc_biome_script"]
+[ext_resource type="Script" uid="uid://0p203ja5ve5d" path="res://scripts/foliage/ground_cover.gd" id="gc_scatter_script"]
+[ext_resource type="PackedScene" uid="uid://c7ejb3yy8liwu" path="res://scenes/player.tscn" id="player_scene"]
+[ext_resource type="Script" uid="uid://bcavvgvidbyvm" path="res://scripts/procedural_root.gd" id="procedural_root_script"]
+[ext_resource type="Resource" path="res://resources/foliage/rocks/biome_bare_rocks.tres" id="rock_biome_bare"]
+[ext_resource type="Resource" uid="uid://dchnd66j24set" path="res://resources/foliage/rocks/biome_forest_rocks.tres" id="rock_biome_forest"]
+[ext_resource type="Resource" uid="uid://eldhn1kvk3ej" path="res://resources/foliage/rocks/biome_grassland_rocks.tres" id="rock_biome_grassland"]
+[ext_resource type="Script" uid="uid://brwrm6tv5oa1n" path="res://scripts/foliage/rock_biome_config.gd" id="rock_biome_script"]
+[ext_resource type="Script" uid="uid://1rjhisrfkcc0" path="res://scripts/foliage/rock_scatter.gd" id="rock_scatter_script"]
+[ext_resource type="Terrain3DAssets" uid="uid://dwfhggulfdg5q" path="res://resources/terrain/terrain3d_assets_pnw.tres" id="terrain3d_assets"]
+[ext_resource type="Script" uid="uid://bsq81abmb8swa" path="res://scripts/terrain/terrain3d_baker.gd" id="terrain3d_baker_script"]
+[ext_resource type="Terrain3DMaterial" uid="uid://b2ny6kp6lxwmp" path="res://resources/terrain/cascade_locks_material.tres" id="terrain3d_material"]
+[ext_resource type="Script" uid="uid://6vqrhah7lubv" path="res://scripts/foliage/trash_scatter.gd" id="trash_scatter_script"]
+[ext_resource type="Resource" uid="uid://dim5pyjdwnh6x" path="res://resources/foliage/trees/biome_forest_trees.tres" id="tree_biome_forest"]
+[ext_resource type="Resource" uid="uid://dmuwvrn1fcvoq" path="res://resources/foliage/trees/biome_grassland_trees.tres" id="tree_biome_grassland"]
+[ext_resource type="Script" uid="uid://d2afpxyvdw71w" path="res://scripts/foliage/tree_biome_config.gd" id="tree_biome_script"]
+[ext_resource type="Script" uid="uid://bd2m0kut588nq" path="res://scripts/foliage/tree_cluster_scatter.gd" id="tree_cluster_scatter_script"]
+[ext_resource type="Script" uid="uid://dafujoc1sfhtq" path="res://scripts/foliage/tree_coverage_baker.gd" id="tree_coverage_baker_script"]
+[ext_resource type="Script" uid="uid://cll3m4slcbut0" path="res://scripts/foliage/tree_scatter.gd" id="tree_scatter_script"]
+[ext_resource type="PackedScene" path="res://scenes/weather/weather_rig.tscn" id="weather_rig"]
+
+[sub_resource type="Environment" id="Environment_wal4d"]
+ambient_light_source = 1
+
+[sub_resource type="World3D" id="World3D_uy11b"]
+environment = SubResource("Environment_wal4d")
+
+[node name="CascadeLocksTest" type="Node3D" unique_id=1292421404]
+
+[node name="WeatherRig" parent="." unique_id=202514782 instance=ExtResource("weather_rig")]
+editor_preview = true
+grade_temperature = 0.6000000000000001
+grade_tint = -0.25
+grade_lift_color = Color(0.40379298, 0.2189587, 0.092173345, 1)
+grade_lift_amount = 0.01
+grade_gamma_color = Color(0, 0.40869445, 0.13074592, 1)
+grade_gamma_amount = 0.1
+grade_gain_color = Color(0.8247017, 0.29676732, 0.31155524, 1)
+grade_gain_amount = 0.05
+grade_vignette_intensity = 0.45
+grade_vignette_radius = 1.0
+grade_vignette_softness = 1.0
+
+[node name="Sun" parent="WeatherRig" index="1"]
+transform = Transform3D(0.707, -0.7070533, -3.0906286e-08, 0, -4.370808e-08, 0.9999245, -0.707, -0.7070533, -3.0906286e-08, 0, 50, 0)
+light_color = Color(1, 0.96, 0.88, 1)
+light_energy = 1.0
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.08
+directional_shadow_split_2 = 0.22
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 80.0
+
+[node name="Moon" parent="WeatherRig" index="2"]
+transform = Transform3D(0.707, 0.35352668, -0.61232615, 0, 0.86596, 0.4999622, 0.707, -0.35352668, 0.61232615, 0, 50, 0)
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=98243644]
+data_directory = "res://assets/terrain/cascade_locks/terrain3d/"
+material = ExtResource("terrain3d_material")
+assets = ExtResource("terrain3d_assets")
+vertex_spacing = 2.0
+top_level = true
+script = ExtResource("terrain3d_baker_script")
+bake_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=829364040 instance=ExtResource("player_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2734.3745, 105.67329, -969.1599)
+
+[node name="Procedural" type="Node3D" parent="." unique_id=2010101010]
+script = ExtResource("procedural_root_script")
+add_zone_ground_cover_mul = 0.5
+
+[node name="Vegetation" type="Node3D" parent="Procedural" unique_id=2010101011]
+
+[node name="GroundCover" type="Node3D" parent="Procedural/Vegetation" unique_id=629957911]
+
+[node name="GroundCoverScatter" type="Node3D" parent="Procedural/Vegetation/GroundCover" unique_id=2083324165]
+script = ExtResource("gc_scatter_script")
+terrain3d_path = NodePath("../../../../Terrain3D")
+biome_configs = Array[ExtResource("gc_biome_script")]([ExtResource("biome_forest"), ExtResource("biome_grassland"), ExtResource("biome_cropland"), ExtResource("biome_bare"), ExtResource("biome_road")])
+globals = ExtResource("foliage_globals")
+tile_size_m = 24.0
+active_radius_m = 150.0
+rebuild_threshold_m = 12.0
+species_clumping = 0.25
+species_clumping_freq = 0.06
+road_clearance_radius_m = 18.0
+road_clearance_strength = 0.55
+cache_version = 3
+editor_preview = true
+
+[node name="Trees" type="Node3D" parent="Procedural/Vegetation" unique_id=489696143]
+
+[node name="TreeScatter" type="Node3D" parent="Procedural/Vegetation/Trees" unique_id=-1147113075]
+script = ExtResource("tree_scatter_script")
+terrain3d_path = NodePath("../../../../Terrain3D")
+biome_configs = Array[ExtResource("tree_biome_script")]([ExtResource("tree_biome_forest"), ExtResource("tree_biome_grassland")])
+globals = ExtResource("foliage_globals")
+tile_size_m = 128.0
+placements_per_tile_cap = 1024
+active_radius_m = 900.0
+rebuild_threshold_m = 64.0
+close_tier_brightness = 0.5
+extra_leaf_hue_shift = -0.2
+extra_leaf_value_mul = 0.6
+shadow_radius_m = 250.0
+lod_band_ends_m = PackedFloat32Array(220, 500, 850)
+lod_band_fade_m = 100.0
+road_clearance_radius_m = 40.0
+road_clearance_strength = 0.95
+cache_version = 2
+prebake_radius_m = 960.0
+editor_preview = true
+
+[node name="DistantTrees" type="Node3D" parent="Procedural/Vegetation" unique_id=1449650013]
+
+[node name="TreeCoverageBaker" type="Node3D" parent="Procedural/Vegetation/DistantTrees" unique_id=1811155496]
+script = ExtResource("tree_coverage_baker_script")
+terrain3d_path = NodePath("../../../../Terrain3D")
+biome_configs = Array[ExtResource("tree_biome_script")]([ExtResource("tree_biome_forest"), ExtResource("tree_biome_grassland")])
+terrain_material = ExtResource("terrain3d_material")
+
+[node name="TreeClusterScatter" type="Node3D" parent="Procedural/Vegetation/DistantTrees" unique_id=1343883648]
+script = ExtResource("tree_cluster_scatter_script")
+terrain3d_path = NodePath("../../../../Terrain3D")
+impostor_texture_paths = Array[String](["res://assets/textures/foliage/pine_p3d_mature_lush_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_mature_twiggy_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_mature_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_medium_lush_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_medium_twiggy_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_small_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_young_impostor_albedo.png", "res://assets/textures/foliage/pine_p3d_sapling_impostor_albedo.png", "res://assets/textures/foliage/pine_cg_large_impostor_albedo.png", "res://assets/textures/foliage/pine_cg_medium_impostor_albedo.png", "res://assets/textures/foliage/pine_cg_small_impostor_albedo.png", "res://assets/textures/foliage/doug_fir_large_impostor_albedo.png", "res://assets/textures/foliage/doug_fir_medium_impostor_albedo.png", "res://assets/textures/foliage/doug_fir_small_impostor_albedo.png"])
+grid_m = 26.0
+density_threshold = 0.005
+coverage_density_strength = 5.5
+trees_per_cell = 9
+jitter_radius_mul = 3.5
+scale_jitter = 0.55
+card_width_m = 14.0
+card_height_m = 35.0
+ground_embed_fraction = 0.4
+min_distance_m = 800.0
+max_distance_m = 4000.0
+leaf_hue_shift = 0.06
+leaf_saturation_mul = 1.1
+leaf_value_mul = 0.9
+distant_brightness = 1.3
+
+[node name="ImposterBaker" type="Node3D" parent="Procedural/Vegetation/DistantTrees" unique_id=674807647]
+script = ExtResource("21_wal4d")
+
+[node name="BakeViewport" type="SubViewport" parent="Procedural/Vegetation/DistantTrees/ImposterBaker" unique_id=1316437361]
+world_3d = SubResource("World3D_uy11b")
+transparent_bg = true
+msaa_3d = 2
+size = Vector2i(512, 1024)
+render_target_update_mode = 1
+
+[node name="BakeCamera" type="Camera3D" parent="Procedural/Vegetation/DistantTrees/ImposterBaker/BakeViewport" unique_id=1868983692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.052330494, 0.76499486, 23.288078)
+projection = 1
+current = true
+size = 3.4049587
+near = 0.1
+far = 56.485634
+
+[node name="TreeRoot" type="Node3D" parent="Procedural/Vegetation/DistantTrees/ImposterBaker/BakeViewport" unique_id=1692923972]
+
+[node name="Trash" type="Node3D" parent="Procedural" unique_id=2010101015]
+
+[node name="TrashScatter" type="Node3D" parent="Procedural/Trash" unique_id=2010101016]
+script = ExtResource("trash_scatter_script")
+seed = 42
+density_multiplier = 0.0625
+species_paths = Array[String](["res://resources/foliage/trash/bottle_glass_standing.tres", "res://resources/foliage/trash/bottle_glass_lying.tres", "res://resources/foliage/trash/bottle_glass_crushed.tres", "res://resources/foliage/trash/bottle_plastic_lying.tres", "res://resources/foliage/trash/bottle_plastic_crushed.tres", "res://resources/foliage/trash/can_soda.tres", "res://resources/foliage/trash/can_soda_500ml.tres", "res://resources/foliage/trash/can_soda_crushed.tres", "res://resources/foliage/trash/can_food_damaged.tres", "res://resources/foliage/trash/can_food_rusty.tres", "res://resources/foliage/trash/mask_covid.tres", "res://resources/foliage/trash/paper_crumple_a.tres", "res://resources/foliage/trash/paper_crumple_b.tres", "res://resources/foliage/trash/paper_flat.tres", "res://resources/foliage/trash/flipflop.tres", "res://resources/foliage/trash/cigaret_butt.tres", "res://resources/foliage/trash/cigaret_ash.tres", "res://resources/foliage/trash/tinfoil_ball.tres", "res://resources/foliage/trash/chips_bag.tres", "res://resources/foliage/trash/coffee_cup.tres", "res://resources/foliage/trash/matchbox.tres", "res://resources/foliage/trash/cigaret_b.tres", "res://resources/foliage/trash/cigaret_d.tres", "res://resources/foliage/trash/cigaret_e.tres", "res://resources/foliage/trash/cigaret_f.tres", "res://resources/foliage/trash/cigaret_p.tres", "res://resources/foliage/trash/cigaret_x.tres", "res://resources/foliage/trash/cigaret_y.tres", "res://resources/foliage/trash/cigaret_ash_a.tres", "res://resources/foliage/trash/cigaret_ash_b.tres", "res://resources/foliage/trash/joint_e.tres", "res://resources/foliage/trash/joint_f.tres", "res://resources/foliage/trash/joint_g.tres", "res://resources/foliage/trash/joint_ash_a.tres", "res://resources/foliage/trash/joint_ash_b.tres", "res://resources/foliage/trash/cigar_b.tres", "res://resources/foliage/trash/cigar_c.tres", "res://resources/foliage/trash/cigar_ash_a.tres", "res://resources/foliage/trash/cigar_ash_b.tres", "res://resources/foliage/trash/blunt_d.tres", "res://resources/foliage/trash/blunt_ash_a.tres", "res://resources/foliage/trash/blunt_ash_b.tres", "res://resources/foliage/trash/bottle_a_c_lying.tres", "res://resources/foliage/trash/bottle_a_e_crushed.tres", "res://resources/foliage/trash/bottle_b_standing.tres", "res://resources/foliage/trash/bottle_b_lying.tres", "res://resources/foliage/trash/bottle_b_crushed.tres", "res://resources/foliage/trash/bottle_c_standing.tres", "res://resources/foliage/trash/bottle_c_lying_b.tres", "res://resources/foliage/trash/bottle_d_standing.tres", "res://resources/foliage/trash/bottle_d_lying.tres", "res://resources/foliage/trash/bottle_d_crushed.tres", "res://resources/foliage/trash/bottle_e_standing.tres", "res://resources/foliage/trash/bottle_e_lying.tres", "res://resources/foliage/trash/bottle_e_crushed.tres", "res://resources/foliage/trash/can_beverage_damaged_02.tres", "res://resources/foliage/trash/can_beverage_damaged_03.tres", "res://resources/foliage/trash/can_beverage_undamaged_b.tres", "res://resources/foliage/trash/can_food_damaged_blank.tres", "res://resources/foliage/trash/can_food_damaged_lablec.tres", "res://resources/foliage/trash/can_food_heavydamaged_blank.tres", "res://resources/foliage/trash/can_food_undamaged_lablea.tres", "res://resources/foliage/trash/can_food_undamaged_labelb.tres", "res://resources/foliage/trash/apple_a.tres", "res://resources/foliage/trash/apple_b.tres", "res://resources/foliage/trash/banana_a.tres", "res://resources/foliage/trash/banana_b.tres", "res://resources/foliage/trash/bottle_broken_a.tres", "res://resources/foliage/trash/bottle_broken_b.tres", "res://resources/foliage/trash/bottle_broken_c.tres", "res://resources/foliage/trash/drink_a.tres", "res://resources/foliage/trash/flipflop_b.tres", "res://resources/foliage/trash/matchbox_b.tres", "res://resources/foliage/trash/tinfoil_b.tres", "res://resources/foliage/trash/coffee_cup_b.tres", "res://resources/foliage/trash/coffee_cup_c.tres", "res://resources/foliage/trash/chips_bag_b.tres", "res://resources/foliage/trash/paper_crumple_c.tres", "res://resources/foliage/trash/paper_crumple_e.tres", "res://resources/foliage/trash/paper_cumplecol_a.tres", "res://resources/foliage/trash/paper_cumplecol_b.tres", "res://resources/foliage/trash/paper_cumplecol_c.tres", "res://resources/foliage/trash/paper_flat_b.tres", "res://resources/foliage/trash/paper_flat_c.tres"])
+cache_version = 31
+editor_preview = true
+
+[node name="Rocks" type="Node3D" parent="Procedural" unique_id=2010101012]
+
+[node name="RockScatter" type="Node3D" parent="Procedural/Rocks" unique_id=2010101013]
+script = ExtResource("rock_scatter_script")
+terrain3d_path = NodePath("../../../Terrain3D")
+biome_configs = Array[ExtResource("rock_biome_script")]([ExtResource("rock_biome_forest"), ExtResource("rock_biome_grassland"), ExtResource("rock_biome_bare")])
+placements_per_tile_cap = 1024
+lod_band_ends_m = PackedFloat32Array(40, 90)
+cache_version = 13
+editor_preview = true
+
+[node name="Exclusions" type="Node3D" parent="Procedural" unique_id=1761065407]
+visible = false
+
+[node name="MountainFortress" type="Node3D" parent="Procedural/Exclusions" unique_id=2113052270]
+transform = Transform3D(600, 0, 0, 0, 450.33777, 0, 0, 0, 600, -989.19495, 252.5262, -307.73093)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.05
+trash_density_mul = 0.3
+zone_name = "MountainFortress"
+
+[node name="Outpost1" type="Node3D" parent="Procedural/Exclusions" unique_id=238694074]
+transform = Transform3D(160, 0, 0, 0, 333.6878, 0, 0, 0, 160, -31.656792, 363.89822, -1275.2755)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.05
+trash_density_mul = 0.5
+zone_name = "Outpost1"
+
+[node name="Outpost2" type="Node3D" parent="Procedural/Exclusions" unique_id=1307075887]
+transform = Transform3D(60, 0, 0, 0, 105.449165, 0, 0, 0, 60, -2133.2004, 188.45248, -915.4126)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.2
+zone_name = "Outpost2"
+
+[node name="Campsite1" type="Node3D" parent="Procedural/Exclusions" unique_id=772937359]
+transform = Transform3D(207.90172, 0, 0, 0, 116.54658, 0, 0, 0, 241.2653, 1455.9097, 330.7488, -1790.0122)
+script = ExtResource("26_y5x5b")
+tree_density_mul = 0.05
+rock_density_mul = 0.05
+ground_cover_density_mul = 0.1
+trash_density_mul = 0.7
+zone_name = "Camp1"
+
+[node name="Campsite2" type="Node3D" parent="Procedural/Exclusions" unique_id=631115779]
+transform = Transform3D(100, 0, 0, 0, 141.74106, 0, 0, 0, 100, 360.12653, 268.44977, -1412.9987)
+script = ExtResource("26_y5x5b")
+tree_density_mul = 0.05
+rock_density_mul = 0.05
+ground_cover_density_mul = 0.15
+trash_density_mul = 0.5
+zone_name = "Camp2"
+
+[node name="Campsite3" type="Node3D" parent="Procedural/Exclusions" unique_id=41342438]
+transform = Transform3D(59.82636, 0.02386592, -3.968845, -0.017034657, 80.628975, 0.011354843, 3.9641724, -0.013703688, 59.896923, -1781.9172, 245.76619, -375.4457)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.2
+trash_density_mul = 1.0
+zone_name = "Campsite3"
+
+[node name="Campsite4" type="Node3D" parent="Procedural/Exclusions" unique_id=1989938048]
+transform = Transform3D(112.490776, 0, 0, 0, 116.705475, 0, 0, 0, 105.742195, -1719.5747, 174.84987, -716.5704)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.2
+trash_density_mul = 0.5
+zone_name = "Campsite4"
+
+[node name="PoiMarker3D" type="Node3D" parent="Procedural/Exclusions/Campsite4" unique_id=535263140]
+script = ExtResource("28_n7bh3")
+poi_id = "cl_campsite_4"
+kind = 5
+contested = true
+contest_tier = 4
+show_debug_visual = false
+metadata/_custom_type_script = "uid://bhvhc6sghvxf0"
+
+[node name="Campsite5" type="Node3D" parent="Procedural/Exclusions" unique_id=905785810]
+transform = Transform3D(93.13905, 0, 0, 0, 124.826195, 0, 0, 0, 85.77058, -498.40872, 243.8046, -1181.0658)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.2
+trash_density_mul = 0.4
+zone_name = "Campsite5"
+
+[node name="PoiMarker3D" type="Node3D" parent="Procedural/Exclusions/Campsite5" unique_id=406234150]
+script = ExtResource("28_n7bh3")
+poi_id = "Campsite5"
+kind = 5
+contested = true
+contest_tier = 2
+show_debug_visual = false
+metadata/_custom_type_script = "uid://bhvhc6sghvxf0"
+
+[node name="Town" type="Node3D" parent="Procedural/Exclusions" unique_id=262905151]
+transform = Transform3D(1786.2983, 0, 593.58386, 0, 226.44482, 0, -1508.2573, 0, 703.0088, -2410.0806, 63.649353, -1575.5297)
+script = ExtResource("26_y5x5b")
+shape = 1
+ground_cover_density_mul = 0.1
+trash_density_mul = 5.0
+zone_name = "Town"
+
+[node name="Cabins1" type="Node3D" parent="Procedural/Exclusions" unique_id=607081620]
+transform = Transform3D(233.15706, 0, 0, 0, 210.34613, 0, 0, 0, 388.25177, -2797.3677, 159.56033, 8.169731)
+script = ExtResource("26_y5x5b")
+shape = 1
+ground_cover_density_mul = 0.1
+trash_density_mul = 0.5
+zone_name = "Cabins1"
+
+[node name="Cabin1" type="Node3D" parent="Procedural/Exclusions" unique_id=286524637]
+transform = Transform3D(79.489, 0, 0, 0, 113.276054, 0, 0, 0, 80.62855, -1535.1812, 105.65031, -1163.4071)
+script = ExtResource("26_y5x5b")
+ground_cover_density_mul = 0.5
+zone_name = "Cabin1"
+
+[node name="Homestead1" type="Node3D" parent="Procedural/Exclusions" unique_id=420570195]
+transform = Transform3D(185.6919, 0, 0, 0, 114.33678, 0, 0, 0, 232.84212, -1054.1421, 109.27559, -1633.6176)
+script = ExtResource("26_y5x5b")
+shape = 1
+tree_density_mul = 0.05
+rock_density_mul = 0.05
+ground_cover_density_mul = 0.25
+trash_density_mul = 0.1
+zone_name = "Homestead1"
+
+[editable path="WeatherRig"]

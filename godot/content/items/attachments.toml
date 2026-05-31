@@ -1,0 +1,93 @@
+# Phase 4C — weapon attachments (slot-tag graph, data only).
+#
+# Each item with an `attachment_config` block declares which mount
+# surface tag it `consumes_tag`s and which new tag(s) it
+# `provides_tags`. The chain validator (`validate_attachment_chain`
+# in `src/items.rs`) walks the chain in order; the first failure
+# stops the resolve. See `docs/book/src/planning/weapons-plan.md`
+# §3 for the model + starter tag vocabulary.
+#
+# Phase 4C ships a small canonical set sufficient to exercise:
+#   - a direct mount (PSO-1 on AK side rail)
+#   - a 2-stage chain (dovetail → picatinny → red-dot)
+#   - a muzzle device (PBS-1 suppressor on 14×1 LH thread)
+#
+# Stat effects on these entries are forward-looking authoring —
+# the sim doesn't consume them yet. Phase 5 (the UI + sim
+# integration slice) wires effects through `EquippedWeaponState`.
+
+[[items]]
+id = "att_pso1_scope"
+name = "PSO-1 4× Scope"
+category = "attachment"
+weight = 0.58
+stack_size = 1
+size = { w = 2, h = 2 }
+[items.attachment_config]
+consumes_tag = "dovetail_side"
+provides_tags = []
+[items.attachment_config.effects]
+zoom = 4.0
+ergonomics = -2.0
+recoil_control = 1.0
+
+[[items]]
+id = "att_ak_dovetail_picatinny"
+name = "AK Dovetail→Picatinny Adapter"
+category = "attachment"
+weight = 0.18
+stack_size = 1
+size = { w = 1, h = 1 }
+[items.attachment_config]
+consumes_tag = "dovetail_side"
+provides_tags = ["picatinny"]
+[items.attachment_config.effects]
+ergonomics = -1.0
+
+[[items]]
+id = "att_aimpoint_compm4"
+name = "Aimpoint CompM4 Red Dot"
+category = "attachment"
+weight = 0.27
+stack_size = 1
+size = { w = 1, h = 1 }
+[items.attachment_config]
+consumes_tag = "picatinny"
+provides_tags = []
+[items.attachment_config.effects]
+zoom = 1.0
+ergonomics = 2.0
+recoil_control = 2.0
+
+[[items]]
+id = "att_pbs1_suppressor"
+name = "PBS-1 Suppressor (5.45)"
+category = "attachment"
+weight = 0.60
+stack_size = 1
+size = { w = 1, h = 2 }
+[items.attachment_config]
+consumes_tag = "threaded_14x1_lh"
+provides_tags = []
+[items.attachment_config.effects]
+sound_signature = -0.6
+muzzle_flash = -0.9
+barrel_wear_mult = 1.4
+gas_system_wear_mult = 1.5
+
+[[items]]
+id = "att_ultimak_rail"
+name = "Ultimak AK Gas Tube Rail"
+category = "attachment"
+weight = 0.31
+stack_size = 1
+size = { w = 1, h = 2 }
+[items.attachment_config]
+# Replaces the stock top handguard with a Picatinny rail mount,
+# preserving the gas tube. Provides a co-witnessable optics
+# surface that doesn't depend on the side-rail dovetail.
+consumes_tag = "ak_handguard"
+provides_tags = ["picatinny"]
+[items.attachment_config.effects]
+ergonomics = -1.0
+heat_dissipation = -0.5

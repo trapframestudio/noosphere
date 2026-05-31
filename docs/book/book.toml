@@ -1,0 +1,13 @@
+[book]
+title = "Noosphere Developer Guide"
+authors = ["Noosphere Contributors"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "../../target/book"
+
+[output.html]
+default-theme = "coal"
+preferred-dark-theme = "coal"
+git-repository-url = "https://github.com/noosphere/noosphere"

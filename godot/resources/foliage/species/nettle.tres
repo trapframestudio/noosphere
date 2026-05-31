@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://c8i4gjm776vxm"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: nettle"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_1k/nettle_plant_1k.gltf/nettle_plant_1k.gltf"
+albedo_modulation = Color(1.1450, 0.9835, 0.7359, 1)

@@ -1,0 +1,48 @@
+# Bake spec for the Hanford Spur — endgame outdoor map at the south
+# edge of the Hanford Reservation in south-central Washington.
+#
+# DESIGN.md §3.5: "A decommissioned 1980s DOE tunnel segment,
+# officially abandoned when a cancelled 1980s federal program was cancelled in 1988, unofficially
+# rebuilt by Citizen in the 1990s as a lateral communication
+# corridor between the Complex and Umatilla Depot. Partially
+# collapsed; accessible in stretches."
+#
+# The Hanford Spur's above-ground manifestation is a portal complex
+# at the south edge of the Hanford Reservation — plausibly near the
+# 300 Area or a decommissioned burial ground. For gameplay, this
+# map sits north of Umatilla across the Columbia (bridge crossing
+# or ferry abstracted), surfacing the tunnel terminus in dry country.
+#
+# Geographic character: Columbia Basin shrub-steppe, essentially
+# treeless, sagebrush, scattered basalt outcrops. The Hanford
+# Reach is the last free-flowing stretch of the Columbia; the
+# surrounding landscape is flat to gently rolling, with Rattlesnake
+# Mountain rising to 1060 m on the SW flank (outside these bounds).
+#
+# Key features within bounds:
+# - Decommissioned burial ground outline (surface depression + fence)
+# - Tunnel portal complex (collapsed entry + recent excavation)
+# - Access road network (gravel service roads + perimeter patrol)
+# - Dry rangeland buffer (open-sight approach terrain)
+# - Basalt outcrop cluster on east edge (cover positions)
+
+map_id = "hanford_spur"
+
+[bounds]
+utm_zone = "11N"
+origin_east = 295000.0     # ~lon -119.61°
+origin_north = 5118000.0   # ~lat 46.20° (south edge of Hanford Site)
+extent_x = 7000.0          # 295000 → 302000 E (to ~lon -119.52°)
+extent_z = 6000.0          # 5118000 → 5112000 N (to ~lat 46.14°)
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W120"
+
+[osm]
+roads = true

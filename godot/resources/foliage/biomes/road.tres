@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BiomeSpeciesConfig" format=3 uid="uid://dephbgcajft1o"]
+
+[ext_resource type="Script" uid="uid://dyhh0bs2ul4dq" path="res://scripts/foliage/biome_species_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Road biome (trail-side scrub)"
+script = ExtResource("1_script")
+biome = 4
+plants_per_sq_m = 0.4
+species_paths = Array[String](["res://resources/foliage/species/wild_grass_fab.tres", "res://resources/foliage/species/curbside_weeds.tres", "res://resources/foliage/species/common_hemp_nettle.tres", "res://resources/foliage/species/dandelion.tres", "res://resources/foliage/species/nettle.tres", "res://resources/foliage/species/weed_02.tres", "res://resources/foliage/species/periwinkle.tres", "res://resources/foliage/species/grass_pack_small_1.tres", "res://resources/foliage/species/grass_pack_small_2.tres", "res://resources/foliage/species/grass_pack_small_3.tres", "res://resources/foliage/species/ump_grass.tres", "res://resources/foliage/species/ump_flower_01_v1.tres", "res://resources/foliage/species/ump_flower_03.tres", "res://resources/foliage/species/ump_flower_04.tres", "res://resources/foliage/species/np_flowergrass03.tres", "res://resources/foliage/species/np_flowergrass04.tres"])
+species_densities = PackedFloat32Array(0.06, 0.04, 0.02, 0.08, 0.05, 0.06, 0.03, 0.03, 0.03, 0.03, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04)

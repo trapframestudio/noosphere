@@ -1,0 +1,17 @@
+format_version = 2
+map_id = "test_map_1"
+width = 1250
+height = 1250
+spacing_m = 4.0
+vert_min_m = 0.0
+vert_max_m = 158.05838012695313
+origin_utm_zone = "10N"
+origin_utm_easting = 0.0
+origin_utm_northing = 0.0
+blake3 = "fa4bff15e0d0a1b3969f4ee998a152e094f2e4b257e36404cfd40d7de3de9f07"
+features_blake3 = ""
+region_size_m = 2048.0
+playable_extent_x_m = 0.0
+playable_extent_z_m = 0.0
+nav_mask_format_version = 0
+nav_mask_blake3 = ""

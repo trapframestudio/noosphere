@@ -1,0 +1,1309 @@
+# Ammo — loose rounds; reload pulls these to fill magazines.
+# Phase 2: each round carries its ballistic + terminal profile
+# (mass, muzzle velocity, drag, penetration, soft/blunt damage,
+# reference energy for range falloff). The 9x18 / 5.45x39 entries
+# keep their phase-1 ids — these are the FMJ-equivalent of each
+# caliber. Hollow-point and AP variants land as new ids below.
+[[items]]
+id = "round_9x18"
+name = "9×18 Makarov FMJ"
+category = "ammo"
+weight = 0.006
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+caliber = "9x18"
+caliber_class = "pistol"
+mass_g = 6.0
+muzzle_velocity_mps = 315.0
+drag_k = 0.0011
+penetration_class = 1
+damage_soft = 22.0
+damage_blunt = 10.0
+reference_energy_j = 297.0
+[[items]]
+id = "round_9x18_hp"
+name = "9×18 Hollow Point"
+category = "ammo"
+weight = 0.006
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+variant = "hp"
+caliber = "9x18"
+caliber_class = "pistol"
+mass_g = 6.1
+muzzle_velocity_mps = 298.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 30.0
+damage_blunt = 8.0
+reference_energy_j = 270.0
+[[items]]
+id = "round_9x18_ap"
+name = "9×18 AP"
+category = "ammo"
+weight = 0.006
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+variant = "ap"
+caliber = "9x18"
+caliber_class = "pistol"
+mass_g = 5.4
+muzzle_velocity_mps = 420.0
+drag_k = 0.0009
+penetration_class = 3
+damage_soft = 15.0
+damage_blunt = 9.0
+reference_energy_j = 475.0
+[[items]]
+id = "round_5_45x39"
+name = "5.45×39 FMJ"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+caliber = "5.45x39"
+caliber_class = "intermediate"
+mass_g = 3.4
+muzzle_velocity_mps = 880.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 38.0
+damage_blunt = 15.0
+reference_energy_j = 1316.0
+[[items]]
+id = "round_5_45x39_hp"
+name = "5.45×39 Hollow Point"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+variant = "hp"
+caliber = "5.45x39"
+caliber_class = "intermediate"
+mass_g = 3.8
+muzzle_velocity_mps = 880.0
+drag_k = 0.0007
+penetration_class = 1
+damage_soft = 55.0
+damage_blunt = 12.0
+reference_energy_j = 1472.0
+[[items]]
+id = "round_5_45x39_ap"
+name = "5.45×39 AP (7N24)"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+variant = "ap"
+caliber = "5.45x39"
+caliber_class = "intermediate"
+mass_g = 3.6
+muzzle_velocity_mps = 890.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 32.0
+damage_blunt = 14.0
+reference_energy_j = 1425.0
+[[items]]
+id = "round_12ga_buckshot"
+name = "12ga Buckshot"
+category = "ammo"
+weight = 0.045
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+caliber = "12ga"
+caliber_class = "shotgun"
+mass_g = 32.0
+muzzle_velocity_mps = 380.0
+drag_k = 0.0042
+penetration_class = 0
+damage_soft = 60.0
+damage_blunt = 18.0
+reference_energy_j = 2310.0
+[[items]]
+id = "round_12ga_slug"
+name = "12ga Slug"
+category = "ammo"
+weight = 0.055
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+caliber = "12ga"
+caliber_class = "shotgun"
+mass_g = 28.0
+muzzle_velocity_mps = 450.0
+drag_k = 0.0022
+penetration_class = 2
+damage_soft = 75.0
+damage_blunt = 22.0
+reference_energy_j = 2835.0
+[[items]]
+id = "round_12ga_flechette"
+name = "12ga Flechette"
+category = "ammo"
+weight = 0.040
+stack_size = 9999
+size = { w = 1, h = 1 }
+
+[items.ammo_config]
+variant = "ap"
+caliber = "12ga"
+caliber_class = "shotgun"
+mass_g = 20.0
+muzzle_velocity_mps = 550.0
+drag_k = 0.0016
+penetration_class = 3
+damage_soft = 35.0
+damage_blunt = 10.0
+reference_energy_j = 3025.0
+
+
+# ===============================================================
+# Example roster. Real-world calibers + variants for the
+# example setting. Velocities calibrated to factory load
+# tables (m/s); mass in grams; reference_energy_j = ½ × mass_kg ×
+# velocity². Penetration_class is 0 (HP/JHP), 1-2 (FMJ pistol),
+# 2-3 (FMJ rifle), 3-4 (AP), 5-6 (anti-materiel AP-I).
+# ===============================================================
+
+# ---------- Pistol ----------
+[[items]]
+id = "round_9x19"
+name = "9×19 Parabellum FMJ"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "9x19"
+caliber_class = "pistol"
+mass_g = 8.0
+muzzle_velocity_mps = 380.0
+drag_k = 0.0011
+penetration_class = 1
+damage_soft = 28.0
+damage_blunt = 12.0
+reference_energy_j = 578.0
+[[items]]
+id = "round_9x19_jhp"
+name = "9×19 JHP"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = "9x19"
+caliber_class = "pistol"
+mass_g = 8.0
+muzzle_velocity_mps = 360.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 38.0
+damage_blunt = 10.0
+reference_energy_j = 518.0
+[[items]]
+id = "round_9x19_7n21"
+name = "9×19 7N21 AP"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "9x19"
+caliber_class = "pistol"
+mass_g = 5.4
+muzzle_velocity_mps = 480.0
+drag_k = 0.0009
+penetration_class = 3
+damage_soft = 22.0
+damage_blunt = 11.0
+reference_energy_j = 622.0
+[[items]]
+id = "round_9x21"
+name = "9×21 Gyurza FMJ"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "9x21"
+caliber_class = "pistol"
+mass_g = 7.5
+muzzle_velocity_mps = 410.0
+drag_k = 0.0010
+penetration_class = 2
+damage_soft = 30.0
+damage_blunt = 12.0
+reference_energy_j = 631.0
+[[items]]
+id = "round_9x21_sp10"
+name = "9×21 SP-10 AP"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "9x21"
+caliber_class = "pistol"
+mass_g = 6.7
+muzzle_velocity_mps = 425.0
+drag_k = 0.0009
+penetration_class = 4
+damage_soft = 24.0
+damage_blunt = 12.0
+reference_energy_j = 605.0
+[[items]]
+id = "round_762x25"
+name = "7.62×25 Tokarev FMJ"
+category = "ammo"
+weight = 0.010
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "7.62x25"
+caliber_class = "pistol"
+mass_g = 5.5
+muzzle_velocity_mps = 430.0
+drag_k = 0.0009
+penetration_class = 2
+damage_soft = 25.0
+damage_blunt = 11.0
+reference_energy_j = 508.0
+[[items]]
+id = "round_762x25_ap"
+name = "7.62×25 P-41 AP"
+category = "ammo"
+weight = 0.010
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "7.62x25"
+caliber_class = "pistol"
+mass_g = 5.5
+muzzle_velocity_mps = 470.0
+drag_k = 0.0008
+penetration_class = 3
+damage_soft = 22.0
+damage_blunt = 11.0
+reference_energy_j = 607.0
+[[items]]
+id = "round_45acp"
+name = ".45 ACP FMJ"
+category = "ammo"
+weight = 0.018
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".45acp"
+caliber_class = "pistol"
+mass_g = 14.9
+muzzle_velocity_mps = 270.0
+drag_k = 0.0013
+penetration_class = 1
+damage_soft = 36.0
+damage_blunt = 16.0
+reference_energy_j = 543.0
+[[items]]
+id = "round_45acp_jhp"
+name = ".45 ACP JHP"
+category = "ammo"
+weight = 0.018
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".45acp"
+caliber_class = "pistol"
+mass_g = 14.9
+muzzle_velocity_mps = 260.0
+drag_k = 0.0016
+penetration_class = 0
+damage_soft = 48.0
+damage_blunt = 14.0
+reference_energy_j = 503.0
+[[items]]
+id = "round_45acp_p"
+name = ".45 ACP +P AP"
+category = "ammo"
+weight = 0.018
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "overpressure"
+caliber = ".45acp"
+caliber_class = "pistol"
+mass_g = 12.0
+muzzle_velocity_mps = 320.0
+drag_k = 0.0011
+penetration_class = 3
+damage_soft = 30.0
+damage_blunt = 14.0
+reference_energy_j = 614.0
+[[items]]
+id = "round_357mag"
+name = ".357 Magnum FMJ"
+category = "ammo"
+weight = 0.016
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".357mag"
+caliber_class = "pistol"
+mass_g = 10.2
+muzzle_velocity_mps = 425.0
+drag_k = 0.0010
+penetration_class = 2
+damage_soft = 42.0
+damage_blunt = 16.0
+reference_energy_j = 921.0
+[[items]]
+id = "round_357mag_jhp"
+name = ".357 Magnum JHP"
+category = "ammo"
+weight = 0.016
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".357mag"
+caliber_class = "pistol"
+mass_g = 10.2
+muzzle_velocity_mps = 410.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 55.0
+damage_blunt = 14.0
+reference_energy_j = 857.0
+[[items]]
+id = "round_44mag"
+name = ".44 Magnum FMJ"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".44mag"
+caliber_class = "pistol"
+mass_g = 15.6
+muzzle_velocity_mps = 430.0
+drag_k = 0.0010
+penetration_class = 2
+damage_soft = 56.0
+damage_blunt = 22.0
+reference_energy_j = 1442.0
+[[items]]
+id = "round_44mag_jhp"
+name = ".44 Magnum JHP"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".44mag"
+caliber_class = "pistol"
+mass_g = 15.6
+muzzle_velocity_mps = 410.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 75.0
+damage_blunt = 18.0
+reference_energy_j = 1311.0
+[[items]]
+id = "round_50ae"
+name = ".50 AE FMJ"
+category = "ammo"
+weight = 0.030
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".50ae"
+caliber_class = "pistol"
+mass_g = 19.4
+muzzle_velocity_mps = 470.0
+drag_k = 0.0010
+penetration_class = 3
+damage_soft = 70.0
+damage_blunt = 28.0
+reference_energy_j = 2143.0
+[[items]]
+id = "round_50ae_jhp"
+name = ".50 AE JHP"
+category = "ammo"
+weight = 0.030
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".50ae"
+caliber_class = "pistol"
+mass_g = 19.4
+muzzle_velocity_mps = 460.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 95.0
+damage_blunt = 22.0
+reference_energy_j = 2052.0
+[[items]]
+id = "round_22lr"
+name = ".22 LR Standard"
+category = "ammo"
+weight = 0.003
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".22lr"
+caliber_class = "pistol"
+mass_g = 2.6
+muzzle_velocity_mps = 320.0
+drag_k = 0.0014
+penetration_class = 0
+damage_soft = 12.0
+damage_blunt = 5.0
+reference_energy_j = 133.0
+[[items]]
+id = "round_22lr_hp"
+name = ".22 LR Hollow Point"
+category = "ammo"
+weight = 0.003
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".22lr"
+caliber_class = "pistol"
+mass_g = 2.6
+muzzle_velocity_mps = 310.0
+drag_k = 0.0017
+penetration_class = 0
+damage_soft = 16.0
+damage_blunt = 4.0
+reference_energy_j = 125.0
+
+# ---------- PDW ----------
+[[items]]
+id = "round_46x30"
+name = "4.6×30 SX FMJ"
+category = "ammo"
+weight = 0.005
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "4.6x30"
+caliber_class = "pdw"
+mass_g = 2.0
+muzzle_velocity_mps = 720.0
+drag_k = 0.0007
+penetration_class = 2
+damage_soft = 22.0
+damage_blunt = 6.0
+reference_energy_j = 518.0
+[[items]]
+id = "round_46x30_dm11"
+name = "4.6×30 DM11 AP"
+category = "ammo"
+weight = 0.005
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "4.6x30"
+caliber_class = "pdw"
+mass_g = 2.0
+muzzle_velocity_mps = 715.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 18.0
+damage_blunt = 6.0
+reference_energy_j = 511.0
+[[items]]
+id = "round_57x28"
+name = "5.7×28 SS197 FMJ"
+category = "ammo"
+weight = 0.006
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "5.7x28"
+caliber_class = "pdw"
+mass_g = 2.6
+muzzle_velocity_mps = 650.0
+drag_k = 0.0007
+penetration_class = 2
+damage_soft = 25.0
+damage_blunt = 7.0
+reference_energy_j = 549.0
+[[items]]
+id = "round_57x28_ss190"
+name = "5.7×28 SS190 AP"
+category = "ammo"
+weight = 0.006
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "5.7x28"
+caliber_class = "pdw"
+mass_g = 2.0
+muzzle_velocity_mps = 716.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 20.0
+damage_blunt = 6.0
+reference_energy_j = 513.0
+
+# ---------- Intermediate rifle ----------
+[[items]]
+id = "round_556x45_m193"
+name = "5.56×45 M193"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "5.56x45"
+caliber_class = "intermediate"
+mass_g = 3.6
+muzzle_velocity_mps = 990.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 40.0
+damage_blunt = 14.0
+reference_energy_j = 1764.0
+[[items]]
+id = "round_556x45_jhp"
+name = "5.56×45 JHP Hunting"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = "5.56x45"
+caliber_class = "intermediate"
+mass_g = 4.0
+muzzle_velocity_mps = 950.0
+drag_k = 0.0008
+penetration_class = 1
+damage_soft = 58.0
+damage_blunt = 12.0
+reference_energy_j = 1805.0
+[[items]]
+id = "round_556x45_m855a1"
+name = "5.56×45 M855A1 EPR"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "5.56x45"
+caliber_class = "intermediate"
+mass_g = 4.0
+muzzle_velocity_mps = 980.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 35.0
+damage_blunt = 14.0
+reference_energy_j = 1921.0
+[[items]]
+id = "round_762x39"
+name = "7.62×39 PS"
+category = "ammo"
+weight = 0.016
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "7.62x39"
+caliber_class = "intermediate"
+mass_g = 7.9
+muzzle_velocity_mps = 715.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 50.0
+damage_blunt = 18.0
+reference_energy_j = 2019.0
+[[items]]
+id = "round_762x39_bp"
+name = "7.62×39 BP"
+category = "ammo"
+weight = 0.016
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "7.62x39"
+caliber_class = "intermediate"
+mass_g = 7.9
+muzzle_velocity_mps = 710.0
+drag_k = 0.0008
+penetration_class = 1
+damage_soft = 65.0
+damage_blunt = 16.0
+reference_energy_j = 1991.0
+[[items]]
+id = "round_762x39_7n23"
+name = "7.62×39 7N23 AP"
+category = "ammo"
+weight = 0.016
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "7.62x39"
+caliber_class = "intermediate"
+mass_g = 7.9
+muzzle_velocity_mps = 720.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 42.0
+damage_blunt = 18.0
+reference_energy_j = 2048.0
+[[items]]
+id = "round_9x39_sp5"
+name = "9×39 SP-5 (subsonic)"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "9x39"
+caliber_class = "intermediate"
+mass_g = 16.2
+muzzle_velocity_mps = 290.0
+drag_k = 0.0011
+penetration_class = 2
+damage_soft = 60.0
+damage_blunt = 22.0
+reference_energy_j = 681.0
+[[items]]
+id = "round_9x39_sp6"
+name = "9×39 SP-6 AP (subsonic)"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "9x39"
+caliber_class = "intermediate"
+mass_g = 16.2
+muzzle_velocity_mps = 290.0
+drag_k = 0.0010
+penetration_class = 4
+damage_soft = 50.0
+damage_blunt = 22.0
+reference_energy_j = 681.0
+[[items]]
+id = "round_300blk"
+name = ".300 Blackout FMJ"
+category = "ammo"
+weight = 0.014
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".300blk"
+caliber_class = "intermediate"
+mass_g = 8.1
+muzzle_velocity_mps = 720.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 48.0
+damage_blunt = 16.0
+reference_energy_j = 2099.0
+[[items]]
+id = "round_300blk_sub"
+name = ".300 Blackout Subsonic"
+category = "ammo"
+weight = 0.020
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".300blk"
+caliber_class = "intermediate"
+mass_g = 14.3
+muzzle_velocity_mps = 320.0
+drag_k = 0.0011
+penetration_class = 1
+damage_soft = 52.0
+damage_blunt = 20.0
+reference_energy_j = 732.0
+[[items]]
+id = "round_300blk_ap"
+name = ".300 Blackout AP"
+category = "ammo"
+weight = 0.014
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = ".300blk"
+caliber_class = "intermediate"
+mass_g = 8.1
+muzzle_velocity_mps = 730.0
+drag_k = 0.0006
+penetration_class = 4
+damage_soft = 40.0
+damage_blunt = 16.0
+reference_energy_j = 2158.0
+[[items]]
+id = "round_366tkm"
+name = ".366 TKM FMJ"
+category = "ammo"
+weight = 0.018
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".366tkm"
+caliber_class = "intermediate"
+mass_g = 13.5
+muzzle_velocity_mps = 680.0
+drag_k = 0.0007
+penetration_class = 2
+damage_soft = 65.0
+damage_blunt = 24.0
+reference_energy_j = 3121.0
+[[items]]
+id = "round_366tkm_ap"
+name = ".366 TKM AP"
+category = "ammo"
+weight = 0.018
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = ".366tkm"
+caliber_class = "intermediate"
+mass_g = 13.5
+muzzle_velocity_mps = 750.0
+drag_k = 0.0007
+penetration_class = 4
+damage_soft = 55.0
+damage_blunt = 24.0
+reference_energy_j = 3797.0
+
+# ---------- Full-power rifle ----------
+[[items]]
+id = "round_762x54r"
+name = "7.62×54R LPS"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 9.6
+muzzle_velocity_mps = 830.0
+drag_k = 0.0006
+penetration_class = 3
+damage_soft = 70.0
+damage_blunt = 24.0
+reference_energy_j = 3308.0
+[[items]]
+id = "round_762x54r_hp"
+name = "7.62×54R Hunting Soft Point"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 11.7
+muzzle_velocity_mps = 800.0
+drag_k = 0.0007
+penetration_class = 1
+damage_soft = 90.0
+damage_blunt = 22.0
+reference_energy_j = 3744.0
+[[items]]
+id = "round_762x54r_7n1"
+name = "7.62×54R 7N1 Sniper"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 9.85
+muzzle_velocity_mps = 830.0
+drag_k = 0.0005
+penetration_class = 2
+damage_soft = 85.0
+damage_blunt = 24.0
+reference_energy_j = 3393.0
+[[items]]
+id = "round_762x54r_7n26"
+name = "7.62×54R 7N26 AP"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 9.4
+muzzle_velocity_mps = 825.0
+drag_k = 0.0005
+penetration_class = 5
+damage_soft = 60.0
+damage_blunt = 24.0
+reference_energy_j = 3199.0
+[[items]]
+id = "round_762x54r_b32"
+name = "7.62×54R B-32 AP-I"
+category = "ammo"
+weight = 0.022
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 10.4
+muzzle_velocity_mps = 855.0
+drag_k = 0.0005
+penetration_class = 6
+damage_soft = 65.0
+damage_blunt = 26.0
+reference_energy_j = 3801.0
+[[items]]
+id = "round_308win"
+name = ".308 Win M80"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".308win"
+caliber_class = "full_power_rifle"
+mass_g = 9.5
+muzzle_velocity_mps = 850.0
+drag_k = 0.0005
+penetration_class = 3
+damage_soft = 72.0
+damage_blunt = 24.0
+reference_energy_j = 3432.0
+[[items]]
+id = "round_308win_hp"
+name = ".308 Win Hunting HP"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".308win"
+caliber_class = "full_power_rifle"
+mass_g = 11.0
+muzzle_velocity_mps = 800.0
+drag_k = 0.0007
+penetration_class = 1
+damage_soft = 95.0
+damage_blunt = 22.0
+reference_energy_j = 3520.0
+[[items]]
+id = "round_308win_m80a1"
+name = ".308 Win M80A1 EPR"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = ".308win"
+caliber_class = "full_power_rifle"
+mass_g = 9.5
+muzzle_velocity_mps = 855.0
+drag_k = 0.0005
+penetration_class = 5
+damage_soft = 65.0
+damage_blunt = 24.0
+reference_energy_j = 3473.0
+[[items]]
+id = "round_3006"
+name = ".30-06 Springfield FMJ"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".30-06"
+caliber_class = "full_power_rifle"
+mass_g = 9.7
+muzzle_velocity_mps = 870.0
+drag_k = 0.0005
+penetration_class = 3
+damage_soft = 75.0
+damage_blunt = 24.0
+reference_energy_j = 3671.0
+[[items]]
+id = "round_3006_hp"
+name = ".30-06 Hunting HP"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".30-06"
+caliber_class = "full_power_rifle"
+mass_g = 11.7
+muzzle_velocity_mps = 820.0
+drag_k = 0.0007
+penetration_class = 1
+damage_soft = 100.0
+damage_blunt = 22.0
+reference_energy_j = 3933.0
+
+# ---------- Magnum ----------
+[[items]]
+id = "round_338lapua"
+name = ".338 Lapua FMJ"
+category = "ammo"
+weight = 0.046
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".338lapua"
+caliber_class = "magnum"
+mass_g = 16.2
+muzzle_velocity_mps = 915.0
+drag_k = 0.0004
+penetration_class = 4
+damage_soft = 110.0
+damage_blunt = 32.0
+reference_energy_j = 6781.0
+[[items]]
+id = "round_338lapua_ap"
+name = ".338 Lapua AP"
+category = "ammo"
+weight = 0.046
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = ".338lapua"
+caliber_class = "magnum"
+mass_g = 16.2
+muzzle_velocity_mps = 925.0
+drag_k = 0.0004
+penetration_class = 6
+damage_soft = 95.0
+damage_blunt = 32.0
+reference_energy_j = 6929.0
+[[items]]
+id = "round_300winmag"
+name = ".300 Win Mag FMJ"
+category = "ammo"
+weight = 0.030
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".300winmag"
+caliber_class = "magnum"
+mass_g = 11.7
+muzzle_velocity_mps = 880.0
+drag_k = 0.0005
+penetration_class = 4
+damage_soft = 90.0
+damage_blunt = 28.0
+reference_energy_j = 4528.0
+[[items]]
+id = "round_300winmag_hp"
+name = ".300 Win Mag Hunting HP"
+category = "ammo"
+weight = 0.030
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "hp"
+caliber = ".300winmag"
+caliber_class = "magnum"
+mass_g = 13.0
+muzzle_velocity_mps = 860.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 115.0
+damage_blunt = 26.0
+reference_energy_j = 4806.0
+
+# ---------- Anti-materiel ----------
+[[items]]
+id = "round_50bmg"
+name = ".50 BMG M33 Ball"
+category = "ammo"
+weight = 0.115
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".50bmg"
+caliber_class = "anti_materiel"
+mass_g = 42.7
+muzzle_velocity_mps = 887.0
+drag_k = 0.0004
+penetration_class = 5
+damage_soft = 220.0
+damage_blunt = 70.0
+reference_energy_j = 16800.0
+[[items]]
+id = "round_50bmg_m8"
+name = ".50 BMG M8 AP-I"
+category = "ammo"
+weight = 0.115
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "ap"
+caliber = ".50bmg"
+caliber_class = "anti_materiel"
+mass_g = 41.0
+muzzle_velocity_mps = 887.0
+drag_k = 0.0004
+penetration_class = 7
+damage_soft = 200.0
+damage_blunt = 70.0
+reference_energy_j = 16131.0
+[[items]]
+id = "round_127x108"
+name = "12.7×108 7N34 Ball"
+category = "ammo"
+weight = 0.135
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "12.7x108"
+caliber_class = "anti_materiel"
+mass_g = 48.0
+muzzle_velocity_mps = 820.0
+drag_k = 0.0004
+penetration_class = 5
+damage_soft = 220.0
+damage_blunt = 75.0
+reference_energy_j = 16138.0
+[[items]]
+id = "round_127x108_bs"
+name = "12.7×108 BS AP"
+category = "ammo"
+weight = 0.135
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "12.7x108"
+caliber_class = "anti_materiel"
+mass_g = 55.0
+muzzle_velocity_mps = 800.0
+drag_k = 0.0004
+penetration_class = 7
+damage_soft = 210.0
+damage_blunt = 75.0
+reference_energy_j = 17600.0
+[[items]]
+id = "round_145x114"
+name = "14.5×114 B-32 AP-I"
+category = "ammo"
+weight = 0.200
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "14.5x114"
+caliber_class = "anti_materiel"
+mass_g = 64.0
+muzzle_velocity_mps = 1000.0
+drag_k = 0.0004
+penetration_class = 8
+damage_soft = 280.0
+damage_blunt = 90.0
+reference_energy_j = 32000.0
+
+# ---------- Shotgun (additional) ----------
+[[items]]
+id = "round_12ga_magnum_slug"
+name = "12ga Magnum Slug"
+category = "ammo"
+weight = 0.060
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "12ga"
+caliber_class = "shotgun"
+mass_g = 32.0
+muzzle_velocity_mps = 600.0
+drag_k = 0.0020
+penetration_class = 3
+damage_soft = 110.0
+damage_blunt = 32.0
+reference_energy_j = 5760.0
+[[items]]
+id = "round_12ga_dragons_breath"
+name = "12ga Dragon's Breath"
+category = "ammo"
+weight = 0.045
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "12ga"
+caliber_class = "shotgun"
+mass_g = 28.0
+muzzle_velocity_mps = 200.0
+drag_k = 0.0050
+penetration_class = 0
+damage_soft = 30.0
+damage_blunt = 8.0
+reference_energy_j = 560.0
+[[items]]
+id = "round_20ga_buck"
+name = "20ga Buckshot"
+category = "ammo"
+weight = 0.035
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "20ga"
+caliber_class = "shotgun"
+mass_g = 24.0
+muzzle_velocity_mps = 365.0
+drag_k = 0.0042
+penetration_class = 0
+damage_soft = 50.0
+damage_blunt = 14.0
+reference_energy_j = 1599.0
+[[items]]
+id = "round_20ga_slug"
+name = "20ga Slug"
+category = "ammo"
+weight = 0.040
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = "20ga"
+caliber_class = "shotgun"
+mass_g = 18.0
+muzzle_velocity_mps = 460.0
+drag_k = 0.0024
+penetration_class = 2
+damage_soft = 65.0
+damage_blunt = 18.0
+reference_energy_j = 1904.0
+[[items]]
+id = "round_410_buck"
+name = ".410 Buckshot"
+category = "ammo"
+weight = 0.020
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".410"
+caliber_class = "shotgun"
+mass_g = 14.0
+muzzle_velocity_mps = 350.0
+drag_k = 0.0044
+penetration_class = 0
+damage_soft = 32.0
+damage_blunt = 10.0
+reference_energy_j = 858.0
+[[items]]
+id = "round_410_slug"
+name = ".410 Slug"
+category = "ammo"
+weight = 0.020
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+caliber = ".410"
+caliber_class = "shotgun"
+mass_g = 11.0
+muzzle_velocity_mps = 380.0
+drag_k = 0.0026
+penetration_class = 1
+damage_soft = 42.0
+damage_blunt = 12.0
+reference_energy_j = 794.0
+
+# --- Tracer rounds (Phase 4B v2) -----------------------------------
+# Tracer variant: ~baseline FMJ ballistics with a visible-trace tail
+# at long range. Damage / penetration mirror FMJ; the variant tag
+# drives client tracer color + (future) dry-foliage ignition on
+# impact. Most squads carry a 4-or-5-to-1 ratio of FMJ to tracer in
+# real loadouts — for now NPC fire still defaults to base FMJ
+# (faction-flavored selection happens in `default_npc_round_for_faction`),
+# but the rounds exist for player loadouts + future loadout tables.
+
+[[items]]
+id = "round_5_45x39_t"
+name = "5.45×39 Tracer"
+category = "ammo"
+weight = 0.011
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "tracer"
+caliber = "5.45x39"
+caliber_class = "intermediate"
+mass_g = 3.4
+muzzle_velocity_mps = 870.0
+drag_k = 0.0006
+penetration_class = 2
+damage_soft = 38.0
+damage_blunt = 15.0
+reference_energy_j = 1287.0
+
+[[items]]
+id = "round_556x45_tracer"
+name = "5.56×45 M196 Tracer"
+category = "ammo"
+weight = 0.012
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "tracer"
+caliber = "5.56x45"
+caliber_class = "intermediate"
+mass_g = 3.6
+muzzle_velocity_mps = 910.0
+drag_k = 0.00058
+penetration_class = 2
+damage_soft = 40.0
+damage_blunt = 16.0
+reference_energy_j = 1490.0
+
+[[items]]
+id = "round_762x54r_t46"
+name = "7.62×54R T-46 Tracer"
+category = "ammo"
+weight = 0.024
+stack_size = 9999
+size = { w = 1, h = 1 }
+[items.ammo_config]
+variant = "tracer"
+caliber = "7.62x54r"
+caliber_class = "full_power_rifle"
+mass_g = 9.4
+muzzle_velocity_mps = 800.0
+drag_k = 0.00038
+penetration_class = 3
+damage_soft = 62.0
+damage_blunt = 22.0
+reference_energy_j = 3008.0

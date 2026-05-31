@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccuqehqnhdnyq"]
+
+[ext_resource type="Script" path="res://scripts/debug_overlay.gd" id="1_dbg"]
+
+[node name="DebugOverlay" type="CanvasLayer"]
+script = ExtResource("1_dbg")
+layer = 100
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 384.0
+offset_bottom = 260.0
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+
+[node name="Label" type="Label" parent="Panel/Margin"]
+text = "loading…"
+horizontal_alignment = 0
+vertical_alignment = 0

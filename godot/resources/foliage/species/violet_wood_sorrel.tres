@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://bbtjf18xr1kdd"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: violet_wood_sorrel (Fab)"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_fab/violet_wood_sorrel/standard/uchkajuia_tier_3_nonUE.gltf"
+scale_min = 0.85
+scale_max = 1.15
+size_multiplier = 1.0
+alpha_luminance_cutoff = 0.0
+albedo_modulation = Color(1.1933, 1.0432, 0.0028, 1)

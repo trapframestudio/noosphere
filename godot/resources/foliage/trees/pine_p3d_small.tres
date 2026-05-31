@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Ponderosa Pine: small (Pure3D Pine_9m, 8-13m)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/plants_cgtrader/morepines/Pine_9m.glb"
+variant_prefix = ""
+scale_min = 0.90
+scale_max = 1.50
+random_yaw = true
+size_multiplier = 1.0
+albedo_modulation = Color(1.5, 1.6, 1.2, 1)
+leaf_saturation_mul = 1.5
+leaf_threshold = 0.02
+leaf_value_mul = 2.0
+canopy_normal_up_blend = 0.15
+backlight_strength = 0.55
+normal_map_strength = 0.4
+canopy_tint = Color(0.20, 0.27, 0.13, 1)
+wind_amplitude_scale = 0.55
+trunk_anchor_height = 1.5
+trunk_collision_radius = 0.35
+trunk_collision_height = 13.0
+max_render_distance_m = 900.0
+proxy_swap_distance_m = 0.0
+lod_bias = 0.1
+min_surface_verts = 0

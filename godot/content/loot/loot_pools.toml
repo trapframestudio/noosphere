@@ -1,0 +1,388 @@
+# ---------- Loot Pools (Phase 3B) ----------
+#
+# Faction × depth_tier × family pool tables. One pool per tuple;
+# entries inside a pool list (item_id, weight, count_min,
+# count_max). Pool resolution rolls a single entry weighted by
+# `weight`, then picks a stack size uniformly in `[count_min,
+# count_max]`.
+#
+# Container content generation (Phase 3C — first-approach roll):
+# pick a family weighted by the container kind's `family_weights`
+# (in `loot_containers.toml`), then pick a faction = the region's
+# controlling faction (with influence-mix coming later per
+# loot-and-economy-plan §3.2), then pick a depth_tier = the
+# region's authored tier (defaults to 1 until tiers are wired),
+# then look up the pool and roll.
+#
+# Fallback chain in `LootPoolRegistry`:
+#   (faction, tier, family) → (faction, 1, family) →
+#   ("nomads", tier, family) → ("nomads", 1, family) → empty
+#
+# `wanderers` is the neutral catch-all so any region with an
+# unknown faction still rolls plausible scavenger loot.
+#
+# This file ships with surface tier (1) coverage for four
+# factions plus wanderers. Interior (2) and deep (3) tiers, plus
+# the rest of the faction roster, land as zones are authored.
+
+# =================================================================
+# Coalition — the Coalition state. Military-style: AK-pattern
+# rifles, milspec ammo (5.45×39, 12 gauge), proper medical kits,
+# field rations, modern armor.
+# =================================================================
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "weapons"
+entries = [
+  { id = "rifle_aks74",      weight = 50, count_min = 1, count_max = 1 },
+  { id = "shotgun_saiga",    weight = 25, count_min = 1, count_max = 1 },
+  { id = "pistol_makarov",   weight = 25, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "magazines"
+entries = [
+  { id = "mag_aks74_30",     weight = 55, count_min = 1, count_max = 2 },
+  { id = "mag_saiga_5",      weight = 25, count_min = 1, count_max = 2 },
+  { id = "mag_makarov_8",    weight = 20, count_min = 1, count_max = 3 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "ammo"
+entries = [
+  { id = "round_5_45x39",       weight = 45, count_min = 15, count_max = 60 },
+  { id = "round_5_45x39_hp",    weight = 12, count_min =  8, count_max = 24 },
+  { id = "round_5_45x39_ap",    weight =  5, count_min =  4, count_max = 12 },
+  { id = "round_9x18",          weight = 20, count_min = 10, count_max = 30 },
+  { id = "round_12ga_buckshot", weight = 12, count_min =  4, count_max = 16 },
+  { id = "round_12ga_slug",     weight =  6, count_min =  2, count_max =  8 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "armor"
+entries = [
+  { id = "armor_soft_vest",     weight = 50, count_min = 1, count_max = 1 },
+  { id = "armor_ballistic_rig", weight = 30, count_min = 1, count_max = 1 },
+  { id = "helmet_6b47",         weight = 20, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "medical"
+entries = [
+  { id = "bandage",           weight = 35, count_min = 1, count_max = 4 },
+  { id = "combat_tourniquet", weight = 15, count_min = 1, count_max = 2 },
+  { id = "antiseptic_swab",   weight = 15, count_min = 1, count_max = 3 },
+  { id = "antibiotics",       weight = 10, count_min = 1, count_max = 2 },
+  { id = "suture_kit",        weight = 10, count_min = 1, count_max = 2 },
+  { id = "wound_pack",        weight =  8, count_min = 1, count_max = 1 },
+  { id = "painkiller",        weight =  7, count_min = 1, count_max = 3 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "food"
+entries = [
+  { id = "field_ration",     weight = 40, count_min = 1, count_max = 3 },
+  { id = "preserved_ration", weight = 30, count_min = 1, count_max = 2 },
+  { id = "energy_bar",       weight = 15, count_min = 1, count_max = 4 },
+  { id = "clean_water",      weight = 15, count_min = 1, count_max = 3 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "tools"
+entries = [
+  { id = "field_toolkit",        weight = 35, count_min = 1, count_max = 1 },
+  { id = "weapon_repair_kit_basic", weight = 25, count_min = 1, count_max = 1 },
+  { id = "gunsmith_kit_basic",   weight = 20, count_min = 1, count_max = 1 },
+  { id = "armor_repair_kit_basic",  weight = 20, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "pwa"
+depth_tier = 1
+family = "junk"
+entries = [
+  { id = "metal_scrap",   weight = 35, count_min = 2, count_max =  6 },
+  { id = "wire_bundle",   weight = 25, count_min = 1, count_max =  3 },
+  { id = "cordage",       weight = 20, count_min = 1, count_max =  2 },
+  { id = "broken_radio",  weight = 10, count_min = 1, count_max =  1 },
+  { id = "capacitor",     weight = 10, count_min = 1, count_max =  3 },
+]
+
+# =================================================================
+# Bandits — scrap weapons, mostly pistol-caliber ammo, poor
+# medical, dirty water, lots of junk. Same families, very
+# different distributions.
+# =================================================================
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "weapons"
+entries = [
+  { id = "pistol_makarov",   weight = 60, count_min = 1, count_max = 1 },
+  { id = "shotgun_saiga",    weight = 25, count_min = 1, count_max = 1 },
+  { id = "rifle_aks74",      weight = 15, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "magazines"
+entries = [
+  { id = "mag_makarov_8",  weight = 60, count_min = 1, count_max = 3 },
+  { id = "mag_saiga_5",    weight = 30, count_min = 1, count_max = 2 },
+  { id = "mag_aks74_30",   weight = 10, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "ammo"
+entries = [
+  { id = "round_9x18",          weight = 45, count_min = 10, count_max = 30 },
+  { id = "round_12ga_buckshot", weight = 25, count_min =  4, count_max = 12 },
+  { id = "round_5_45x39",       weight = 18, count_min =  8, count_max = 24 },
+  { id = "round_22lr",          weight = 12, count_min = 10, count_max = 40 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "armor"
+entries = [
+  { id = "armor_soft_vest",     weight = 80, count_min = 1, count_max = 1 },
+  { id = "armor_ballistic_rig", weight = 20, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "medical"
+entries = [
+  { id = "bandage",         weight = 45, count_min = 1, count_max = 3 },
+  { id = "painkiller",      weight = 20, count_min = 1, count_max = 3 },
+  { id = "antiseptic_swab", weight = 15, count_min = 1, count_max = 2 },
+  { id = "antibiotics",     weight = 10, count_min = 1, count_max = 1 },
+  { id = "morphine",        weight = 10, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "food"
+entries = [
+  { id = "preserved_ration", weight = 35, count_min = 1, count_max = 2 },
+  { id = "dirty_water",      weight = 30, count_min = 1, count_max = 4 },
+  { id = "vodka",            weight = 15, count_min = 1, count_max = 2 },
+  { id = "energy_bar",       weight = 10, count_min = 1, count_max = 2 },
+  { id = "contaminated_food",weight = 10, count_min = 1, count_max = 2 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "tools"
+entries = [
+  { id = "field_toolkit",  weight = 70, count_min = 1, count_max = 1 },
+  { id = "basic_toolkit",  weight = 30, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "bandits"
+depth_tier = 1
+family = "junk"
+entries = [
+  { id = "metal_scrap",    weight = 35, count_min = 3, count_max = 8 },
+  { id = "rusty_pipe",     weight = 20, count_min = 1, count_max = 2 },
+  { id = "frayed_boots",   weight = 15, count_min = 1, count_max = 1 },
+  { id = "plastic_scrap",  weight = 15, count_min = 2, count_max = 6 },
+  { id = "cloth_scrap",    weight = 15, count_min = 2, count_max = 6 },
+]
+
+# =================================================================
+# Wanderers — neutral fallback. Mixed inventory: a bit of
+# everything, nothing tier-specific. This pool serves as the
+# implicit default when a region's faction has no entries.
+# =================================================================
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "weapons"
+entries = [
+  { id = "pistol_makarov", weight = 60, count_min = 1, count_max = 1 },
+  { id = "shotgun_saiga",  weight = 25, count_min = 1, count_max = 1 },
+  { id = "rifle_aks74",    weight = 15, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "magazines"
+entries = [
+  { id = "mag_makarov_8",  weight = 50, count_min = 1, count_max = 2 },
+  { id = "mag_saiga_5",    weight = 30, count_min = 1, count_max = 2 },
+  { id = "mag_aks74_30",   weight = 20, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "ammo"
+entries = [
+  { id = "round_9x18",          weight = 35, count_min = 10, count_max = 30 },
+  { id = "round_12ga_buckshot", weight = 25, count_min =  4, count_max = 12 },
+  { id = "round_22lr",          weight = 20, count_min = 10, count_max = 40 },
+  { id = "round_5_45x39",       weight = 20, count_min =  8, count_max = 20 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "armor"
+entries = [
+  { id = "armor_soft_vest", weight = 100, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "medical"
+entries = [
+  { id = "bandage",         weight = 50, count_min = 1, count_max = 3 },
+  { id = "antiseptic_swab", weight = 20, count_min = 1, count_max = 2 },
+  { id = "painkiller",      weight = 15, count_min = 1, count_max = 2 },
+  { id = "antibiotics",     weight = 15, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "food"
+entries = [
+  { id = "preserved_ration", weight = 30, count_min = 1, count_max = 2 },
+  { id = "dirty_water",      weight = 25, count_min = 1, count_max = 4 },
+  { id = "clean_water",      weight = 20, count_min = 1, count_max = 2 },
+  { id = "fresh_food",       weight = 15, count_min = 1, count_max = 2 },
+  { id = "raw_meat",         weight = 10, count_min = 1, count_max = 2 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "tools"
+entries = [
+  { id = "field_toolkit", weight = 60, count_min = 1, count_max = 1 },
+  { id = "cookware",      weight = 25, count_min = 1, count_max = 1 },
+  { id = "basic_toolkit", weight = 15, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "wanderers"
+depth_tier = 1
+family = "junk"
+entries = [
+  { id = "metal_scrap",   weight = 30, count_min = 2, count_max = 8 },
+  { id = "plastic_scrap", weight = 20, count_min = 2, count_max = 6 },
+  { id = "cloth_scrap",   weight = 20, count_min = 2, count_max = 6 },
+  { id = "cordage",       weight = 15, count_min = 1, count_max = 3 },
+  { id = "wire_bundle",   weight = 15, count_min = 1, count_max = 2 },
+]
+
+# =================================================================
+# The Order — relic-hunter cult. Sparse on weapons + ammo, heavy on
+# weird junk (would be relics in a fuller loot model —
+# stand-in entries for now), modest medical / food.
+# =================================================================
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "weapons"
+entries = [
+  { id = "pistol_makarov", weight = 70, count_min = 1, count_max = 1 },
+  { id = "rifle_aks74",    weight = 30, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "magazines"
+entries = [
+  { id = "mag_makarov_8", weight = 70, count_min = 1, count_max = 2 },
+  { id = "mag_aks74_30",  weight = 30, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "ammo"
+entries = [
+  { id = "round_9x18",    weight = 60, count_min = 6, count_max = 18 },
+  { id = "round_5_45x39", weight = 40, count_min = 6, count_max = 16 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "armor"
+entries = [
+  { id = "armor_soft_vest", weight = 100, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "medical"
+entries = [
+  { id = "bandage",      weight = 40, count_min = 1, count_max = 3 },
+  { id = "antibiotics",  weight = 20, count_min = 1, count_max = 2 },
+  { id = "anti_rad",     weight = 25, count_min = 1, count_max = 2 },
+  { id = "anti_tox",     weight = 15, count_min = 1, count_max = 2 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "food"
+entries = [
+  { id = "dirty_water",      weight = 30, count_min = 1, count_max = 3 },
+  { id = "fresh_food",       weight = 25, count_min = 1, count_max = 2 },
+  { id = "raw_meat",         weight = 25, count_min = 1, count_max = 2 },
+  { id = "preserved_ration", weight = 20, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "tools"
+entries = [
+  { id = "field_toolkit", weight = 60, count_min = 1, count_max = 1 },
+  { id = "cookware",      weight = 40, count_min = 1, count_max = 1 },
+]
+
+[[pool]]
+faction = "attuned"
+depth_tier = 1
+family = "junk"
+entries = [
+  { id = "optical_lens",   weight = 30, count_min = 1, count_max = 2 },
+  { id = "capacitor",      weight = 25, count_min = 1, count_max = 3 },
+  { id = "damaged_optics", weight = 20, count_min = 1, count_max = 1 },
+  { id = "wire_bundle",    weight = 15, count_min = 1, count_max = 2 },
+  { id = "metal_scrap",    weight = 10, count_min = 2, count_max = 4 },
+]

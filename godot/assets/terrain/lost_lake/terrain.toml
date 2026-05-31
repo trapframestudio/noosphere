@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "lost_lake"
+width = 2501
+height = 2501
+spacing_m = 2.0
+vert_min_m = 704.0
+vert_max_m = 1402.0
+origin_utm_zone = "10N"
+origin_utm_easting = 590000.0
+origin_utm_northing = 5040500.0
+blake3 = "d18d7d212460e7dc2721e6a718442a1097b37f420d18f87fb889113320aee99d"
+features_blake3 = "b4696856076d8e96a6691734b49e94c830dc3727be73979d5ba877aaf670fbbc"

@@ -1,0 +1,23 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.1
+reloadable = true
+
+[libraries]
+linux.debug.x86_64 = "res://../target/debug/libsimn_godot.so"
+linux.release.x86_64 = "res://bin/linux/libsimn_godot.so"
+windows.debug.x86_64 = "res://../target/debug/simn_godot.dll"
+windows.release.x86_64 = "res://bin/windows/simn_godot.dll"
+macos.debug = "res://../target/debug/libsimn_godot.dylib"
+macos.release = "res://bin/macos/libsimn_godot.dylib"
+
+[dependencies]
+linux.release.x86_64 = {
+    "res://bin/linux/libsteam_api.so" : ""
+}
+windows.release.x86_64 = {
+    "res://bin/windows/steam_api64.dll" : ""
+}
+macos.release = {
+    "res://bin/macos/libsteam_api.dylib" : ""
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RockBiomeConfig" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/rock_biome_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Bare biome rocks (rocky terrain; dense where terrain is steep)"
+script = ExtResource("1_script")
+biome = 3
+rocks_per_sq_m = 0.090
+rock_paths = Array[String]([
+	"res://resources/foliage/rocks/pebble_round.tres",
+	"res://resources/foliage/rocks/small_jagged.tres",
+	"res://resources/foliage/rocks/medium_slab.tres",
+	"res://resources/foliage/rocks/medium_oblong.tres",
+	"res://resources/foliage/rocks/large_boulder.tres",
+	"res://resources/foliage/rocks/large_cluster.tres",
+	"res://resources/foliage/rocks/cliff_chunk.tres",
+	"res://resources/foliage/rocks/cliff_slab.tres",
+])
+rock_densities = PackedFloat32Array(0.060, 0.020, 0.0025, 0.0025, 0.001, 0.0009, 0.0035, 0.0025)

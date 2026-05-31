@@ -1,0 +1,151 @@
+[gd_resource type="Terrain3DAssets" format=3 uid="uid://dwfhggulfdg5q"]
+
+[ext_resource type="Texture2D" uid="uid://ckaiutwrk72j7" path="res://assets/textures/terrain/_terrain3d_packed/forest_floor/forest_floor_alb_ht.png" id="0_alb"]
+[ext_resource type="Texture2D" uid="uid://ct2i0gxf523ee" path="res://assets/textures/terrain/_terrain3d_packed/forest_floor/forest_floor_nrm_rgh.png" id="0_nrm"]
+[ext_resource type="Texture2D" uid="uid://ck374qqp8exir" path="res://assets/textures/terrain/_terrain3d_packed/wild_grass/wild_grass_alb_ht.png" id="1_alb"]
+[ext_resource type="Texture2D" uid="uid://c7f3v8j768j30" path="res://assets/textures/terrain/_terrain3d_packed/wild_grass/wild_grass_nrm_rgh.png" id="1_nrm"]
+[ext_resource type="Texture2D" uid="uid://cluaqf2rfyfqv" path="res://assets/textures/terrain/_terrain3d_packed/water_placeholder/water_placeholder_alb_ht.png" id="2_alb"]
+[ext_resource type="Texture2D" uid="uid://lyc7gdhiynbk" path="res://assets/textures/terrain/_terrain3d_packed/water_placeholder/water_placeholder_nrm_rgh.png" id="2_nrm"]
+[ext_resource type="Texture2D" uid="uid://csrp1rbutany5" path="res://assets/textures/terrain/_terrain3d_packed/brown_mud_02/brown_mud_02_alb_ht.png" id="3_alb"]
+[ext_resource type="Texture2D" uid="uid://drjn4ifkjkdpk" path="res://assets/textures/terrain/_terrain3d_packed/brown_mud_02/brown_mud_02_nrm_rgh.png" id="3_nrm"]
+[ext_resource type="Texture2D" uid="uid://bsstdh1batevo" path="res://assets/textures/terrain/_terrain3d_packed/ground073/ground073_alb_ht.png" id="4_alb"]
+[ext_resource type="Texture2D" uid="uid://b0cfgid07luqt" path="res://assets/textures/terrain/_terrain3d_packed/ground073/ground073_nrm_rgh.png" id="4_nrm"]
+[ext_resource type="Texture2D" uid="uid://cgbach8a07v18" path="res://assets/textures/terrain/_terrain3d_packed/concrete026/concrete026_alb_ht.png" id="5_alb"]
+[ext_resource type="Texture2D" uid="uid://bs4jarljebsul" path="res://assets/textures/terrain/_terrain3d_packed/concrete026/concrete026_nrm_rgh.png" id="5_nrm"]
+[ext_resource type="Texture2D" uid="uid://c7td1b2ag08p2" path="res://assets/textures/terrain/_terrain3d_packed/rock028/rock028_alb_ht.png" id="6_alb"]
+[ext_resource type="Texture2D" uid="uid://cx44s8lf0mcp8" path="res://assets/textures/terrain/_terrain3d_packed/rock028/rock028_nrm_rgh.png" id="6_nrm"]
+[ext_resource type="Texture2D" uid="uid://dmiqw5kcnqxhf" path="res://assets/textures/terrain/_terrain3d_packed/snow_02/snow_02_alb_ht.png" id="7_alb"]
+[ext_resource type="Texture2D" uid="uid://bter52albqpjf" path="res://assets/textures/terrain/_terrain3d_packed/snow_02/snow_02_nrm_rgh.png" id="7_nrm"]
+[ext_resource type="Texture2D" uid="uid://de3vheefj66ft" path="res://assets/textures/terrain/_terrain3d_packed/asphalt010/asphalt010_alb_ht.png" id="8_alb"]
+[ext_resource type="Texture2D" uid="uid://dxdq0kqy5dc0l" path="res://assets/textures/terrain/_terrain3d_packed/asphalt010/asphalt010_nrm_rgh.png" id="8_nrm"]
+[ext_resource type="Texture2D" uid="uid://kidmv1wu1lpq" path="res://assets/textures/terrain/_terrain3d_packed/trenches_dirt_fine/trenches_dirt_fine_alb_ht.png" id="9_alb"]
+[ext_resource type="Texture2D" uid="uid://ddnwmt4llff0k" path="res://assets/textures/terrain/_terrain3d_packed/trenches_dirt_fine/trenches_dirt_fine_nrm_rgh.png" id="9_nrm"]
+[ext_resource type="Texture2D" uid="uid://34al0ml3f1lo" path="res://assets/textures/terrain/_terrain3d_packed/mossy_rocky_ground/mossy_rocky_ground_alb_ht.png" id="10_alb"]
+[ext_resource type="Texture2D" uid="uid://bodd6g1wlk3s5" path="res://assets/textures/terrain/_terrain3d_packed/mossy_rocky_ground/mossy_rocky_ground_nrm_rgh.png" id="10_nrm"]
+[ext_resource type="Texture2D" uid="uid://7c24r010l1cx" path="res://assets/textures/terrain/_terrain3d_packed/mossy_rock/mossy_rock_alb_ht.png" id="11_alb"]
+[ext_resource type="Texture2D" uid="uid://eqgya2ntcn5j" path="res://assets/textures/terrain/_terrain3d_packed/mossy_rock/mossy_rock_nrm_rgh.png" id="11_nrm"]
+[ext_resource type="Texture2D" uid="uid://goc0y40v6xgr" path="res://assets/textures/terrain/_terrain3d_packed/rocky_steppe/rocky_steppe_alb_ht.png" id="12_alb"]
+[ext_resource type="Texture2D" uid="uid://d2by3mcv4u80i" path="res://assets/textures/terrain/_terrain3d_packed/rocky_steppe/rocky_steppe_nrm_rgh.png" id="12_nrm"]
+[ext_resource type="Texture2D" uid="uid://bb4lwnxvxovfp" path="res://assets/textures/terrain/_terrain3d_packed/mossy_grass/mossy_grass_alb_ht.png" id="13_alb"]
+[ext_resource type="Texture2D" uid="uid://d032oqac43cfh" path="res://assets/textures/terrain/_terrain3d_packed/mossy_grass/mossy_grass_nrm_rgh.png" id="13_nrm"]
+[ext_resource type="Texture2D" uid="uid://4nljo0it22wu" path="res://assets/textures/terrain/_terrain3d_packed/nordic_moss/nordic_moss_alb_ht.png" id="14_alb"]
+[ext_resource type="Texture2D" uid="uid://qavp2p1m6k8v" path="res://assets/textures/terrain/_terrain3d_packed/nordic_moss/nordic_moss_nrm_rgh.png" id="14_nrm"]
+[ext_resource type="Texture2D" uid="uid://b2q3lihmvsi72" path="res://assets/textures/terrain/_terrain3d_packed/mine_rock_wall/mine_rock_wall_alb_ht.png" id="15_alb"]
+[ext_resource type="Texture2D" uid="uid://dyy060if67vfk" path="res://assets/textures/terrain/_terrain3d_packed/mine_rock_wall/mine_rock_wall_nrm_rgh.png" id="15_nrm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcxoh"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_tynwc"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_vcxoh")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_00_forest_floor"]
+name = "Forest"
+albedo_texture = ExtResource("0_alb")
+normal_texture = ExtResource("0_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_01_wild_grass"]
+name = "Grassland"
+id = 1
+albedo_texture = ExtResource("1_alb")
+normal_texture = ExtResource("1_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_02_water_placeholder"]
+name = "Water (placeholder)"
+id = 2
+albedo_texture = ExtResource("2_alb")
+normal_texture = ExtResource("2_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_03_brown_mud_02"]
+name = "Cropland"
+id = 3
+albedo_texture = ExtResource("3_alb")
+normal_texture = ExtResource("3_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_04_ground073"]
+name = "Bare"
+id = 4
+albedo_texture = ExtResource("4_alb")
+normal_texture = ExtResource("4_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_05_concrete026"]
+name = "BuiltUp"
+id = 5
+albedo_texture = ExtResource("5_alb")
+normal_texture = ExtResource("5_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_06_mine_rock_wall"]
+name = "Cliff (Rock028 — dark base)"
+id = 6
+albedo_texture = ExtResource("6_alb")
+normal_texture = ExtResource("6_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_07_snow_02"]
+name = "Snow"
+id = 7
+albedo_texture = ExtResource("7_alb")
+normal_texture = ExtResource("7_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_08_asphalt010"]
+name = "Paved"
+id = 8
+albedo_texture = ExtResource("8_alb")
+normal_texture = ExtResource("8_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_09_trenches_dirt_fine"]
+name = "Unpaved"
+id = 9
+albedo_texture = ExtResource("9_alb")
+normal_texture = ExtResource("9_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_10_mossy_rocky_ground"]
+name = "Trail"
+id = 10
+albedo_texture = ExtResource("10_alb")
+normal_texture = ExtResource("10_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_11_mossy_rock"]
+name = "Cliff variant — mossy_rock"
+id = 11
+albedo_texture = ExtResource("11_alb")
+normal_texture = ExtResource("11_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_12_rocky_steppe"]
+name = "Grass-rock transition"
+id = 12
+albedo_texture = ExtResource("12_alb")
+normal_texture = ExtResource("12_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_13_mossy_grass"]
+name = "Leafy/weed variant"
+id = 13
+albedo_texture = ExtResource("13_alb")
+normal_texture = ExtResource("13_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_14_nordic_moss"]
+name = "Mossy variant"
+id = 14
+albedo_texture = ExtResource("14_alb")
+normal_texture = ExtResource("14_nrm")
+
+[sub_resource type="Terrain3DTextureAsset" id="tex_15_rock028"]
+name = "Cliff streak — mine_rock_wall (lighter)"
+id = 15
+albedo_texture = ExtResource("15_alb")
+normal_texture = ExtResource("15_nrm")
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_tynwc")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("tex_00_forest_floor"), SubResource("tex_01_wild_grass"), SubResource("tex_02_water_placeholder"), SubResource("tex_03_brown_mud_02"), SubResource("tex_04_ground073"), SubResource("tex_05_concrete026"), SubResource("tex_06_mine_rock_wall"), SubResource("tex_07_snow_02"), SubResource("tex_08_asphalt010"), SubResource("tex_09_trenches_dirt_fine"), SubResource("tex_10_mossy_rocky_ground"), SubResource("tex_11_mossy_rock"), SubResource("tex_12_rocky_steppe"), SubResource("tex_13_mossy_grass"), SubResource("tex_14_nordic_moss"), SubResource("tex_15_rock028")])

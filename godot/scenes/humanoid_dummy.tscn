@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://oxi010nqpenk"]
+
+[ext_resource type="Script" path="res://scripts/humanoid_dummy.gd" id="1_dummy"]
+
+[sub_resource type="StandardMaterial3D" id="SkinMat"]
+albedo_color = Color(0.78, 0.72, 0.64, 1.0)
+
+[sub_resource type="SphereMesh" id="HeadMesh"]
+radius = 0.12
+height = 0.24
+
+[sub_resource type="BoxMesh" id="TorsoMesh"]
+size = Vector3(0.42, 0.6, 0.25)
+
+[sub_resource type="CapsuleMesh" id="ArmMesh"]
+radius = 0.08
+height = 0.6
+
+[sub_resource type="CapsuleMesh" id="LegMesh"]
+radius = 0.11
+height = 0.9
+
+[sub_resource type="CapsuleShape3D" id="MovementCapsule"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="HeadShape"]
+radius = 0.12
+
+[sub_resource type="BoxShape3D" id="TorsoShape"]
+size = Vector3(0.42, 0.6, 0.25)
+
+[sub_resource type="CapsuleShape3D" id="ArmShape"]
+radius = 0.08
+height = 0.6
+
+[sub_resource type="CapsuleShape3D" id="LegShape"]
+radius = 0.11
+height = 0.9
+
+; CharacterBody3D: kinematic body whose velocity is computed from
+; sim-authoritative positions. move_and_slide() resolves NPC-NPC
+; and NPC-terrain collisions. Layer 4 = NPC_HITBOX.
+[node name="HumanoidDummy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 5
+safe_margin = 0.1
+floor_stop_on_slope = true
+floor_max_angle = 0.7854
+floor_snap_length = 1.0
+script = ExtResource("1_dummy")
+
+; Single capsule for move_and_slide physics. Centered at body midpoint.
+[node name="MovementCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("MovementCapsule")
+
+; Visual meshes — no collision, just rendering.
+[node name="Body" type="Node3D" parent="."]
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+mesh = SubResource("HeadMesh")
+material_override = SubResource("SkinMat")
+
+[node name="Torso" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("TorsoMesh")
+material_override = SubResource("SkinMat")
+
+[node name="LeftArm" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 1.2, 0)
+mesh = SubResource("ArmMesh")
+material_override = SubResource("SkinMat")
+
+[node name="RightArm" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.2, 0)
+mesh = SubResource("ArmMesh")
+material_override = SubResource("SkinMat")
+
+[node name="LeftLeg" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0.45, 0)
+mesh = SubResource("LegMesh")
+material_override = SubResource("SkinMat")
+
+[node name="RightLeg" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11, 0.45, 0)
+mesh = SubResource("LegMesh")
+material_override = SubResource("SkinMat")
+
+; Hitbox area — for weapon raycasts only, not physics.
+; Layer 4 = NPC_HITBOX so raycasts find it. Mask 0 = no collisions.
+[node name="HitboxArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="HeadShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+shape = SubResource("HeadShape")
+metadata/body_part = "head"
+
+[node name="TorsoShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("TorsoShape")
+metadata/body_part = "torso"
+
+[node name="LeftArmShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29, 1.2, 0)
+shape = SubResource("ArmShape")
+metadata/body_part = "left_arm"
+
+[node name="RightArmShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.2, 0)
+shape = SubResource("ArmShape")
+metadata/body_part = "right_arm"
+
+[node name="LeftLegShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, 0.45, 0)
+shape = SubResource("LegShape")
+metadata/body_part = "left_leg"
+
+[node name="RightLegShape" type="CollisionShape3D" parent="HitboxArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11, 0.45, 0)
+shape = SubResource("LegShape")
+metadata/body_part = "right_leg"
+
+[node name="StateLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
+billboard = 1
+shaded = false
+double_sided = true
+no_depth_test = false
+fixed_size = false
+pixel_size = 0.004
+font_size = 24
+outline_size = 4
+modulate = Color(1, 1, 1, 1)
+outline_modulate = Color(0, 0, 0, 1)
+text = ""

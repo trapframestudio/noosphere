@@ -1,0 +1,100 @@
+# NPC behavior tuning — edit this file, rebuild, observe.
+#
+# All tick values are at 20 Hz (1 tick = 50 ms real time).
+# With day_length_seconds = 7200 (default), time scale is 12×:
+#
+#   Real time  │ Game time │ Ticks
+#   ───────────┼───────────┼──────
+#   5 seconds  │ 1 minute  │ 100
+#   30 seconds │ 6 minutes │ 600
+#   5 minutes  │ 1 hour    │ 6,000
+#   20 minutes │ 4 hours   │ 24,000
+#   40 minutes │ 8 hours   │ 48,000
+
+# ── Movement ───────────────────────────────────────────────────
+
+[movement]
+walk_speed_mps = 3.0              # meters per second
+arrive_radius_m = 10.0            # switch from walk → idle
+engage_range_m = 30.0             # stop approaching combat target
+squad_arrive_radius_m = 25.0      # squad centroid "arrived" threshold
+squad_member_arrive_m = 3.0       # individual formation slot tolerance
+path_recompute_dist_m = 8.0       # target drift before re-pathfind
+path_max_age_ticks = 600          # 30s real — force path refresh
+path_budget_per_tick = 4          # max A* calls per tick (perf cap)
+long_march_prob = 0.30            # chance solo NPC picks a far target
+long_march_radius_m = 1200.0      # max distance for long march
+
+# ── Squad Planning ─────────────────────────────────────────────
+
+[planning]
+planner_interval_ticks = 200      # 10s real — per-group re-eval cadence
+objective_default_duration_ticks = 18000   # 15 min real / ~3h game — generic fallback
+patrol_duration_ticks = 24000     # 20 min real / ~4h game — full patrol route
+guard_tenure_ticks = 48000        # 40 min real / ~8h game — one guard shift
+rest_duration_ticks = 18000       # 15 min real / ~3h game — campfire rest
+guard_duration_ticks = 3600       # 3 min real — legacy, unused
+investigate_duration_ticks = 4800 # 4 min real / ~48 min game — check something out
+investigate_arrival_dwell_ticks = 1800  # 90s real / ~18 min game — look around on arrival
+wander_duration_ticks = 18000     # 15 min real / ~3h game — aimless traversal
+explore_duration_ticks = 14400    # 12 min real / ~2.4h game — head toward portal
+relieve_duration_ticks = 8000     # ~7 min real — walk to relieve a post
+wander_drift_reroll_ticks = 2400  # 2 min real — pick new wander direction
+
+# How far a newly-spawned squad walks before getting a real objective.
+# Needs to be big enough that squads from the same base don't all
+# converge on the nearest AP.
+[planning.dispersion]
+min_dist_m = 80.0
+max_dist_m = 150.0
+arrive_radius_m = 25.0
+
+# Force re-roll if squad hasn't moved in this window.
+[planning.stuck_detection]
+progress_m = 5.0
+timeout_ticks = 600               # 30s real
+
+# Squad cohesion — regroup when members spread too far.
+[planning.cohesion]
+break_distance_m = 80.0           # max member spread before regroup
+regroup_duration_ticks = 600      # 30s real — regroup window
+regroup_cooldown_ticks = 1200     # 1 min real — grace before next regroup check
+failed_regroup_disable_ticks = 6000  # 5 min real — stop re-regrouping on stuck straggler
+
+# How long NPCs hold position after arriving at their objective.
+[planning.dwell]
+guard_ticks = 24000               # 20 min real / ~4h game — hold guard post
+rest_ticks = 12000                # 10 min real / ~2h game — sit at campfire
+patrol_waypoint_ticks = 600       # 30s real / ~6 min game — pause at waypoint
+default_ticks = 200               # 10s real — generic arrival pause
+jitter_frac = 0.30                # ±30% per-NPC randomization so dwell endings desync
+guard_shift_interval_ticks = 500  # ~25s real — periodic micro-shift while guarding
+guard_shift_radius_m = 1.8        # max radius of the guard shift nudge
+
+# ── Combat / Tactical ──────────────────────────────────────────
+
+[combat]
+cover_search_radius_m = 60.0      # how far NPCs look for cover
+peek_interval_ticks = 40          # 2s real — time between peeks from cover
+peek_duration_ticks = 20          # 1s real — how long each peek lasts
+suppression_hit_threshold = 3     # hits in window → suppressed
+suppression_attacker_threshold = 2  # distinct shooters → suppressed
+suppression_window_ticks = 100    # 5s real — window for counting hits
+suppression_duration_ticks = 60   # 3s real — stay suppressed
+retreat_health_frac = 0.30        # health fraction → retreat
+pointman_push_health_frac = 0.70  # pointman pushes above this HP
+
+# ── Aggro / Perception ─────────────────────────────────────────
+
+[aggro]
+decay_ticks = 600                 # 30s real / ~6 min game — remember unseen target
+pursue_progress_m = 10.0          # must get this much closer or give up
+pursue_timeout_ticks = 1200       # 60s real — give up pursuit if no progress
+
+# ── Goal Arbitration ───────────────────────────────────────────
+
+[arbitration]
+hysteresis_prio_delta = 20        # new goal must beat current by this much
+commitment_ticks = 600            # 30s real — lock into squad objective
+responder_cap_per_target = 3      # max squads converging on one threat
+solo_borrow_radius_m = 200.0      # solo NPC intel-sharing range

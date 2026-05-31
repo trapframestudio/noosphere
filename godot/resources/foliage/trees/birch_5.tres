@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Tree: Birch variant 5 (lowpoly LOD pack)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/trees/birch_lod_pack/scene.gltf"
+variant_prefix = "Birch_5"
+scale_min = 0.85
+scale_max = 1.3
+random_yaw = true
+size_multiplier = 1.0
+albedo_modulation = Color(1, 1, 1, 1)
+canopy_tint = Color(0.32, 0.38, 0.20, 1)
+wind_amplitude_scale = 0.4
+trunk_anchor_height = 0.6
+trunk_collision_radius = 0.25
+trunk_collision_height = 6.0
+max_render_distance_m = 900.0

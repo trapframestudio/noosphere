@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3 uid="uid://bf2dtrfcoxmam"]
+
+[ext_resource type="Script" uid="uid://6msf07nxeg00" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Cluster boulder (standing cover; rocky outcrop terrain)"
+script = ExtResource("1_script")
+variant_prefix = "rock_cluster"
+scale_min = 0.45
+scale_max = 3.0
+size_multiplier = 1.5
+scale_axis_jitter = 0.30
+random_tilt_deg = 28.0
+extreme_tilt_chance = 0.18
+extreme_tilt_deg = 55
+roughness_floor = 0.72
+resolution_tier = 2
+texture_set = "Rock058"
+max_render_distance_m = 700.0
+proxy_swap_distance_m = 260.0
+terrain_min_score = 0.25
+terrain_density_boost = 12.0
+scale_terrain_boost = 1.4
+terrain_alignment_factor = 0.5
+terrain_curvature_boost = 1.5
+terrain_basal_boost = 4.0
+scale_basal_boost = 0.8
+is_anchor = true
+satellite_anchor_radius = 6.0
+feature_cluster_count_max = 3
+terrain_sink_factor = 0.5
+terrain_sink_random_max = 0.4
+slope_max = 1.8
+collision_tier = 3
+collision_radius_override = 1.0
+collision_height_override = 1.6
+tree_exclusion_radius = 1.6

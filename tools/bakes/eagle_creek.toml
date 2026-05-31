@@ -1,0 +1,41 @@
+# Bake spec for Eagle Creek — branch map south off Cascade Locks.
+#
+# Eagle Creek wilderness — the deep-canyon tributary system south of
+# the Columbia River at the Cascade Locks pinch. In DESIGN.md §3.3
+# this is the southern trailhead branch from the Cascade Locks spine
+# hub. Waterfall-dense, narrow basalt canyon, historic hiking
+# infrastructure (Eagle Creek Trail #440, Punchbowl Falls, Tunnel
+# Falls).
+#
+# Control: Wanderer + Fault. ambient hazard behavior pressure is heavier here
+# than on the spine; fault mouths in the narrow canyon walls.
+#
+# Key features within bounds:
+# - Eagle Creek canyon (tight basalt slot gorge)
+# - Punchbowl Falls (iconic circular amphitheatre pool)
+# - Tunnel Falls (~10 km south; the trail cuts through the cliff
+#   behind the falls — signature landmark if we can stretch bounds)
+# - Metlako Falls
+# - Eagle Creek Trailhead parking + ranger station (north edge,
+#   connects to Cascade Locks)
+
+map_id = "eagle_creek"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 585500.0     # aligned with cascade_locks east edge
+origin_north = 5054500.0   # cascade_locks south edge = this map's north edge
+extent_x = 4500.0
+extent_z = 5000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

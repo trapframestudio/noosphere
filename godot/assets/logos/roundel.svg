@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <circle cx="48" cy="48" r="44" fill="none" stroke="#D6CDB4" stroke-width="2"></circle>
+  <circle cx="48" cy="48" r="38" fill="none" stroke="#D6CDB4" stroke-width="1" opacity="0.5"></circle>
+  <g transform="translate(48,48)" fill="none" stroke="#D6CDB4" stroke-width="2" stroke-linejoin="miter">
+    <path d="M-20 -18 L-2 -24 L10 -10 L22 -20 L20 0 L26 16 L6 22 L-8 14 L-22 22 L-18 2 L-28 -8 Z"></path>
+    <path d="M0 -18 L4 0 L-6 8 L2 20" stroke-width="1"></path>
+  </g>
+  <g font-family="JetBrains Mono, monospace" font-size="5" letter-spacing="0.3em" fill="#8A9A91" text-anchor="middle">
+    <text x="48" y="10">— NOOSPHERE —</text>
+    <text x="48" y="92">CRBG · VLF · 2039</text>
+  </g>
+</svg>

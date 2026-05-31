@@ -1,0 +1,87 @@
+# ----------------------------------------------------------------------
+# Weapons, magazines, and ammo (Phase 1).
+# ----------------------------------------------------------------------
+#
+# All numeric tuning (damage, range, fire rate, spread, capacity)
+# lives here — engine code never supplies defaults that would shadow
+# a missing field. A weapon without a `weapon_config` block can't
+# fire. A magazine without a `magazine_config` block can't be loaded.
+# Caliber is a free-form string tag: modders add new calibers by
+# declaring a matching triple (weapon + magazine + ammo) with the
+# same caliber string, no Rust changes needed.
+#
+# Categories:
+#   - `weapon_primary` / `weapon_secondary` / `sidearm` — the three
+#     equipment slots a weapon can go in.
+#   - `magazine` — holds rounds in MagazineState.loaded_rounds.
+#   - `ammo` — stackable loose rounds consumed on reload.
+#
+# Phase 2 adds ballistic fields (muzzle velocity, drag coefficient)
+# and a projectile sim on top of this data — no schema break.
+
+# Pistol: 9x18 Makarov caliber, small footprint, 80m effective range.
+[[items]]
+id = "pistol_makarov"
+name = "Makarov PM"
+category = "sidearm"
+weight = 0.73
+stack_size = 1
+size = { w = 2, h = 1 }
+rotatable = true
+equip_slots = ["sidearm"]
+
+[items.weapon_config]
+caliber = "9x18"
+damage = 20.0
+range_m = 80.0
+fire_interval_s = 0.25
+spread_deg = 1.0
+
+# Rifle: 5.45x39 caliber, vertical in grid, 300m effective range.
+[[items]]
+id = "rifle_aks74"
+name = "AKS-74"
+category = "weapon_primary"
+weight = 3.3
+stack_size = 1
+size = { w = 2, h = 4 }
+rotatable = true
+equip_slots = ["primary"]
+
+[items.weapon_config]
+caliber = "5.45x39"
+damage = 35.0
+range_m = 300.0
+fire_interval_s = 0.15
+spread_deg = 0.5
+# Phase 4C — attachment slots. Native AKS-74 mount surfaces:
+# muzzle is 14×1 LH thread (Warsaw Pact std), receiver-side
+# dovetail (PSO/POSP rail), gas tube handguard (replaceable
+# with rail handguards), Warsaw stock interface, AK magwell.
+# Slot ids are authoring hints; the resolver matches on tags.
+slots = [
+  { id = "muzzle",    tags = ["threaded_14x1_lh"] },
+  { id = "side_rail", tags = ["dovetail_side"] },
+  { id = "handguard", tags = ["ak_handguard"] },
+  { id = "stock",     tags = ["warsaw_stock"] },
+  { id = "magwell",   tags = ["ak_545_mag"] },
+]
+
+# Shotgun: 12ga caliber, short-range, high damage per shot.
+[[items]]
+id = "shotgun_saiga"
+name = "Saiga-12"
+category = "weapon_primary"
+weight = 3.6
+stack_size = 1
+size = { w = 2, h = 4 }
+rotatable = true
+equip_slots = ["primary"]
+
+[items.weapon_config]
+caliber = "12ga"
+damage = 60.0
+range_m = 25.0
+fire_interval_s = 0.8
+spread_deg = 6.0
+

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://b8uck5fxls5jh"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: grass_pack large 1 (Fab lowpoly)"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_fab/grass_pack_low/grass_large_1.glb"
+weight = 1
+scale_min = 0.85
+scale_max = 1.45
+size_multiplier = 1.3
+alpha_luminance_cutoff = 0.0

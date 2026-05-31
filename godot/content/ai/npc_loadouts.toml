@@ -1,0 +1,100 @@
+# NPC loadouts — what a freshly spawned NPC carries in their pockets.
+#
+# Keyed by faction (snake_case, see `faction_to_str`). Each loadout is
+# a list of rolls. A roll with `chance = 1.0` always grants; lower
+# chances roll once per spawn against the squad RNG.
+#
+# These are deliberately modest — corpses should reward looting without
+# trivializing economy. Coalition / Directorate / Homesteaders get a bandage and
+# a ration on top of their basic kit; Looters carry junk for salvage;
+# Wanderers carry almost nothing. Faction-specific high-tier kits
+# (gunsmith, drug-making) are NOT in baseline loadouts — those drop
+# from named NPCs / brain-driven encounters in a later slice.
+#
+# Add a new faction loadout: append a `[[loadouts]]` block. Add a new
+# roll: append to its `rolls` array. Item ids must exist in items.toml.
+# Unknown ids fail loud at startup so authoring errors don't ship.
+
+[[loadouts]]
+faction = "pwa"
+rolls = [
+    { id = "bandage", count = 2, chance = 1.0 },
+    { id = "preserved_ration", count = 1, chance = 1.0 },
+    { id = "metal_scrap", count = 1, chance = 0.5 },
+]
+
+[[loadouts]]
+faction = "linemen"
+rolls = [
+    { id = "bandage", count = 2, chance = 1.0 },
+    { id = "field_ration", count = 1, chance = 1.0 },
+    { id = "wire_bundle", count = 1, chance = 0.7 },
+    { id = "gunsmith_kit_basic", count = 1, chance = 0.1 },
+]
+
+[[loadouts]]
+faction = "revere_guard"
+rolls = [
+    { id = "bandage", count = 2, chance = 1.0 },
+    { id = "preserved_ration", count = 1, chance = 1.0 },
+    { id = "painkiller", count = 1, chance = 0.4 },
+]
+
+[[loadouts]]
+faction = "federal"
+rolls = [
+    { id = "bandage", count = 2, chance = 1.0 },
+    { id = "field_ration", count = 1, chance = 1.0 },
+    { id = "antibiotics", count = 1, chance = 0.2 },
+]
+
+[[loadouts]]
+faction = "gulf_compact"
+rolls = [
+    { id = "energy_bar", count = 2, chance = 1.0 },
+    { id = "clean_water", count = 1, chance = 1.0 },
+    { id = "stim_cocktail", count = 1, chance = 0.3 },
+]
+
+[[loadouts]]
+faction = "recovery_division"
+rolls = [
+    { id = "field_ration", count = 1, chance = 1.0 },
+    { id = "anti_rad", count = 1, chance = 0.6 },
+    { id = "advanced_toolkit", count = 1, chance = 0.15 },
+    { id = "drug_kit_basic", count = 1, chance = 0.1 },
+]
+
+[[loadouts]]
+faction = "attuned"
+rolls = [
+    { id = "dirty_water", count = 1, chance = 1.0 },
+    { id = "contaminated_food", count = 1, chance = 0.6 },
+    { id = "morphine", count = 1, chance = 0.2 },
+]
+
+[[loadouts]]
+faction = "looters"
+rolls = [
+    { id = "bandage", count = 1, chance = 0.7 },
+    { id = "vodka", count = 1, chance = 0.4 },
+    { id = "rusty_pipe", count = 1, chance = 0.6 },
+    { id = "broken_radio", count = 1, chance = 0.4 },
+    { id = "cloth_scrap", count = 2, chance = 0.5 },
+]
+
+[[loadouts]]
+faction = "wanderers"
+rolls = [
+    { id = "dirty_water", count = 1, chance = 0.6 },
+    { id = "frayed_boots", count = 1, chance = 0.3 },
+]
+
+[[loadouts]]
+faction = "merged"
+# The Afflicted are endgame antagonists — never seeded randomly, but if
+# one ever ends up looted, the player should get something distinctive.
+rolls = [
+    { id = "anti_rad", count = 2, chance = 1.0 },
+    { id = "morphine", count = 1, chance = 0.5 },
+]

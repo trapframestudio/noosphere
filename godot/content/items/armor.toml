@@ -1,0 +1,73 @@
+# ---------------------------------------------------------------
+# Armor — wearables that reduce projectile damage by protection
+# class. Loaded via `ItemDef::armor_config`. Paper-doll slots:
+# `armor_vest` (plate carriers, exosuits, soft vests) and
+# `head_gear` (helmets). The damage formula scans equipped armor
+# for matches against the hit body part and takes the max
+# protection_class.
+# ---------------------------------------------------------------
+
+[[items]]
+id = "armor_soft_vest"
+name = "Soft Kevlar Vest (Class II)"
+category = "armor_vest"
+weight = 3.5
+stack_size = 1
+size = { w = 3, h = 3 }
+equip_slots = ["armor_vest"]
+
+[items.armor_config]
+protection_class = 1
+coverage = ["torso"]
+
+[[items]]
+id = "armor_ballistic_rig"
+name = "Ballistic Rig w/ Trauma Plate (IIIA)"
+category = "armor_vest"
+weight = 5.2
+stack_size = 1
+size = { w = 3, h = 3 }
+equip_slots = ["armor_vest"]
+
+[items.armor_config]
+protection_class = 2
+coverage = ["torso"]
+
+[[items]]
+id = "armor_plate_carrier"
+name = "Plate Carrier w/ Steel Plates (III)"
+category = "armor_vest"
+weight = 9.8
+stack_size = 1
+size = { w = 3, h = 3 }
+equip_slots = ["armor_vest"]
+
+[items.armor_config]
+protection_class = 3
+coverage = ["torso"]
+
+[[items]]
+id = "armor_heavy_exo"
+name = "Exosuit Heavy Plates (IV)"
+category = "armor_vest"
+weight = 14.5
+stack_size = 1
+size = { w = 3, h = 4 }
+equip_slots = ["armor_vest"]
+
+[items.armor_config]
+protection_class = 4
+coverage = ["torso", "head"]
+
+[[items]]
+id = "helmet_6b47"
+name = "6B47 Aramid Helmet"
+category = "head_gear"
+weight = 1.2
+stack_size = 1
+size = { w = 2, h = 2 }
+equip_slots = ["head"]
+
+[items.armor_config]
+protection_class = 2
+coverage = ["head"]

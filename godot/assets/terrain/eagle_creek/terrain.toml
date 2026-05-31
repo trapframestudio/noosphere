@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "eagle_creek"
+width = 2251
+height = 2501
+spacing_m = 2.0
+vert_min_m = 51.0
+vert_max_m = 1265.0
+origin_utm_zone = "10N"
+origin_utm_easting = 585500.0
+origin_utm_northing = 5054500.0
+blake3 = "d1a2a50b049f9d7e78bb8ae04f3db420baf4959d33af57ff84a498be6cba2c83"
+features_blake3 = "6837c6023df6bea69cb6834524998a1773cd8fab2264bcc2deca6bef5db903a3"

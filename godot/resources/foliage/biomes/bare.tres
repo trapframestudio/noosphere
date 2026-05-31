@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BiomeSpeciesConfig" format=3 uid="uid://dpthrdw0ps7id"]
+
+[ext_resource type="Script" uid="uid://dyhh0bs2ul4dq" path="res://scripts/foliage/biome_species_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Bare biome (PNW east-of-Cascades dry scrub — sparse bunchgrasses + greasewood)"
+script = ExtResource("1_script")
+biome = 3
+plants_per_sq_m = 0.85
+species_paths = Array[String](["res://resources/foliage/species/wheat_grass.tres", "res://resources/foliage/species/quarry_slate_grass_thatching_common_set_01.tres", "res://resources/foliage/species/weed_02.tres", "res://resources/foliage/species/ump_plant_v1.tres", "res://resources/foliage/species/ump_flower_03.tres"])
+species_densities = PackedFloat32Array(0.35, 0.25, 0.03, 0.02, 0.02)

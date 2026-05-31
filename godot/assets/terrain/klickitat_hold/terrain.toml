@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "klickitat_hold"
+width = 3001
+height = 2501
+spacing_m = 2.0
+vert_min_m = 90.0
+vert_max_m = 670.0
+origin_utm_zone = "10N"
+origin_utm_easting = 631000.0
+origin_utm_northing = 5058000.0
+blake3 = "6af7ae4ffe598fe6f107a77d291fdfcf55f9bb8963cdd7017e79add1b12d9fa4"
+features_blake3 = "5ae98f5ca9e54718e15e22d428cd3a21757c1f7ae4c277060a676829a03b9b6d"

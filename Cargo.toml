@@ -1,0 +1,31 @@
+[workspace]
+resolver = "2"
+# Engine crates are vendored from the public SIMN repo into a gitignored
+# addon by scripts/sync-simn.sh — they are NOT committed here. Run that
+# script before the first build (see docs/DEVELOPMENT.md). This root
+# Cargo.toml is the one and only workspace; the vendored crates inherit
+# [workspace.package] + [workspace.dependencies] below.
+members = [
+    "godot/addons/simn/crates/simn-common",
+    "godot/addons/simn/crates/simn-sim",
+    "godot/addons/simn/crates/simn-terrain",
+    "godot/addons/simn/crates/simn-net",
+    "godot/addons/simn/crates/simn-godot",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["trapframe"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/joniler/noosphere"
+
+[workspace.dependencies]
+# Godot engine (gdext bindings)
+godot = { git = "https://github.com/godot-rust/gdext", branch = "master", features = ["experimental-threads"] }
+
+# Logging
+tracing = "0.1"
+
+# Error handling
+anyhow = "1"

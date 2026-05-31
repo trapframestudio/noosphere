@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Large boulder (standing cover; talus zones / near slopes)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/rocks/rock_pack.glb"
+variant_prefix = "rock_round"
+scale_min = 0.4
+scale_max = 3.2
+size_multiplier = 1.8
+scale_axis_jitter = 0.25
+random_yaw = true
+random_tilt_deg = 22
+extreme_tilt_chance = 0.15
+extreme_tilt_deg = 50
+albedo_modulation = Color(1, 1, 1, 1)
+roughness_floor = 0.72
+resolution_tier = 2
+texture_set = "Rock060"
+min_render_distance_m = 0.0
+max_render_distance_m = 700.0
+proxy_swap_distance_m = 280.0
+terrain_min_score = 0.15
+terrain_density_boost = 6.0
+scale_terrain_boost = 1.2
+terrain_sink_factor = 0.4
+terrain_sink_random_max = 0.35
+slope_max = 1.8
+collision_tier = 3
+tree_exclusion_radius = 1.4
+is_anchor = true
+terrain_alignment_factor = 0.6
+terrain_curvature_boost = 1.5
+terrain_basal_boost = 4
+scale_basal_boost = 0.8
+satellite_anchor_radius = 5
+feature_cluster_count_max = 2
+feature_cluster_radius = 2.2

@@ -1,0 +1,43 @@
+# Activity-point type behavior. The engine reads each activity type's
+# behavior flags from here instead of hardcoding them.
+#
+# `kind` matches the ActivityKind wire tag. `is_guard` and `is_rest` gate
+# squad behaviors (guard posts, rest/socialize). `hunt_target` marks types
+# a curious/greedy NPC investigates at a hostile base. All default false.
+
+[[activity_type]]
+kind = "GuardStatic"
+is_guard = true
+
+[[activity_type]]
+kind = "GuardPerimeter"
+is_guard = true
+
+[[activity_type]]
+kind = "PatrolWaypoint"
+
+[[activity_type]]
+kind = "RestSpot"
+is_rest = true
+
+[[activity_type]]
+kind = "Lookout"
+hunt_target = true
+
+[[activity_type]]
+kind = "Campfire"
+is_rest = true
+
+[[activity_type]]
+kind = "Workbench"
+hunt_target = true
+
+[[activity_type]]
+kind = "Stash"
+hunt_target = true
+
+[[activity_type]]
+kind = "SniperNest"
+
+[[activity_type]]
+kind = "AmbushPoint"

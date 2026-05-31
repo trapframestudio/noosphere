@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqr3regbk0001"]
+
+[ext_resource type="Shader" path="res://shaders/terrain_regional.gdshader" id="1_shader"]
+
+[resource]
+resource_name = "TerrainRegional"
+shader = ExtResource("1_shader")
+shader_parameter/tile_scale_m = 250.0

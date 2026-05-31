@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Small jagged stone (steppable; loose surface stones)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/rocks/rock_pack.glb"
+variant_prefix = "rock_jagged"
+scale_min = 0.5
+scale_max = 1.8
+size_multiplier = 0.4
+random_yaw = true
+random_tilt_deg = 22.5
+albedo_modulation = Color(1, 1, 1, 1)
+roughness_floor = 0.7
+resolution_tier = 0
+texture_set = "Rock028"
+min_render_distance_m = 0.0
+max_render_distance_m = 130.0
+proxy_swap_distance_m = 0.0
+terrain_min_score = 0.0
+terrain_density_boost = 1.5
+scale_terrain_boost = 0.4
+slope_max = 1.8
+collision_tier = 1
+is_anchor = false
+terrain_alignment_factor = 0.8
+terrain_curvature_boost = 3
+terrain_basal_boost = 2
+terrain_sink_factor = 0.05
+satellite_anchor_boost = 6

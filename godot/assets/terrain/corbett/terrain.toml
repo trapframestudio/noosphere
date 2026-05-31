@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "corbett"
+width = 2501
+height = 1751
+spacing_m = 2.0
+vert_min_m = -3.0
+vert_max_m = 283.0
+origin_utm_zone = "10N"
+origin_utm_easting = 548500.0
+origin_utm_northing = 5045000.0
+blake3 = "03ac38464dbd05246a7a64b3ef661e3e19b439d4bcb62f241d90d96c4ec19b15"
+features_blake3 = "3cd369ab8b08fbaaff25ecf38b915bf3a76a0e8914be01c214d07b38df12006d"

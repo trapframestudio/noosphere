@@ -1,0 +1,46 @@
+# Bake spec for Klickitat Hold — final branch map, WA-side canyon
+# stronghold on the approach to Celilo from the rear.
+#
+# Sits NORTH of The Dalles across the Columbia, covering the lower
+# Klickitat River canyon from its confluence at Lyle, WA up into the
+# dry basalt bluffs. DESIGN.md §3.3 east-detour arc: Klickitat River
+# canyon, Maryhill, Wishram rail tunnels approach to Celilo from
+# the rear. This map picks up the canyon half of that arc; Maryhill
+# (further east, in tile N45W121) is reserved for a later endgame
+# map if it graduates from branch status.
+#
+# Geographic character: sharp transition between the green oak/pine
+# canyon bottom along the Klickitat River and the dry, treeless
+# basalt tablelands above. Classic lee-side-of-the-Cascades terrain —
+# this is where the rain shadow kicks in hard. The Columbia here
+# is roughly 1.5 km wide (Celilo Lake impoundment), and the WA
+# bank rises sharply to 300-500 m bluffs.
+#
+# Key features within bounds:
+# - Klickitat River confluence at Lyle, WA (river mouth)
+# - Lower Klickitat canyon walls (basalt cliffs)
+# - Lyle tunnels (historic rail, now Klickitat Trail)
+# - Dallesport / Rattlesnake Ridge on south edge (WA side of Dalles Dam)
+# - Columbia River (Celilo Lake impoundment) at southern edge
+# - Balch Lake / Stacker Butte approach on north edge
+
+map_id = "klickitat_hold"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 631000.0     # west of Dalles Dam, centered on Lyle
+origin_north = 5058000.0   # starts at the_dalles' north edge
+extent_x = 6000.0          # 631000 → 637000 E
+extent_z = 5000.0          # 5058000 → 5063000 N (covers Lyle + up-canyon)
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

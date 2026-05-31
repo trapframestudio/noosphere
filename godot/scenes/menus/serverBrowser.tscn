@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6c9qg4vdzm3w"]
+
+[ext_resource type="Script" path="res://scripts/menus/server_browser.gd" id="1_browser"]
+
+[node name="ServerBrowser" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_browser")

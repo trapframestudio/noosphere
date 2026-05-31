@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "hood_river"
+width = 2751
+height = 2251
+spacing_m = 2.0
+vert_min_m = 19.0
+vert_max_m = 408.0
+origin_utm_zone = "10N"
+origin_utm_easting = 612500.0
+origin_utm_northing = 5063500.0
+blake3 = "50e8306ea7ca144cde7689626703cb97163d60a1ca623338986e3e7cbd0cf62c"
+features_blake3 = "c975fc9649b36a571969caee0dec33bf803aea0106b82417977586809f8ce043"

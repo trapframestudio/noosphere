@@ -1,0 +1,91 @@
+# Example recipe catalog. Loaded by `RecipeRegistry::load` via
+# `include_str!`. Step 4 ships the minimum viable set — raw → cooked
+# is the headline cooking loop that was deferred from Step 3's
+# food/water PR. Workbench-tier recipes + the full crafting tree land
+# in Step 5 with the recipe browser UI.
+#
+# `time_ticks` is stored but not enforced in Step 4 (crafting is
+# instant). Step 5 adds the queue/timer that consumes it.
+
+[[recipes]]
+id = "cook_meat"
+name = "Cook Meat"
+required_tool = "cookware"
+required_context = "campfire"
+time_ticks = 600   # 30 real seconds — enforced by Step 5's queue
+inputs = [{ id = "raw_meat", count = 1 }]
+outputs = [{ id = "cooked_meat", count = 1 }]
+
+# ---------- Medical / basic bench (smoke tests for Step 5) ----------
+#
+# Two example recipes that exercise the tiered tier/specialty
+# system end-to-end. Numbers are placeholders; real per-tier recipe
+# catalogs fill in as weapons / armor / meds systems ship.
+
+[[recipes]]
+id = "craft_bandage"
+name = "Craft Bandage"
+required_kit = { specialty = "general", min_tier = "basic" }
+required_context = "basic_bench"
+time_ticks = 200   # 10 real seconds per unit
+inputs = [{ id = "cloth_scrap", count = 2 }]
+outputs = [{ id = "bandage", count = 1 }]
+
+[[recipes]]
+id = "craft_antibiotics"
+name = "Craft Antibiotics"
+required_kit = { specialty = "drug_making", min_tier = "basic" }
+required_context = "basic_bench"
+time_ticks = 600   # 30 real seconds per unit — drugs take longer
+inputs = [
+    { id = "cloth_scrap", count = 1 },
+    { id = "plastic_scrap", count = 1 },
+]
+outputs = [{ id = "antibiotics", count = 1 }]
+
+# ---------- Specialty-kit production (tiered-specialty pattern) ----------
+#
+# Models an Advanced Tools -> Heavy Armor Repair Kit chain:
+# higher-tier general kits are the **prereq** for crafting the
+# specialty kit item itself. Numbers are placeholder material costs
+# and craft times; real tuning lands with the weapons / armor
+# catalogs that consume them.
+
+[[recipes]]
+id = "craft_armor_repair_kit_advanced"
+name = "Craft Advanced Armor Repair Kit"
+required_kit = { specialty = "general", min_tier = "advanced" }
+required_context = "advanced_bench"
+time_ticks = 3000   # 2.5 real min
+inputs = [
+    { id = "cloth_scrap", count = 5 },
+    { id = "metal_scrap", count = 4 },
+    { id = "cordage", count = 2 },
+]
+outputs = [{ id = "armor_repair_kit_advanced", count = 1 }]
+
+[[recipes]]
+id = "craft_weapon_repair_kit_advanced"
+name = "Craft Advanced Weapon Repair Kit"
+required_kit = { specialty = "general", min_tier = "advanced" }
+required_context = "advanced_bench"
+time_ticks = 3000
+inputs = [
+    { id = "metal_scrap", count = 6 },
+    { id = "plastic_scrap", count = 2 },
+]
+outputs = [{ id = "weapon_repair_kit_advanced", count = 1 }]
+
+[[recipes]]
+id = "craft_armor_repair_kit_expert"
+name = "Craft Expert Armor Repair Kit"
+required_kit = { specialty = "general", min_tier = "expert" }
+required_context = "expert_bench"
+time_ticks = 6000   # 5 real min
+inputs = [
+    { id = "cloth_scrap", count = 10 },
+    { id = "metal_scrap", count = 8 },
+    { id = "cordage", count = 4 },
+    { id = "optical_lens", count = 1 },
+]
+outputs = [{ id = "armor_repair_kit_expert", count = 1 }]

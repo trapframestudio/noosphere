@@ -1,0 +1,107 @@
+# Example item catalog. Loaded by `ItemRegistry::load` via
+# `include_str!` at compile-time. Keep IDs stable — saves reference
+# them. Numbers are tunable, not committed contracts.
+#
+# Schema: see `crates/simn-sim/src/items.rs`.
+#
+# Time units for `perishable_ticks`: 20Hz sim, so 20 ticks = 1
+# real-world second. `WorldTime::DEFAULT_DAY_LENGTH = 7200` in-world
+# seconds per in-world day (12× compression), so 1 in-world hour =
+# 300 in-world seconds ≈ 6000 ticks at the current compression. A
+# 24-in-world-hour perishable is 144000 ticks.
+
+# ---------- Food ----------
+
+[[items]]
+id = "preserved_ration"
+name = "Preserved Ration"
+category = "food"
+weight = 0.3
+stack_size = 10
+consume_action = { kind = "eat", food_kind = "preserved_ration" }
+
+[[items]]
+id = "fresh_food"
+name = "Fresh Food"
+category = "food"
+weight = 0.25
+stack_size = 10
+perishable_ticks = 72000   # 12 in-world hours
+consume_action = { kind = "eat", food_kind = "fresh_food" }
+
+[[items]]
+id = "raw_meat"
+name = "Raw Meat"
+category = "food"
+weight = 0.5
+stack_size = 5
+perishable_ticks = 36000   # 6 in-world hours — cook it before it turns
+consume_action = { kind = "eat", food_kind = "raw_meat" }
+
+[[items]]
+id = "cooked_meat"
+name = "Cooked Meat"
+category = "food"
+weight = 0.4
+stack_size = 5
+perishable_ticks = 144000  # 24 in-world hours
+consume_action = { kind = "eat", food_kind = "cooked_meat" }
+
+[[items]]
+id = "contaminated_food"
+name = "Contaminated Food"
+category = "food"
+weight = 0.3
+stack_size = 10
+consume_action = { kind = "eat", food_kind = "contaminated_food" }
+
+[[items]]
+id = "field_ration"
+name = "Field Ration"
+category = "food"
+weight = 0.4
+stack_size = 10
+consume_action = { kind = "eat", food_kind = "field_ration" }
+
+[[items]]
+id = "energy_bar"
+name = "Energy Bar"
+category = "food"
+weight = 0.1
+stack_size = 20
+consume_action = { kind = "eat", food_kind = "energy_bar" }
+
+# ---------- Drink ----------
+
+[[items]]
+id = "dirty_water"
+name = "Dirty Water"
+category = "drink"
+weight = 1.0
+stack_size = 4
+consume_action = { kind = "drink", water_kind = "dirty_water" }
+
+[[items]]
+id = "clean_water"
+name = "Clean Water"
+category = "drink"
+weight = 1.0
+stack_size = 4
+consume_action = { kind = "drink", water_kind = "clean_water" }
+
+[[items]]
+id = "energy_drink"
+name = "Energy Drink"
+category = "drink"
+weight = 0.4
+stack_size = 6
+consume_action = { kind = "drink", water_kind = "energy_drink" }
+
+[[items]]
+id = "vodka"
+name = "Vodka"
+category = "drink"
+weight = 0.7
+stack_size = 4
+consume_action = { kind = "drink", water_kind = "vodka" }
+

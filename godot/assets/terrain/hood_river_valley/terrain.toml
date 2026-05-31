@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "hood_river_valley"
+width = 5001
+height = 8501
+spacing_m = 2.0
+vert_min_m = 222.0
+vert_max_m = 1317.0
+origin_utm_zone = "10N"
+origin_utm_easting = 610000.0
+origin_utm_northing = 5053000.0
+blake3 = "443ee6d016f15a338c21e9420573b6df39b704e7a77b3447d9cfa4831d7e6811"
+features_blake3 = "e4f8aba647fd65aa690435b77a01b20121d465c12bc477ddc4d166750ea3bc45"

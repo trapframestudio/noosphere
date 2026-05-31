@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "mosier"
+width = 3001
+height = 2001
+spacing_m = 2.0
+vert_min_m = 18.0
+vert_max_m = 586.0
+origin_utm_zone = "10N"
+origin_utm_easting = 620000.0
+origin_utm_northing = 5061000.0
+blake3 = "83ce035ed1874c4111350f4656eee6a1dba80ce22f15eaaab7c4f6e4d5a9036b"
+features_blake3 = "7efb524f52ad555faa468f495778c26992653a085bac4098dd33f906b5a8c69f"

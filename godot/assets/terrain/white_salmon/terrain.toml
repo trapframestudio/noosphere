@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "white_salmon"
+width = 2751
+height = 2001
+spacing_m = 2.0
+vert_min_m = 18.0
+vert_max_m = 525.0
+origin_utm_zone = "10N"
+origin_utm_easting = 613000.0
+origin_utm_northing = 5068000.0
+blake3 = "4cd3fbf8f1ea7889bfed6cb3622f6d11a340a3db75307e4c9c72adb32c4cb71e"
+features_blake3 = "e6d7836c9dca68e92850178cca43ef197813bb263cc28befd4b42f3d2fae502f"

@@ -1,0 +1,39 @@
+# Bake spec for Latourell — map 2 on the western Gorge spine.
+#
+# Eastern neighbor of Corbett. The gorge-corridor map covering the
+# short stretch between Crown Point (Vista House, on the west edge)
+# and Bridal Veil (east). Columbia River runs along the north edge.
+#
+# Key features within bounds:
+# - Crown Point / Vista House (1918 observatory, cliff-top landmark)
+# - Latourell Falls (75 m basalt-columnade waterfall, ~3 km east of
+#   Crown Point)
+# - Guy Talbot State Park (forested canyon around the falls)
+# - Bridal Veil (small community + falls at east edge)
+# - Columbia River valley on the north edge — river is the Valley's
+#   northern lore boundary
+#
+# Design intent (DESIGN.md §3.5): Wanderer-controlled, ambient
+# drifter presence; historic Columbia River Highway threads through
+# as the spine's approach road from Corbett to Multnomah Falls.
+
+map_id = "latourell"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 558000.0     # ~1 km west of Crown Point's UTM easting
+origin_north = 5046000.0   # north edge just past the Columbia's south bank
+extent_x = 5000.0          # Crown Point → Bridal Veil
+extent_z = 4000.0          # river on north, forested canyon rim on south
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

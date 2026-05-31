@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "the_dalles"
+width = 3501
+height = 2751
+spacing_m = 2.0
+vert_min_m = 17.0
+vert_max_m = 444.0
+origin_utm_zone = "10N"
+origin_utm_easting = 639000.0
+origin_utm_northing = 5052500.0
+blake3 = "951d50257ae8c90ada6943d5c32f70383c4a41bb6675072cc987fe9312a62e12"
+features_blake3 = "40e9b867226756cf3c734336ec29da3d225cf0a665a919bc701ffb4b1fc46a0a"

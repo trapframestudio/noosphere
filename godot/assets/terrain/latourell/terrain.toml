@@ -1,0 +1,12 @@
+format_version = 2
+map_id = "latourell"
+width = 2501
+height = 2001
+spacing_m = 2.0
+vert_min_m = -2.0
+vert_max_m = 425.0
+origin_utm_zone = "10N"
+origin_utm_easting = 558000.0
+origin_utm_northing = 5046000.0
+blake3 = "f580fb3ced9409b588f3f7685b6725ff1c8c0b9e5aace6faffb6d15732386720"
+features_blake3 = "ec7c65cb88a5582cd204d36bc0a89e6a673f46eedaaa299eb6e16256802e7ccc"

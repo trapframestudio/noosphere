@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/real_map.gd" id="1_map"]
+[ext_resource type="PackedScene" path="res://scenes/weather/weather_rig.tscn" id="2_rig"]
+[ext_resource type="PackedScene" path="res://scenes/regional_backdrop.tscn" id="3_backdrop"]
+
+[node name="Celilo" type="Node3D"]
+script = ExtResource("1_map")
+region_id = "celilo"
+
+[node name="WeatherRig" parent="." instance=ExtResource("2_rig")]
+
+[node name="Terrain" type="TerrainNode" parent="."]
+map_id = "celilo"
+auto_load = true
+
+[node name="PlayerSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 778, 0)
+
+[node name="RegionalBackdrop" parent="." instance=ExtResource("3_backdrop")]
+
+[editable path="WeatherRig"]

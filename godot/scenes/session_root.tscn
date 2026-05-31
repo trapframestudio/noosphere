@@ -1,0 +1,48 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5ihtxpqoem53"]
+
+[ext_resource type="Script" path="res://scripts/game_session.gd" id="1_session"]
+[ext_resource type="PackedScene" path="res://scenes/debug_overlay.tscn" id="2_dbg"]
+[ext_resource type="PackedScene" path="res://scenes/menus/gameMenu.tscn" id="3_game"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/menus/pda.tscn" id="5_pda"]
+[ext_resource type="PackedScene" path="res://scenes/menus/inventory.tscn" id="6_inv"]
+[ext_resource type="PackedScene" path="res://scenes/hud_hotbar.tscn" id="7_hbar"]
+[ext_resource type="Script" path="res://scripts/impact_fx.gd" id="8_impact"]
+[ext_resource type="PackedScene" path="res://scenes/menus/loot_panel.tscn" id="9_loot"]
+[ext_resource type="Script" path="res://scripts/loot_controller.gd" id="10_lootctl"]
+[ext_resource type="PackedScene" path="res://scenes/menus/debug_grant_panel.tscn" id="11_dbggrant"]
+[ext_resource type="PackedScene" path="res://scenes/menus/dev_panel.tscn" id="12_devpnl"]
+[ext_resource type="PackedScene" path="res://scenes/pda_toast.tscn" id="13_pdatoast"]
+
+[node name="GameSession" type="Node"]
+script = ExtResource("1_session")
+
+[node name="NetworkManager" type="NetworkManager" parent="."]
+
+[node name="SimHost" type="SimHost" parent="."]
+
+[node name="ImpactFX" type="Node" parent="."]
+script = ExtResource("8_impact")
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
+
+[node name="HotbarHUD" parent="." instance=ExtResource("7_hbar")]
+
+[node name="PDA" parent="." instance=ExtResource("5_pda")]
+
+[node name="PdaToast" parent="." instance=ExtResource("13_pdatoast")]
+
+[node name="InventoryPanel" parent="." instance=ExtResource("6_inv")]
+
+[node name="LootPanel" parent="." instance=ExtResource("9_loot")]
+
+[node name="DebugGrantPanel" parent="." instance=ExtResource("11_dbggrant")]
+
+[node name="DevPanel" parent="." instance=ExtResource("12_devpnl")]
+
+[node name="LootController" type="Node" parent="."]
+script = ExtResource("10_lootctl")
+
+[node name="GameMenu" parent="." instance=ExtResource("3_game")]
+
+[node name="DebugOverlay" parent="." instance=ExtResource("2_dbg")]

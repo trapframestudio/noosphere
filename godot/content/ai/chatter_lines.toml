@@ -1,0 +1,47 @@
+# Tactical chatter lines per faction. The bridge reads these to
+# display floating text above NPCs during combat. Each entry maps
+# a ChatterIntent to an array of lines; the system picks one at
+# random per emission.
+
+[default]
+alarm = ["Contact!", "Enemy spotted!", "Hostile!"]
+callout_suppress = ["Pinned down!", "Taking fire!", "Can't move!"]
+callout_flank = ["Flanking!", "Going around!", "Moving left!"]
+callout_retreat = ["Falling back!", "Pull back!", "Retreating!"]
+callout_reload = ["Reloading!", "Cover me!"]
+mourning = ["Man down!", "We lost one!", "Medic!"]
+
+[pwa]
+alarm = ["Contact front!", "Eyes on hostile!", "Tango spotted!"]
+callout_suppress = ["Suppressed!", "Pinned!", "Heavy fire!"]
+callout_flank = ["Flanking right!", "Moving to flank!", "Pushing around!"]
+callout_retreat = ["Break contact!", "Fall back!", "Pulling out!"]
+mourning = ["Man down! Need medic!", "We lost him!", "Casualty!"]
+
+[federal]
+alarm = ["Hostile contact!", "Target acquired!", "Enemy front!"]
+callout_suppress = ["Taking effective fire!", "Can't advance!", "Pinned down!"]
+callout_flank = ["Moving to enfilade!", "Flanking left!", "Lateral move!"]
+callout_retreat = ["Retrograde!", "Displacing!", "Breaking contact!"]
+mourning = ["Agent down!", "We have a casualty!", "Need medevac!"]
+
+[looters]
+alarm = ["Shit, someone's here!", "We got company!", "Over there!"]
+callout_suppress = ["They're shooting!", "Get down!", "Too hot!"]
+callout_flank = ["Go around!", "Other side!", "Sneak up!"]
+callout_retreat = ["Let's get out!", "Run!", "Screw this!"]
+mourning = ["He's dead!", "They got him!", "No no no!"]
+
+[linemen]
+alarm = ["Intrusion detected!", "Contact on grid!", "Hostile in sector!"]
+callout_suppress = ["Under fire, holding!", "Suppressed, need support!", "Can't advance!"]
+callout_flank = ["Executing flanking maneuver!", "Moving to secondary position!", "Repositioning!"]
+callout_retreat = ["Withdrawing to fallback!", "Tactical retreat!", "Disengaging!"]
+mourning = ["Operator down!", "Lost a lineman!", "Need immediate casevac!"]
+
+[wanderers]
+alarm = ["Someone's coming!", "Watch out!", "Not alone!"]
+callout_suppress = ["They're shooting at me!", "Help!", "Can't move!"]
+callout_flank = ["Going around...", "I'll try the side.", "Circling."]
+callout_retreat = ["I'm leaving!", "Too dangerous!", "Getting out!"]
+mourning = ["He's gone...", "Dead.", "Poor soul."]

@@ -1,0 +1,37 @@
+# Bake spec for White Salmon — branch map north off Hood River.
+#
+# First WA-side map in the Valley. White Salmon town sits on the north
+# bank directly across from Hood River. The White Salmon River canyon
+# runs north into the Trout Lake plateau, gateway to Mt. Adams
+# approaches. DESIGN.md §3.3 places the Attuned cell here and treats
+# Trout Lake as the northern branch terminus before Mt. Adams
+# foothills (which belong in a later map).
+#
+# Key features within bounds:
+# - White Salmon town (riverfront + grid, WA side of the bridge)
+# - Bingen (adjacent smaller town along the rail line)
+# - White Salmon River canyon mouth
+# - Hood River Bridge north landing
+# - Northern bluffs rising from the river
+# - Panorama of Hood River town across the Columbia
+
+map_id = "white_salmon"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 613000.0     # aligned with hood_river's east edge
+origin_north = 5068000.0   # hood_river's north edge = this map's south edge
+extent_x = 5500.0
+extent_z = 4000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

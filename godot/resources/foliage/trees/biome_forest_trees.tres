@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TreeBiomeConfig" format=3 uid="uid://dim5pyjdwnh6x"]
+
+[ext_resource type="Script" uid="uid://d2afpxyvdw71w" path="res://scripts/foliage/tree_biome_config.gd" id="1_script"]
+
+[resource]
+resource_name = "Forest biome trees (PNW: Ponderosa Pine dominant + Doug Fir secondary)"
+script = ExtResource("1_script")
+trees_per_sq_m = 0.0114
+tree_paths = Array[String]([
+	"res://resources/foliage/trees/pine_p3d_mature_lush.tres",
+	"res://resources/foliage/trees/pine_p3d_mature_twiggy.tres",
+	"res://resources/foliage/trees/pine_p3d_mature.tres",
+	"res://resources/foliage/trees/pine_p3d_medium_lush.tres",
+	"res://resources/foliage/trees/pine_p3d_medium_twiggy.tres",
+	"res://resources/foliage/trees/pine_p3d_small.tres",
+	"res://resources/foliage/trees/pine_p3d_young.tres",
+	"res://resources/foliage/trees/pine_p3d_sapling.tres",
+	"res://resources/foliage/trees/pine_cg_large.tres",
+	"res://resources/foliage/trees/pine_cg_medium.tres",
+	"res://resources/foliage/trees/pine_cg_small.tres",
+	"res://resources/foliage/trees/doug_fir_large_1.tres",
+	"res://resources/foliage/trees/doug_fir_large_2.tres",
+	"res://resources/foliage/trees/doug_fir_large_3.tres",
+	"res://resources/foliage/trees/doug_fir_medium_1.tres",
+	"res://resources/foliage/trees/doug_fir_medium_2.tres",
+	"res://resources/foliage/trees/doug_fir_small_1.tres",
+])
+tree_densities = PackedFloat32Array(0.00120, 0.00120, 0.00100, 0.00080, 0.00080, 0.00060, 0.00040, 0.00030, 0.00080, 0.00060, 0.00040, 0.00050, 0.00050, 0.00050, 0.00060, 0.00060, 0.00060)

@@ -1,0 +1,644 @@
+# Canonical faction registry.
+#
+# Modders override by dropping their own `factions.toml` overlay (the
+# overlay loader lands in a follow-up commit). At least one top-level
+# faction must be declared. Subfaction = `parent = "..."` pointing at
+# another faction by name; subfactions inherit relations from their
+# parent unless an explicit override is declared below.
+#
+# Roster: 9 top-level + 7 subfactions = 16 faction ids. Mirrors the
+# canonical lore in `docs/book/src/lore/factions/`.
+#
+# `default_relation` is what missing pairs fall back to. Anything
+# explicitly listed is an override.
+
+default_relation = "neutral"
+player_baseline = "wanderers"
+
+# ─── State factions ─────────────────────────────────────────────────
+
+[[faction]]
+name = "pwa"
+display = "PWA"
+road_friendly = true
+base_aggression = 0.60
+default_loadout = "pwa_basic"
+debug_color = [0xCC, 0xCC, 0x33]
+archetype = "disciplined"
+# Coalition faction.
+# Heavily multicultural West Coast baseline: American dominant, with
+# strong East Asian + Latin American + Western European subpopulations
+# (a multicultural baseline). Some Slavic ancestry
+# (shapes the name weights).
+[faction.nationality_weights]
+american = 8
+east_asian = 3
+latin_american = 3
+western_european = 2
+slavic = 1
+south_asian = 1
+west_african = 1
+middle_eastern = 1
+
+# Linemen — PWA elite grid-defense subfaction. Inherit PWA externally
+# but explicitly hostile to Compact-funded extraction.
+[[faction]]
+name = "linemen"
+parent = "pwa"
+display = "Linemen"
+road_friendly = true
+base_aggression = 0.85
+default_loadout = "linemen_elite"
+debug_color = [0xFF, 0xCC, 0x00]
+archetype = "aggressive"
+# US-mainland recruitment lean. Multicultural baseline still
+# present (any non-zero bucket has a chance) but American-roster
+# names dominate.
+[faction.nationality_weights]
+american = 6
+western_european = 2
+latin_american = 2
+slavic = 1
+east_asian = 1
+south_asian = 1
+west_african = 1
+middle_eastern = 1
+
+[[faction]]
+name = "revere_guard"
+display = "Revere's Guard"
+road_friendly = true
+base_aggression = 0.70
+default_loadout = "rg_basic"
+debug_color = [0x99, 0x33, 0x33]
+archetype = "disciplined"
+# Inland-NW militia (Idaho/Nevada origin, pushed into Hood River /
+# Eastern Oregon). Conservative-American demographic profile.
+# Heavily American + small Western European; almost nothing else.
+[faction.nationality_weights]
+american = 14
+western_european = 2
+latin_american = 1
+slavic = 1
+
+[[faction]]
+name = "federal"
+display = "Federal"
+road_friendly = true
+base_aggression = 0.75
+default_loadout = "federal_basic"
+debug_color = [0x33, 0x33, 0x99]
+archetype = "disciplined"
+# Federal-remnant faction.
+# Military / federal-service demographic: American-dominant with
+# meaningful Western European, West African, and Latin American
+# subpopulations (matches modern US armed-forces makeup).
+[faction.nationality_weights]
+american = 10
+western_european = 2
+west_african = 2
+latin_american = 2
+east_asian = 1
+slavic = 1
+south_asian = 1
+middle_eastern = 1
+
+# Ghost Teams — special operations group. Federal's elite
+# direct-action arm; read into classified programs at a level most
+# Federal officers aren't. Engages anyone the Council flags as a
+# cleanup target; otherwise inherits Federal.
+[[faction]]
+name = "ghost_teams"
+parent = "federal"
+display = "Ghost Teams"
+road_friendly = false
+base_aggression = 0.90
+default_loadout = "ghost_team_kit"
+debug_color = [0x22, 0x22, 0x44]
+archetype = "disciplined"
+# Inherits Federal demographic profile by being a subfaction of it,
+# but the explicit override here makes the lean even harder American
+# (career-SOG / clearance-vetted recruits).
+[faction.nationality_weights]
+american = 14
+western_european = 2
+west_african = 1
+latin_american = 1
+slavic = 1
+east_asian = 1
+
+[[faction]]
+name = "gulf_compact"
+display = "Gulf Compact"
+road_friendly = true
+base_aggression = 0.60
+default_loadout = "compact_basic"
+debug_color = [0x66, 0x99, 0xCC]
+archetype = "greedy"
+# Corporate trade faction. American-dominant with a
+# strong Latin American second tier (Tex-Mex / Gulf migration
+# corridor). Small international staff via global energy-corp
+# recruitment.
+[faction.nationality_weights]
+american = 8
+latin_american = 5
+western_european = 2
+middle_eastern = 2
+east_asian = 1
+slavic = 1
+south_asian = 1
+west_african = 1
+
+# Registry — Compact's commercial-enforcement direct-
+# action arm. Best kit in the Valley outside Federal SOG. Lethal in
+# operations; inherits Compact's general detente posture otherwise.
+[[faction]]
+name = "registry"
+parent = "gulf_compact"
+display = "Registry"
+road_friendly = true
+base_aggression = 0.85
+default_loadout = "registry_kit"
+debug_color = [0x33, 0x66, 0x99]
+archetype = "greedy"
+# Same as Gulf Compact parent; Registry is its enforcement arm.
+[faction.nationality_weights]
+american = 8
+latin_american = 5
+western_european = 2
+middle_eastern = 2
+east_asian = 1
+slavic = 1
+south_asian = 1
+west_african = 1
+
+# ─── In-Valley factions ─────────────────────────────────────────────
+
+[[faction]]
+name = "aegis_pacific"
+display = "Aegis Pacific"
+road_friendly = true
+base_aggression = 0.65
+default_loadout = "aegis_basic"
+debug_color = [0x00, 0x99, 0x99]
+archetype = "disciplined"
+# Corporate faction. International R&D + security mix — American
+# core, strong East Asian (Pacific-Rim offices), Western European
+# corporate, smaller South Asian (engineering pipelines).
+[faction.nationality_weights]
+american = 6
+east_asian = 5
+western_european = 3
+south_asian = 2
+latin_american = 1
+slavic = 1
+west_african = 1
+middle_eastern = 1
+
+# Recovery Division — Aegis Pacific's off-disclosure operations
+# arm. Shard recovery, witness management, subject acquisition.
+# Hostile by default to anyone who's seen too much.
+[[faction]]
+name = "recovery_division"
+parent = "aegis_pacific"
+display = "Recovery Division"
+road_friendly = false
+base_aggression = 0.85
+default_loadout = "recovery_kit"
+debug_color = [0x00, 0x66, 0x66]
+archetype = "disciplined"
+# Same Aegis Pacific demographic mix; field-ops weighted slightly
+# more American (security-clearance recruitment).
+[faction.nationality_weights]
+american = 8
+east_asian = 3
+western_european = 2
+south_asian = 1
+latin_american = 1
+slavic = 1
+west_african = 1
+middle_eastern = 1
+
+[[faction]]
+name = "attuned"
+display = "The Attuned"
+road_friendly = false
+base_aggression = 0.55
+default_loadout = "attuned_basic"
+debug_color = [0x99, 0x00, 0x66]
+archetype = "reverent"
+# Multicultural religious group — the belief mechanic adepts drawn from anyone
+# who's witnessed enough Zone phenomena. American baseline (most
+# witnesses are local) but otherwise wide.
+[faction.nationality_weights]
+american = 5
+latin_american = 2
+east_asian = 2
+slavic = 2
+western_european = 2
+west_african = 1
+middle_eastern = 1
+south_asian = 1
+
+# Choir — Attuned cells that have learned to aim the belief mechanic. Hostile
+# to almost everyone non-Attuned — they treat outsiders as
+# interference with the work.
+[[faction]]
+name = "choir"
+parent = "attuned"
+display = "The Choir"
+road_friendly = false
+base_aggression = 0.80
+default_loadout = "choir_kit"
+debug_color = [0xCC, 0x33, 0x99]
+archetype = "reverent"
+# Same wide mix as Attuned parent.
+[faction.nationality_weights]
+american = 5
+latin_american = 2
+east_asian = 2
+slavic = 2
+western_european = 2
+west_african = 1
+middle_eastern = 1
+south_asian = 1
+
+[[faction]]
+name = "merged"
+display = "The Merged"
+road_friendly = false
+base_aggression = 0.95
+default_loadout = "merged_endgame"
+debug_color = [0xCC, 0x00, 0xCC]
+archetype = "aggressive"
+# Transformed humans — drawn from anyone the Valley has reshaped.
+# Wide multicultural sampling matches "anyone who got too close".
+[faction.nationality_weights]
+american = 4
+latin_american = 2
+east_asian = 2
+slavic = 2
+western_european = 2
+west_african = 2
+middle_eastern = 1
+south_asian = 1
+
+# Bandits — heterogeneous scavenger umbrella. Has two subfactions:
+# `looters` (ad-hoc, low-end) and `cartel` (organized, Compact-
+# adjacent).
+[[faction]]
+name = "bandits"
+display = "Bandits"
+road_friendly = false
+base_aggression = 0.65
+default_loadout = "bandit_basic"
+debug_color = [0x66, 0x33, 0x00]
+archetype = "greedy"
+# Local Pacific-NW scavengers — heavily American with some Latin
+# American + Slavic (post-collapse refugee influx), small other.
+[faction.nationality_weights]
+american = 8
+latin_american = 2
+slavic = 2
+western_european = 1
+east_asian = 1
+west_african = 1
+middle_eastern = 1
+south_asian = 1
+
+# Looters — the low end of the bandit ecosystem. Ad-hoc crews,
+# scrap kit. Inherits bandits but is universally Hostile.
+[[faction]]
+name = "looters"
+parent = "bandits"
+display = "Looters"
+road_friendly = false
+base_aggression = 0.70
+default_loadout = "looter_scrap"
+debug_color = [0x88, 0x44, 0x22]
+archetype = "greedy"
+# Same as Bandits parent.
+[faction.nationality_weights]
+american = 8
+latin_american = 2
+slavic = 2
+western_european = 1
+east_asian = 1
+west_african = 1
+middle_eastern = 1
+south_asian = 1
+
+# Cartel — organized bandit subfaction. Compact-funded, harder kit,
+# willing to take Registry contracts. Detente with Gulf Compact.
+[[faction]]
+name = "cartel"
+parent = "bandits"
+display = "Cartel"
+road_friendly = false
+base_aggression = 0.75
+default_loadout = "cartel_smg"
+debug_color = [0x99, 0x55, 0x11]
+archetype = "aggressive"
+# Latin American recruitment lean reflecting Gulf-corridor origins.
+[faction.nationality_weights]
+latin_american = 7
+american = 2
+western_european = 1
+slavic = 1
+east_asian = 1
+south_asian = 1
+west_african = 1
+middle_eastern = 1
+
+[[faction]]
+name = "wanderers"
+display = "Wanderers"
+road_friendly = false
+base_aggression = 0.30
+default_loadout = "wanderer_basic"
+debug_color = [0xAA, 0xAA, 0xAA]
+archetype = "curious"
+# Nomadic drifters from anywhere — multicultural by design but with
+# an American baseline since the Valley is in the Pacific NW and most
+# wanderers got here on foot or by hitching local rides.
+[faction.nationality_weights]
+american = 5
+latin_american = 2
+east_asian = 2
+slavic = 2
+western_european = 2
+west_african = 1
+middle_eastern = 1
+south_asian = 1
+
+# ─── Relations ──────────────────────────────────────────────────────
+#
+# Subfactions inherit their parent's relation matrix unless an
+# explicit override is declared. Default = `neutral` if no row exists.
+
+# PWA top-level
+[[relation]]
+a = "pwa"
+b = "linemen"
+value = "warm"
+
+[[relation]]
+a = "pwa"
+b = "revere_guard"
+value = "hostile"
+
+[[relation]]
+a = "pwa"
+b = "federal"
+value = "cold"
+
+[[relation]]
+a = "pwa"
+b = "gulf_compact"
+value = "neutral"
+
+[[relation]]
+a = "pwa"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "pwa"
+b = "attuned"
+value = "cold"
+
+[[relation]]
+a = "pwa"
+b = "bandits"
+value = "hostile"
+
+[[relation]]
+a = "pwa"
+b = "aegis_pacific"
+value = "cold"
+
+# (PWA ↔ Wanderers = Neutral, default)
+
+# Linemen overrides where stricter than PWA
+[[relation]]
+a = "linemen"
+b = "gulf_compact"
+value = "hostile"
+
+[[relation]]
+a = "linemen"
+b = "attuned"
+value = "hostile"
+
+[[relation]]
+a = "linemen"
+b = "aegis_pacific"
+value = "hostile"
+
+[[relation]]
+a = "linemen"
+b = "wanderers"
+value = "cold"
+
+# Revere's Guard
+[[relation]]
+a = "revere_guard"
+b = "federal"
+value = "cold"
+
+[[relation]]
+a = "revere_guard"
+b = "gulf_compact"
+value = "warm"
+
+[[relation]]
+a = "revere_guard"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "revere_guard"
+b = "attuned"
+value = "hostile"
+
+[[relation]]
+a = "revere_guard"
+b = "bandits"
+value = "cold"
+
+[[relation]]
+a = "revere_guard"
+b = "aegis_pacific"
+value = "cold"
+
+# Federal
+[[relation]]
+a = "federal"
+b = "gulf_compact"
+value = "cold"
+
+[[relation]]
+a = "federal"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "federal"
+b = "attuned"
+value = "cold"
+
+[[relation]]
+a = "federal"
+b = "bandits"
+value = "hostile"
+
+[[relation]]
+a = "federal"
+b = "aegis_pacific"
+value = "cold"
+
+# Ghost Teams overrides — extra hostility toward classified-knowledge
+# carriers (Merged, Attuned cells, Aegis researchers).
+[[relation]]
+a = "ghost_teams"
+b = "attuned"
+value = "hostile"
+
+[[relation]]
+a = "ghost_teams"
+b = "aegis_pacific"
+value = "hostile"
+
+# Gulf Compact
+[[relation]]
+a = "gulf_compact"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "gulf_compact"
+b = "attuned"
+value = "cold"
+
+[[relation]]
+a = "gulf_compact"
+b = "bandits"
+value = "cold"
+
+[[relation]]
+a = "gulf_compact"
+b = "aegis_pacific"
+value = "warm"
+
+# Registry overrides — Compact's enforcement arm, hostile to
+# bandits + looters (the cartel relationship is murkier; see below).
+[[relation]]
+a = "registry"
+b = "bandits"
+value = "hostile"
+
+[[relation]]
+a = "registry"
+b = "cartel"
+value = "neutral"  # quiet contracts; not openly aligned
+
+# Aegis Pacific
+[[relation]]
+a = "aegis_pacific"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "aegis_pacific"
+b = "attuned"
+value = "hostile"
+
+[[relation]]
+a = "aegis_pacific"
+b = "bandits"
+value = "hostile"
+
+# Recovery Division override — extra-hostile to Aegis-internal
+# witnesses and to anyone who's connected too many dots.
+[[relation]]
+a = "recovery_division"
+b = "wanderers"
+value = "cold"  # parent is Neutral; RD is suspicious of drifters
+
+# Attuned
+[[relation]]
+a = "attuned"
+b = "merged"
+value = "hostile"
+
+[[relation]]
+a = "attuned"
+b = "bandits"
+value = "hostile"
+
+[[relation]]
+a = "attuned"
+b = "wanderers"
+value = "neutral"
+
+# Choir overrides — hostile to almost everyone non-Attuned
+[[relation]]
+a = "choir"
+b = "wanderers"
+value = "cold"
+
+[[relation]]
+a = "choir"
+b = "pwa"
+value = "hostile"
+
+[[relation]]
+a = "choir"
+b = "federal"
+value = "hostile"
+
+[[relation]]
+a = "choir"
+b = "gulf_compact"
+value = "hostile"
+
+[[relation]]
+a = "choir"
+b = "revere_guard"
+value = "hostile"
+
+# Merged — Hostile to everyone except themselves.
+[[relation]]
+a = "merged"
+b = "bandits"
+value = "hostile"
+
+[[relation]]
+a = "merged"
+b = "wanderers"
+value = "hostile"
+
+# Bandits
+[[relation]]
+a = "bandits"
+b = "wanderers"
+value = "hostile"
+
+# Looters override — strictly hostile to Aegis (research convoys
+# are juicy targets).
+[[relation]]
+a = "looters"
+b = "aegis_pacific"
+value = "hostile"
+
+# Cartel overrides — Compact-adjacent; less hostile to Compact and
+# Registry. Detente with Cartel-funded operations.
+[[relation]]
+a = "cartel"
+b = "gulf_compact"
+value = "neutral"  # parent (bandits) is Cold
+
+[[relation]]
+a = "cartel"
+b = "aegis_pacific"
+value = "cold"  # parent (bandits) is Hostile; cartel does business

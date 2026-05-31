@@ -1,0 +1,10 @@
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3]
+
+[ext_resource type="FastNoiseLite" path="res://resources/terrain/macro_variation_noise_source.tres" id="1_noise"]
+[ext_resource type="Gradient" path="res://resources/terrain/macro_variation_gradient.tres" id="2_gradient"]
+
+[resource]
+resource_name = "Macro variation noise (terrain)"
+noise = ExtResource("1_noise")
+color_ramp = ExtResource("2_gradient")
+seamless = true

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://f4f5cce44a64"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: shrub_01 (PolyHaven)"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants/shrub_01_1k.gltf/shrub_01_1k.gltf"
+scale_min = 0.6
+scale_max = 1.6
+size_multiplier = 1.0
+alpha_luminance_cutoff = 0.05
+albedo_modulation = Color(1.1933, 1.0432, 0.0028, 1)
+size_tier = 1

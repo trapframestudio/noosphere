@@ -1,0 +1,34 @@
+# Ballistics tuning. Loaded once at Sim::new and installed as the
+# BallisticsConfig resource. Engine code reads these directly —
+# never hardcodes numeric defaults — per the Phase 2 scope
+# invariant.
+
+# Global physics.
+gravity_mps2 = 9.81
+# Retained-energy floor for range falloff. `damage *= clamp(E_impact
+# / round.reference_energy_j, retained_energy_floor, 1.0)`. Floor
+# prevents point-blank-vs-max-range from going to zero damage
+# (guaranteed minimum of 20% soft damage at edge of range).
+retained_energy_floor = 0.2
+# Damage scaling for blocked (below-penetration) hits. Each class
+# short of penetration multiplies the round's `damage_blunt` by
+# (1 - this). At 4 classes short the damage goes to zero.
+blocked_damage_ratio_per_class_short = 0.25
+
+# Muzzle origin offset from the shooter's Position. The sim spawns
+# projectiles at `pos + (forward * forward_offset + up * up_offset)`
+# so tracers don't appear inside the player capsule.
+[muzzle_offset]
+forward_m = 0.5
+up_m = 1.5
+
+# Body-part damage multipliers — `damage *= soft_multiplier[part]`.
+# Head hits are the skill-reward multiplier; torso is the baseline
+# at 1.0; limbs are de-emphasized so arm/leg shots don't kill.
+[body_part_soft_multipliers]
+head = 2.5
+torso = 1.0
+left_arm = 0.7
+right_arm = 0.7
+left_leg = 0.7
+right_leg = 0.7

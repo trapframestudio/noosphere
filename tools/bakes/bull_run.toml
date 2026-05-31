@@ -1,0 +1,48 @@
+# Bake spec for Bull Run — the watershed perimeter walk south from
+# the Western Line and the approach to the Catenary VLF antenna.
+#
+# DESIGN.md §3.3: "the federally-restricted-since-1892 watershed
+# forms the western lip of the Valley. Walk south from the Western
+# Line along the perimeter and you can reach the Catenary VLF antenna
+# and approach the Portland-satellite arc from the back. Control:
+# PWA at the perimeter, Fault inside the watershed."
+#
+# Bounds repositioned SE to actually capture the western edge of
+# the real Bull Run Watershed Management Unit — previous bounds
+# sat ~15 km NW of the watershed boundary and contained no Bull
+# Run geography at all. Now covers:
+#
+# - Bull Run Reservation western boundary (restricted since 1892;
+#   aggressively posted, approachable from the perimeter only)
+# - Bull Run Dam 1 (at the NE edge, visible from the perimeter)
+# - Bull Run Reservoir 1 (same)
+# - Catenary zone — fictional VLF antenna placement lives somewhere
+#   inside these bounds per the §3.5 "south of Bull Run" hint;
+#   pin exact coords once authored
+# - Southern approach to the Portland-satellite arc (Reed / Wapato /
+#   Nike sites are further W and connect via a future Portland map)
+#
+# 14×12 km at 2 m → 7001×6001 samples (~84 MB heightmap). Bigger
+# than the spine maps because the perimeter walk needs scale — it's
+# a longish transit with sparse POIs.
+
+map_id = "bull_run"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 554000.0
+origin_north = 5037000.0
+extent_x = 14000.0
+extent_z = 12000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

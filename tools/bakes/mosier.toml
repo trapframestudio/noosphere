@@ -1,0 +1,41 @@
+# Bake spec for Mosier — map 7, the fault-held twin tunnels.
+#
+# Transition map between wet/green western Gorge and dry/windy
+# eastern Gorge (DESIGN.md §3.6). The 1921 Mosier Twin Tunnels — two
+# parallel basalt highway tunnels, sealed — are both a fault nest and
+# a shortcut depending on which one you draw (§3.5).
+#
+# Key features within bounds:
+# - Mosier Twin Tunnels (1921 highway tunnels through basalt ridge)
+# - Mosier town (small, on the south bank)
+# - Historic Columbia River Highway scenic alignment
+# - Basalt rimrock formations north of the river (geological boundary
+#   between the Cascade volcanics and the Columbia Plateau)
+# - Quintet Falls (small waterfall visible from the highway)
+# - Rowena Plateau approach on the eastern edge
+#
+# Design intent (DESIGN.md §3.5, line 334): Fault-controlled — the
+# Valley holds it, not a faction; unpredictable weather / Squall
+# triggers; the tunnels are a major hazard zone + a player choice
+# point on the spine.
+
+map_id = "mosier"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 620000.0
+origin_north = 5061000.0
+extent_x = 6000.0
+extent_z = 4000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

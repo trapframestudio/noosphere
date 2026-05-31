@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://h4kbribw6465"]
+
+[ext_resource type="Script" path="res://scripts/base_marker.gd" id="1_base"]
+
+[node name="BaseMarker" type="Node3D"]
+script = ExtResource("1_base")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+billboard = 1
+pixel_size = 0.025
+text = "base"
+horizontal_alignment = 1
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 12

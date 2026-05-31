@@ -1,0 +1,175 @@
+# ---------- Tools ----------
+
+[[items]]
+id = "field_toolkit"
+name = "Field Toolkit"
+category = "tool"
+weight = 1.5
+stack_size = 1
+
+[[items]]
+id = "cookware"
+name = "Cookware"
+category = "tool"
+weight = 0.8
+stack_size = 1
+
+# ---------- Toolkits & specialty kits (tiered tiered progression) ----------
+#
+# Shape: `tool = { specialty = "<axis>", tier = "<tier>" }`. Each kit marks
+# one cell in the specialty × tier matrix — higher tiers satisfy every
+# lower-tier requirement within the same specialty (an Expert Gunsmith
+# Kit is accepted anywhere a Basic one is). Stacking two specialties
+# requires two items; a single player can carry (or their crew can
+# share, via CRAFTING_SHARE_RADIUS_M) a full toolkit loadout.
+#
+# Recipes reference these via `required_kit = { specialty = "...",
+# min_tier = "..." }`. Actual per-tier recipe catalogs for weapons,
+# armor, meds, etc., land incrementally as each system ships — this
+# file stocks the kits so the system has a real target.
+#
+# General toolkit ladder — generic repairs + basic crafts.
+
+[[items]]
+id = "basic_toolkit"
+name = "Basic Toolkit"
+category = "tool"
+weight = 2.0
+stack_size = 1
+tool = { specialty = "general", tier = "basic" }
+
+[[items]]
+id = "advanced_toolkit"
+name = "Advanced Toolkit"
+category = "tool"
+weight = 3.5
+stack_size = 1
+tool = { specialty = "general", tier = "advanced" }
+
+[[items]]
+id = "expert_toolkit"
+name = "Expert Toolkit"
+category = "tool"
+weight = 5.0
+stack_size = 1
+tool = { specialty = "general", tier = "expert" }
+
+# Gunsmith ladder — weapon part fitting, modding, full overhauls.
+
+[[items]]
+id = "gunsmith_kit_basic"
+name = "Basic Gunsmith Kit"
+category = "tool"
+weight = 2.5
+stack_size = 1
+tool = { specialty = "gunsmith", tier = "basic" }
+
+[[items]]
+id = "gunsmith_kit_advanced"
+name = "Advanced Gunsmith Kit"
+category = "tool"
+weight = 4.0
+stack_size = 1
+tool = { specialty = "gunsmith", tier = "advanced" }
+
+[[items]]
+id = "gunsmith_kit_expert"
+name = "Expert Gunsmith Kit"
+category = "tool"
+weight = 6.0
+stack_size = 1
+tool = { specialty = "gunsmith", tier = "expert" }
+
+# Armor repair ladder.
+
+[[items]]
+id = "armor_repair_kit_basic"
+name = "Basic Armor Repair Kit"
+category = "tool"
+weight = 2.0
+stack_size = 1
+tool = { specialty = "armor_repair", tier = "basic" }
+
+[[items]]
+id = "armor_repair_kit_advanced"
+name = "Advanced Armor Repair Kit"
+category = "tool"
+weight = 3.5
+stack_size = 1
+tool = { specialty = "armor_repair", tier = "advanced" }
+
+[[items]]
+id = "armor_repair_kit_expert"
+name = "Expert Armor Repair Kit"
+category = "tool"
+weight = 5.0
+stack_size = 1
+tool = { specialty = "armor_repair", tier = "expert" }
+
+# Weapon repair ladder — distinct from Gunsmith (which covers modding
+# / fitting / overhauls); repair kits restore condition without the
+# deeper part-swap toolkit.
+
+[[items]]
+id = "weapon_repair_kit_basic"
+name = "Basic Weapon Repair Kit"
+category = "tool"
+weight = 1.5
+stack_size = 1
+tool = { specialty = "weapon_repair", tier = "basic" }
+
+[[items]]
+id = "weapon_repair_kit_advanced"
+name = "Advanced Weapon Repair Kit"
+category = "tool"
+weight = 2.5
+stack_size = 1
+tool = { specialty = "weapon_repair", tier = "advanced" }
+
+[[items]]
+id = "weapon_repair_kit_expert"
+name = "Expert Weapon Repair Kit"
+category = "tool"
+weight = 4.0
+stack_size = 1
+tool = { specialty = "weapon_repair", tier = "expert" }
+
+# Drug making ladder — field chemistry → lab synthesis.
+
+[[items]]
+id = "drug_kit_basic"
+name = "Basic Drug Making Kit"
+category = "tool"
+weight = 2.0
+stack_size = 1
+tool = { specialty = "drug_making", tier = "basic" }
+
+[[items]]
+id = "drug_kit_advanced"
+name = "Advanced Drug Making Kit"
+category = "tool"
+weight = 4.0
+stack_size = 1
+tool = { specialty = "drug_making", tier = "advanced" }
+
+[[items]]
+id = "drug_kit_expert"
+name = "Expert Drug Making Kit"
+category = "tool"
+weight = 6.0
+stack_size = 1
+tool = { specialty = "drug_making", tier = "expert" }
+
+# Salvage crafting — a single-tier salvage specialty. Single-tier:
+# holding the item at all unlocks the salvage-specialty recipe line. A
+# later "advanced melter" could extend this; for now one item covers
+# the axis.
+
+[[items]]
+id = "artefact_melter"
+name = "Material Reclaimer"
+category = "tool"
+weight = 3.0
+stack_size = 1
+tool = { specialty = "shards", tier = "basic" }
+

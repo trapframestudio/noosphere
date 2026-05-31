@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Tree: Pine small variant 1 (Sketchfab lowpoly LOD pack)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/trees/pine_lod_pack/scene.glb"
+variant_prefix = "Pine_small_1"
+scale_min = 0.75
+scale_max = 1.3
+random_yaw = true
+force_skip_lod1 = true
+size_multiplier = 1.0
+albedo_modulation = Color(0.65, 0.72, 0.55, 1)
+canopy_tint = Color(0.20, 0.27, 0.13, 1)
+wind_amplitude_scale = 0.7
+trunk_anchor_height = 0.5
+trunk_collision_radius = 0.25
+trunk_collision_height = 5.0
+max_render_distance_m = 900.0
+proxy_swap_distance_m = 560.0
+lod_bias = 4.0
+min_surface_verts = 64

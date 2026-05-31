@@ -1,0 +1,42 @@
+# Bake spec for Cascade Locks — map 5, the contested hub + bridge.
+#
+# The central chokepoint of the spine. The only real river-crossing
+# for ~30 miles in either direction, with the 1926 Bridge of the Gods
+# cantilever truss tolled in-fiction. Drifter trading hub + PWA/
+# Linemen contested territory.
+#
+# Key features within bounds:
+# - Bridge of the Gods (1926 steel truss, central chokepoint crossing)
+# - Cascade Locks town (old lock works, drifter trading hub)
+# - Original 1896 navigation locks (ruins, on the south bank)
+# - Picnic Area + Interpretive Trail
+# - Eagle Creek trail access point on the south bank (gateway to the
+#   Eagle Creek wilderness branch map, parked for later)
+# - Basalt columnade walls both banks (tight gorge geometry)
+# - Wauna Point ridge to the north
+#
+# Design intent (DESIGN.md §3.5): Contested control, flips frequently;
+# tolls to cross the bridge; "central chokepoint of the entire map".
+# Also the southern trailhead for Eagle Creek wilderness branch.
+
+map_id = "cascade_locks"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 585000.0     # ~500 m east of bonneville's east edge
+origin_north = 5058500.0
+extent_x = 4500.0          # tight — the gorge is narrow here
+extent_z = 4000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true
+landcover = false

@@ -1,0 +1,43 @@
+# Bake spec for Hood River Valley — the orchard "fruit loop" +
+# Parkdale + Odell, the DESIGN §3.3 food-preservation hub.
+#
+# §3.3: "orchards, Parkdale, Lost Lake, the lower-elevation approach
+# to Mt. Hood from the east. Real fruit-growing valley with intact
+# infrastructure (cold storage warehouses, packing sheds — useful
+# crafting recipes and food-preservation hub). Control: mostly
+# Wanderer, with a small PWA agricultural detail at Parkdale."
+#
+# Lost Lake itself moved to its own `lost_lake` map (id 23) so the
+# Mt. Hood east approach is a separate smaller transit, rather than
+# making this map 28 km wide.
+#
+# Bounds cover:
+# - Odell (main packinghouse town, ~617500 E, 5050500 N — near north edge)
+# - Parkdale (mid-valley community, ~615500 E, 5038000 N — near south)
+# - Hood River Valley orchards (cold storage warehouses, packing sheds —
+#   the crafting-recipe + food-preservation infrastructure)
+# - Middle Fork + East Fork Hood River confluences
+# - Cooper Spur / Inspiration Point ridge (east boundary)
+#
+# 10×17 km at 2 m → 5001×8501 samples (~85 MB heightmap).
+
+map_id = "hood_river_valley"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 610000.0
+origin_north = 5053000.0
+extent_x = 10000.0
+extent_z = 17000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

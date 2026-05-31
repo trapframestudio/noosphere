@@ -1,0 +1,46 @@
+# Bake spec for Umatilla Chemical Depot — endgame outdoor map east
+# of The Dalles on the Columbia Plateau.
+#
+# DESIGN.md §3.5: "Decommissioned chemical weapons storage site,
+# rows of concrete storage igloos still in place. Late-game satellite
+# and strong candidate for a secondary Citizen facility." Reachable
+# overland east of The Dalles via dry-country route, OR underground
+# via the Subterranean Hanford Spur from the endgame complex (endgame only).
+#
+# Geographic character: Columbia Plateau, dry steppe, essentially
+# treeless. Rows of concrete igloos (~1000 of them historically)
+# laid out on a regular grid, visible from satellite. Umatilla
+# Ordnance Depot was 33 km² total; we capture the central depot
+# grid plus approach terrain.
+#
+# This is the first bake using UTM 11N — the depot sits outside the
+# standard UTM 10N zone boundary (lon ≈ -119.42°, whereas UTM 10N
+# nominally ends at -120°). Earlier spine maps all used 10N.
+#
+# Key features within bounds:
+# - Umatilla Chemical Depot concrete igloo grid (primary POI)
+# - Service road network + rail spur approach
+# - Dry rangeland buffer zone
+# - Old administrative buildings (SE edge)
+# - Distant I-82 corridor (south edge)
+
+map_id = "umatilla"
+
+[bounds]
+utm_zone = "11N"
+origin_east = 305000.0     # ~lon -119.48°
+origin_north = 5084000.0   # ~lat 45.895° (south of Columbia River)
+extent_x = 8000.0          # 305000 → 313000 E (to ~lon -119.36°)
+extent_z = 6000.0          # 5084000 → 5078000 N (to ~lat 45.84°, south of Hermiston)
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W120"
+
+[osm]
+roads = true

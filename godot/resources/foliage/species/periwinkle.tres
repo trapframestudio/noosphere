@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FoliageSpecies" format=3 uid="uid://b2q21jlfgotx4"]
+
+[ext_resource type="Script" uid="uid://11aqicdismte" path="res://scripts/foliage/foliage_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Species: periwinkle — low ground cover"
+script = ExtResource("1_script")
+mesh_scene_path = "res://assets/models/plants_1k/periwinkle_plant_1k.gltf/periwinkle_plant_1k.gltf"
+weight = 0.7
+scale_min = 0.7
+scale_max = 1.4
+albedo_modulation = Color(1.1933, 1.0432, 0.0028, 1)

@@ -1,0 +1,71 @@
+# Bake spec for the **regional backdrop** — a single low-resolution
+# heightmap covering the whole Columbia River Gorge region. Every
+# playable map scene instances this as a non-collidable backdrop
+# mesh so the level edges read as "a place you could go" instead
+# of a hard cliff at the playable boundary.
+#
+# Distinct from the per-map bakes:
+#   - 100 m sample spacing (vs 2 m for playable maps) — distant
+#     silhouette only, not walkable
+#   - Mapzen Terrarium zoom 11 (~14 km × ~10 km per tile at 45° N,
+#     vs zoom 15 for playable maps) — coarser source, far cheaper
+#   - No `[features]` section — backdrop is pure geometry, no
+#     class-based texturing
+#   - No `[osm]` section — no roads/landcover on a distant mesh
+#
+# Bounds envelope all 17 spine + branch maps in UTM 10N with
+# headroom out to:
+#   - Mt. Hood (lat 45.37°N, summit at northing ≈ 5,026,000) — south
+#   - Mt. Adams (lat 46.20°N, ≈ 5,118,000) — northeast
+#   - Mt. St. Helens (lat 46.19°N, ≈ 5,117,000) — northwest
+#   - Tri-Cities-direction shoulder is left to a separate UTM 11N
+#     backdrop later (hanford_spur / umatilla aren't included here
+#     since they're zone 11 and the mesh would distort)
+#
+# Output: godot/assets/terrain/_regional/heightmap.r32 + terrain.toml
+# (no features.r8, no splatmap, no road_density). The Godot side
+# (RegionalBackdrop, separate PR) reads the canonical UTM origin
+# from terrain.toml and positions the backdrop mesh relative to
+# each per-map scene's UTM origin so they line up geographically.
+
+map_id = "_regional"
+
+[bounds]
+utm_zone = "10N"
+# West edge — well west of latourell (origin_east 558,000) to give
+# Portland-area horizon presence from the western maps.
+origin_east = 555000.0
+# North edge — north of Mt. Adams / Mt. St. Helens summits with ~10 km
+# headroom so the volcano peaks read as silhouette features, not
+# right at the mesh edge.
+origin_north = 5128000.0
+# 90 km E-W: covers from west of Latourell (558,000) east to
+# klickitat_hold's east edge (637,000) plus ~8 km buffer.
+extent_x = 90000.0
+# 112 km N-S: from origin_north down to ~5,016,000, ~10 km south of
+# Mt. Hood — gives the volcano its full base + summit silhouette.
+extent_z = 112000.0
+# 100 m per cell — distant-backdrop fidelity. 901 × 1121 samples =
+# ~1 M cells, ~4 MB heightmap.r32.
+spacing = 100.0
+
+[source]
+kind = "mapzen-terrarium"
+# Zoom 11 → ~14 km × 10 km per tile at 45° N, ~256 px per tile so
+# roughly 40-50 m per Mapzen pixel. We sample at 100 m so we're
+# downsampling by ~2x — bilinear is fine for distant silhouette.
+# About 80-100 tiles fetched (cached) for the full region.
+zoom = 11
+
+# Class data baked from ESA WorldCover so the backdrop shader can
+# show coarse biome differentiation (forest / grass / water / rock /
+# snow) at distance — important for vantage-point reads where the
+# player can see across the whole region. ESA's native 10 m
+# resolution is well below our 100 m sample spacing, so the
+# rectangular-cluster artifact that haunts the playable bakes is
+# invisible here (each backdrop cell averages ~25 ESA cells
+# already). No OSM overlay — roads are sub-cell at 100 m and
+# wouldn't render meaningfully on a distant mesh anyway.
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="RockSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/rock_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Medium oblong (crouch cover; rocky terrain only)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/rocks/rock_pack.glb"
+variant_prefix = "rock_oblong"
+scale_min = 0.55
+scale_max = 1.7
+size_multiplier = 0.95
+random_yaw = true
+random_tilt_deg = 17.5
+scale_axis_jitter = 0.20
+extreme_tilt_chance = 0.12
+extreme_tilt_deg = 40
+albedo_modulation = Color(1, 1, 1, 1)
+roughness_floor = 0.7
+resolution_tier = 1
+texture_set = "Rock050"
+min_render_distance_m = 0.0
+max_render_distance_m = 350.0
+proxy_swap_distance_m = 180.0
+terrain_min_score = 0.1
+terrain_density_boost = 4.0
+scale_terrain_boost = 0.8
+terrain_sink_factor = 0.25
+terrain_sink_random_max = 0.25
+slope_max = 1.8
+collision_tier = 2
+is_anchor = false
+terrain_alignment_factor = 0.7
+terrain_curvature_boost = 2
+terrain_basal_boost = 3
+scale_basal_boost = 0.6

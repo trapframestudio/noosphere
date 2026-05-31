@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/weather_rig.gd" id="1_rig"]
+[ext_resource type="Environment" path="res://resources/default_environment.tres" id="2_env"]
+[ext_resource type="CompositorEffect" path="res://resources/color_grade.tres" id="5_grade"]
+
+[sub_resource type="Compositor" id="Compositor_1"]
+compositor_effects = Array[CompositorEffect]([ExtResource("5_grade")])
+
+[node name="WeatherRig" type="Node3D"]
+script = ExtResource("1_rig")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_env")
+compositor = SubResource("Compositor_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707, -0.5, 0.5, 0, 0.707, 0.707, -0.707, -0.5, 0.5, 0, 50, 0)
+light_energy = 0.9
+shadow_enabled = true
+directional_shadow_max_distance = 400.0
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707, 0.5, -0.5, 0, 0.707, 0.707, 0.707, -0.5, 0.5, 0, 50, 0)
+light_color = Color(0.55, 0.65, 0.9, 1)
+light_energy = 0.0
+shadow_enabled = false
+sky_mode = 1

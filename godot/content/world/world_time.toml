@@ -1,0 +1,11 @@
+# Day/night cycle configuration.
+#
+# day_length_seconds: real wall-clock seconds per full in-game day.
+#   7200 = 2 real hours per game day (~12× real time).
+#   1 real second ≈ 12 game seconds at this scale.
+#
+# start_hour: in-game hour (0-24) the sim starts at.
+#   8.0 = dawn/morning.
+
+day_length_seconds = 7200.0
+start_hour = 8.0

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Doug Fir: small variant 3"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/plants_fab/tree_douglas_fir/small_3.glb"
+variant_prefix = ""
+scale_min = 0.7
+scale_max = 1.0
+random_yaw = true
+force_skip_lod1 = true
+size_multiplier = 1.0
+albedo_modulation = Color(0.65, 0.72, 0.55, 1)
+canopy_tint = Color(0.10, 0.18, 0.13, 1)
+wind_amplitude_scale = 0.6
+trunk_anchor_height = 0.3
+trunk_collision_radius = 0.0
+trunk_collision_height = 0.0
+max_render_distance_m = 900.0
+proxy_swap_distance_m = 0.0
+lod_bias = 16.0

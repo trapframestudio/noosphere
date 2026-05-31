@@ -1,0 +1,56 @@
+# Bake spec for Mt. Hood — summit, glaciers, Timberline Lodge, and
+# the ring of slopes + valleys around them.
+#
+# Expanded to 15×14 km at zoom 16 so the player at Timberline Lodge
+# can see the full mountain's silhouette + the glacier system N and
+# S, plus Government Camp / Trillium Lake to the south and Cloud Cap
+# / Cooper Spur country on the north flank. The iconic map of the
+# set — worth the larger asset footprint (~105 MB heightmap via LFS)
+# because it's the one a player is most likely to stop and look at.
+#
+# Bounds center on the midpoint between Mt. Hood summit (3428 m at
+# ~45.373°N, -121.696°W → ~603500 E, 5024500 N) and Timberline Lodge
+# (~45.330°N, -121.711°W → ~602000 E, 5019700 N). NW origin placed
+# 7500 m west and 8500 m north of the summit; map extends 15000 m
+# east and 14000 m south from there.
+#
+# Terrarium zoom 15 (~5 m native at lat 45°) — Mapzen Terrarium tops
+# out at z15 in PNW, so zoom 16 isn't available. For finer-than-5 m
+# detail on Mt. Hood we'd need the USGS 3DEP 1 m pipeline to mature
+# (partial OR/WA coverage today; see task #49 notes).
+#
+# Key features within bounds:
+# - Mt. Hood summit (3428 m) + summit cone + Crater Rock + Hogsback
+# - Palmer Glacier / Zigzag Glacier / Eliot Glacier / Newton Clark
+#   Glacier / Ladd Glacier (full glacier system N-S)
+# - Timberline Lodge (1928 WPA, ~1824 m on the south flank) +
+#   Timberline ski area
+# - Palmer Chairlift + Mile Bridge area
+# - Government Camp (village at Hwy 26, ~1200 m)
+# - Trillium Lake
+# - Upper Sandy River headwaters (north flank)
+# - Cooper Spur ski area (north flank)
+# - Mt. Hood Meadows ski area (east flank)
+# - Cloud Cap Inn + Tilly Jane area (high north flank)
+# - Barlow Pass + Pioneer Bridle Trail
+
+map_id = "mt_hood"
+
+[bounds]
+utm_zone = "10N"
+origin_east = 596000.0
+origin_north = 5033000.0
+extent_x = 15000.0
+extent_z = 14000.0
+spacing = 2.0
+
+[source]
+kind = "mapzen-terrarium"
+zoom = 15
+
+[features]
+kind = "esa-world-cover"
+tile = "N45W123"
+
+[osm]
+roads = true

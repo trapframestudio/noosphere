@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="TreeSpecies" format=3]
+
+[ext_resource type="Script" path="res://scripts/foliage/tree_species.gd" id="1_script"]
+
+[resource]
+resource_name = "Ponderosa Pine: medium twiggy (Pure3D Pine_12m_twiggy, 15-25m)"
+script = ExtResource("1_script")
+pack_scene_path = "res://assets/models/plants_cgtrader/morepines/Pine_12m_twiggy.glb"
+variant_prefix = ""
+scale_min = 1.20
+scale_max = 2.00
+random_yaw = true
+size_multiplier = 1.0
+albedo_modulation = Color(1.5, 1.6, 1.2, 1)
+leaf_saturation_mul = 1.5
+leaf_threshold = 0.02
+leaf_value_mul = 2.0
+canopy_normal_up_blend = 0.15
+backlight_strength = 0.55
+normal_map_strength = 0.5
+canopy_tint = Color(0.16, 0.22, 0.10, 1)
+wind_amplitude_scale = 0.35
+trunk_anchor_height = 2.5
+trunk_collision_radius = 0.6
+trunk_collision_height = 20.0
+max_render_distance_m = 900.0
+proxy_swap_distance_m = 0.0
+lod_bias = 0.1
+min_surface_verts = 0
